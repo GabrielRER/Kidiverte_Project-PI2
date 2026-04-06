@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "Dudu",
+      "password": "dudu123"
+    },
+    [
+      {
+        "id": "2",
+        "name": "Gabriel",
+        "password": "gabriel123"
+      }
+    ]
+  ],
+  "iconImage": [
+    {
+      "id": "1",
+      "imageBinary": "111011101010"
+    }
+  ]
+}
