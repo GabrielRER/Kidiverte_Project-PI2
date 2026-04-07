@@ -1,12 +1,12 @@
 {
   "categories": [
-    { "id": 1, "name": "Toy Cars", "slug": "toy-cars" },
-    { "id": 2, "name": "Blocks", "slug": "blocks" },
-    { "id": 3, "name": "Dolls", "slug": "dolls" },
-    { "id": 4, "name": "Collectibles", "slug": "collectibles" },
-    { "id": 5, "name": "Baby Toys", "slug": "baby-toys" },
-    { "id": 6, "name": "Sports", "slug": "sports" },
-    { "id": 7, "name": "Games", "slug": "games" }
+    { "id": 1, "name": "Carrinhos", "slug": "carrinhos" },
+    { "id": 2, "name": "Blocos de Montar", "slug": "blocos-de-montar" },
+    { "id": 3, "name": "Bonecas", "slug": "bonecas" },
+    { "id": 4, "name": "Colecionáveis", "slug": "colecionaveis" },
+    { "id": 5, "name": "Brinquedos para Bebês", "slug": "brinquedos-bebes" },
+    { "id": 6, "name": "Esportes", "slug": "esportes" },
+    { "id": 7, "name": "Jogos", "slug": "jogos" }
   ],
 
   "brands": [
@@ -22,19 +22,19 @@
   ],
 
   "age_ranges": [
-    { "id": 1, "label": "2 to 3 years", "min_age": 2, "max_age": 3 },
-    { "id": 2, "label": "3 to 5 years", "min_age": 3, "max_age": 5 },
-    { "id": 3, "label": "5 to 7 years", "min_age": 5, "max_age": 7 },
-    { "id": 4, "label": "7 to 9 years", "min_age": 7, "max_age": 9 },
-    { "id": 5, "label": "9 to 12 years", "min_age": 9, "max_age": 12 },
-    { "id": 6, "label": "13+", "min_age": 13, "max_age": null },
-    { "id": 7, "label": "18+", "min_age": 18, "max_age": null }
+    { "id": 1, "label": "2 a 3 anos", "min_age": 2, "max_age": 3 },
+    { "id": 2, "label": "3 a 5 anos", "min_age": 3, "max_age": 5 },
+    { "id": 3, "label": "5 a 7 anos", "min_age": 5, "max_age": 7 },
+    { "id": 4, "label": "7 a 9 anos", "min_age": 7, "max_age": 9 },
+    { "id": 5, "label": "9 a 12 anos", "min_age": 9, "max_age": 12 },
+    { "id": 6, "label": "13+ anos", "min_age": 13, "max_age": null },
+    { "id": 7, "label": "18+ anos", "min_age": 18, "max_age": null }
   ],
 
   "genders": [
-    { "id": 1, "label": "Male" },
-    { "id": 2, "label": "Female" },
-    { "id": 3, "label": "Unisex" }
+    { "id": 1, "label": "Masculino" },
+    { "id": 2, "label": "Feminino" },
+    { "id": 3, "label": "Unissex" }
   ],
 
   "products": [
@@ -60,7 +60,7 @@
     },
     {
       "id": 2,
-      "name": "HotWheels Silver Cool Car 5cm",
+      "name": "HotWheels Carro Prateado 5cm",
       "description": null,
       "original_price": null,
       "current_price": 30.99,
@@ -80,8 +80,8 @@
     },
     {
       "id": 3,
-      "name": "Remote Control Car - Marvel - Spider-Man - Autoracing",
-      "description": "Spider-Man Autoracing Remote Control Vehicle with 3 functions by Candide Toys. Features forward, backward and stop. Includes steering wheel-shaped remote control for an authentic and realistic experience. Batteries included. Suitable for all ages.",
+      "name": "Carro de Controle Remoto - Marvel - Homem-Aranha - Autoracing",
+      "description": "Veículo de Controle Remoto Homem-Aranha Autoracing com 3 funções da Candide Brinquedos. Possui marcha ré, frente e parada. Inclui controle remoto em formato de volante para uma experiência autêntica e realista. Pilhas inclusas. Indicado para todas as idades.",
       "original_price": null,
       "current_price": 103.99,
       "discount_percentage": null,
@@ -105,12 +105,11 @@
       "id": 1,
       "name": "Maria Silva",
       "email": "maria.silva@email.com",
-      "password_hash": "$2b$10$examplehashhere",
+      "password_hash": "$2b$10$exemplo_hash_aqui",
       "cpf": "000.000.000-00",
       "phone": "(11) 90000-0000",
       "birth_date": "1990-05-15",
       "gender_id": 2,
-      "avatar_url": null,
       "active": true,
       "email_verified": true,
       "created_at": "2024-01-10T10:00:00Z",
@@ -118,97 +117,23 @@
     }
   ],
 
-  "addresses": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "nickname": "Home",
-      "zip_code": "01310-100",
-      "street": "Av. Paulista",
-      "number": "1000",
-      "complement": "Apt 42",
-      "neighborhood": "Bela Vista",
-      "city": "São Paulo",
-      "state": "SP",
-      "is_primary": true
-    }
-  ],
-
-  "orders": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "address_id": 1,
-      "payment_method_id": 1,
-      "delivery_option_id": 1,
-      "status": "awaiting_payment",
-      "total": 269.90,
-      "shipping_cost": 0.00,
-      "discount": 14.20,
-      "created_at": "2024-03-01T14:30:00Z",
-      "updated_at": "2024-03-01T14:30:00Z"
-    }
-  ],
-
-  "order_items": [
-    {
-      "id": 1,
-      "order_id": 1,
-      "product_id": 1,
-      "quantity": 1,
-      "unit_price": 269.90,
-      "subtotal": 269.90
-    }
-  ],
-
-  "cart": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "product_id": 1,
-      "quantity": 1,
-      "unit_price": 269.90,
-      "subtotal": 269.90
-    }
-  ],
-
-  "wishlist": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "product_id": 2,
-      "added_at": "2024-02-20T09:15:00Z"
-    }
-  ],
-
-  "reviews": [
-    {
-      "id": 1,
-      "product_id": 3,
-      "user_id": 1,
-      "rating": 0.0,
-      "comment": null,
-      "created_at": "2024-03-01T14:30:00Z"
-    }
-  ],
-
   "payment_methods": [
-    { "id": 1, "name": "Credit Card", "max_installments": 6, "interest_free": true },
-    { "id": 2, "name": "Bank Slip", "max_installments": 1, "interest_free": true },
+    { "id": 1, "name": "Cartão de Crédito", "max_installments": 6, "interest_free": true },
+    { "id": 2, "name": "Boleto Bancário", "max_installments": 1, "interest_free": true },
     { "id": 3, "name": "Pix", "max_installments": 1, "interest_free": true }
   ],
 
   "delivery_options": [
     {
       "id": 1,
-      "type": "Most Economical",
+      "type": "Mais Econômica",
       "price": 0.00,
       "min_days": null,
       "max_days": null
     },
     {
       "id": 2,
-      "type": "Fastest",
+      "type": "Mais Rápida",
       "price": 0.00,
       "min_days": null,
       "max_days": null
@@ -216,12 +141,12 @@
   ],
 
   "sort_options": [
-    { "id": 1, "label": "Relevance", "value": "relevance" },
-    { "id": 2, "label": "Newest", "value": "newest" },
-    { "id": 3, "label": "Biggest Discounts", "value": "discounts" },
-    { "id": 4, "label": "Name A-Z", "value": "name_asc" },
-    { "id": 5, "label": "Name Z-A", "value": "name_desc" },
-    { "id": 6, "label": "Lowest Price", "value": "price_asc" },
-    { "id": 7, "label": "Highest Price", "value": "price_desc" }
+    { "id": 1, "label": "Relevância", "value": "relevance" },
+    { "id": 2, "label": "Mais Novos", "value": "newest" },
+    { "id": 3, "label": "Maiores Descontos", "value": "discounts" },
+    { "id": 4, "label": "Nome A-Z", "value": "name_asc" },
+    { "id": 5, "label": "Nome Z-A", "value": "name_desc" },
+    { "id": 6, "label": "Menor Preço", "value": "price_asc" },
+    { "id": 7, "label": "Maior Preço", "value": "price_desc" }
   ]
 }

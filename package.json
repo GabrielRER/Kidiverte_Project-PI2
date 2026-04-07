@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "server": "json-server --watch db.json --port 3000",
     "serve:ssr:kidiverteProject": "node dist/kidiverteProject/server/server.mjs"
   },
   "private": true,
