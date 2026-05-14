@@ -1,0 +1,32 @@
+<h2>Cadastro de Produto</h2>
+
+<input [(ngModel)]="produto.name" placeholder="Nome">
+<input [(ngModel)]="produto.current_price" placeholder="Preço">
+<input [(ngModel)]="produto.stock" placeholder="Estoque">
+
+<button (click)="salvar()">Salvar</button>
+
+<hr>
+
+<h2>Lista de Produtos</h2>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th>Estoque</th>
+    <th>Ações</th>
+  </tr>
+
+  <tr *ngFor="let p of produtos">
+    <td>{{ p.id }}</td>
+    <td>{{ p.name }}</td>
+    <td>{{ p.current_price }}</td>
+    <td>{{ p.stock }}</td>
+    <td>
+      <button (click)="editar(p)">Editar</button>
+      <button (click)="excluir(p.id)">Excluir</button>
+    </td>
+  </tr>
+</table>
