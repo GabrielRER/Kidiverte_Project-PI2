@@ -1,0 +1,41 @@
+<div class="cart-sidebar">
+  <div class="cart-header">
+    <h2>Meu Carrinho</h2>
+    <button class="close-button">×</button>
+  </div>
+
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg" alt="Produto" class="item-image" />
+
+      <div class="item-info">
+        <h3>Minecraft Desktop</h3>
+        <p class="item-price">R$ 269,90</p>
+
+        <div class="quantity-control">
+          <button class="quantity-button" (click)="diminuirQuantidade()">-</button>
+          <span class="quantity-number">{{ quantidade }}</span>
+          <button class="quantity-button" (click)="aumentarQuantidade()">+</button>
+        </div>
+
+      </div>
+
+<button class="remove-button">
+    <span class="material-symbols-outlined">
+    delete
+    </span>
+</button>
+
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong>R$ {{ total.toFixed(2).replace('.', ',') }}</strong>
+    </div>
+
+    <button class="checkout-button">Finalizar compra</button>
+    <button class="continue-button">Continuar comprando</button>
+  </div>
+</div>
