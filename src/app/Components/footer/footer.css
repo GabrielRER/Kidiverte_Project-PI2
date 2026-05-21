@@ -1,0 +1,146 @@
+/* Container Geral */
+.footer-container {
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #a855f7;
+     overflow: hidden;
+}
+
+
+.footer-content {
+    background-color: #ffffff;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 1;
+}
+
+
+.footer-col {
+    flex: 1;
+    margin: 0 15px;
+}
+
+
+.footer-col h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.margin-top-sec {
+    margin-top: 20px;
+}
+
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #a855f7;
+}
+
+
+.btn-atendimento {
+    display: block;
+    width: 85%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.central { background-color: #4fc3f7; }
+.fale-conosco { background-color: #66bb6a; }
+
+
+.redes-sociais p {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.icons-redes {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-social {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd; 
+    border-radius: 8px;
+    display: inline-block;
+}
+
+
+.Selo-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.selo-placeholder {
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 10px;
+    text-align: center;
+    min-width: 60px;
+    background-color: #fafafa;
+}
+
+.selo-placeholder-sec {
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 10px;
+    text-align: center;
+    min-width: 50px;
+    background-color: #222;
+    color: #fff;
+}
+
+
+.footer-banner {
+    background: linear-gradient(135deg, #a78bfa, #c084fc, #818cf8);
+    padding: 5px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 0;
+    position: relative;
+    margin-top: -40px;
+}
+
+.mascote-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
