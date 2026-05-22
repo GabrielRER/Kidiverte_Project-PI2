@@ -1,0 +1,10 @@
+.example-card{
+    max-width: 208px;
+    min-height: 424px;
+    margin: 20px auto;
+}
+
+/*L X A: 240x260 */
+img{
+    padding: 10px;
+}
