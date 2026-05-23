@@ -1,0 +1,215 @@
+<!-- LOADING STATE -->
+<div class="pd-loading" *ngIf="loading">
+  <div class="pd-spinner"></div>
+  <p>Carregando produto...</p>
+</div>
+ 
+<!-- ERROR STATE -->
+<div class="pd-error" *ngIf="error && !loading">
+  <div class="pd-error-icon">😕</div>
+  <h2>Produto não encontrado</h2>
+  <p>O produto que você procura não está disponível.</p>
+  <a routerLink="/home" class="pd-btn-primary">Voltar à loja</a>
+</div>
+ 
+<!-- PRODUCT DETAIL -->
+<div class="pd-wrapper" *ngIf="product && !loading">
+ 
+  <!-- BREADCRUMB -->
+  <nav class="pd-breadcrumb">
+    <a routerLink="/home">Início</a>
+    <span class="pd-breadcrumb-sep">›</span>
+    <span>{{ categoryName }}</span>
+    <span class="pd-breadcrumb-sep">›</span>
+    <span class="pd-breadcrumb-current">{{ product.name }}</span>
+  </nav>
+ 
+  <!-- MAIN SECTION -->
+  <div class="pd-main">
+ 
+    <!-- LEFT: GALLERY -->
+    <div class="pd-gallery">
+      <!-- Badge faixa etária -->
+      <div class="pd-age-badge" *ngIf="ageRangeName">{{ ageRangeName }}</div>
+ 
+      <!-- Imagem principal -->
+      <div class="pd-img-main">
+        <div class="pd-discount-ribbon" *ngIf="hasDiscount">
+          -{{ product.discount_percentage }}%
+        </div>
+        <img
+          [src]="displayImages[selectedImageIndex] || 'assets/placeholder.png'"
+          [alt]="product.name"
+          (error)="$any($event.target).src='assets/placeholder.png'"
+          class="pd-main-img"
+        />
+        <!-- Badges sobrepostos -->
+        <div class="pd-img-badges">
+          <span class="pd-badge pd-badge-seller" *ngIf="product.best_seller">🏆 Mais Vendido</span>
+          <span class="pd-badge pd-badge-featured" *ngIf="product.featured">⭐ Destaque</span>
+        </div>
+      </div>
+ 
+      <!-- Thumbnails -->
+      <div class="pd-thumbs" *ngIf="displayImages.length > 1">
+        <button
+          class="pd-thumb"
+          *ngFor="let img of displayImages; let i = index"
+          [class.pd-thumb-active]="i === selectedImageIndex"
+          (click)="selectImage(i)"
+        >
+          <img [src]="img" [alt]="'Imagem ' + (i + 1)"
+               (error)="$any($event.target).src='assets/placeholder.png'" />
+        </button>
+      </div>
+    </div>
+ 
+    <!-- RIGHT: INFO -->
+    <div class="pd-info">
+ 
+      <!-- Brand + Name -->
+      <div class="pd-brand-tag">{{ brandName }}</div>
+      <h1 class="pd-product-name">{{ product.name }}</h1>
+ 
+      <!-- Stock indicator -->
+      <div class="pd-stock" [class.pd-stock-low]="product.stock <= 5" [class.pd-stock-out]="product.stock === 0">
+        <span class="pd-stock-dot"></span>
+        {{ stockStatus }}
+      </div>
+ 
+      <!-- PRICING BLOCK -->
+      <div class="pd-pricing">
+        <div class="pd-original" *ngIf="hasDiscount && product.original_price">
+          De: <span>{{ formatPrice(product.original_price) }}</span>
+        </div>
+ 
+        <div class="pd-current-row">
+          <span class="pd-current-price">{{ formatPrice(product.current_price) }}</span>
+          <span class="pd-savings-pill" *ngIf="hasDiscount">
+            Economize {{ formatPrice(savings) }}
+          </span>
+        </div>
+ 
+        <div class="pd-installments" *ngIf="product.installments && product.installment_value">
+          ou <strong>{{ product.installments }}x</strong> de
+          <strong>{{ formatPrice(product.installment_value) }}</strong>
+          <span *ngIf="product.interest_free" class="pd-interest-free">sem juros</span>
+        </div>
+ 
+        <!-- Formas de pagamento -->
+        <div class="pd-payment-icons">
+          <span class="pd-pay-icon">💳 Cartão</span>
+          <span class="pd-pay-icon">⚡ PIX</span>
+          <span class="pd-pay-icon">📄 Boleto</span>
+        </div>
+      </div>
+ 
+      <!-- QUANTITY + ADD TO CART -->
+      <div class="pd-actions">
+        <div class="pd-qty-block">
+          <label class="pd-qty-label">Quantidade</label>
+          <div class="pd-qty-control">
+            <button class="pd-qty-btn" (click)="decrementQty()" [disabled]="quantity <= 1">−</button>
+            <span class="pd-qty-value">{{ quantity }}</span>
+            <button class="pd-qty-btn" (click)="incrementQty()" [disabled]="quantity >= product.stock">+</button>
+          </div>
+        </div>
+ 
+        <button
+          class="pd-btn-cart"
+          [class.pd-btn-added]="addedToCart"
+          [disabled]="!isInStock"
+          (click)="addToCart()"
+        >
+          <span *ngIf="!addedToCart">🛒 Adicionar ao Carrinho</span>
+          <span *ngIf="addedToCart">✅ Adicionado!</span>
+        </button>
+ 
+        <button class="pd-btn-wishlist" title="Favoritar">
+          ♡ Favoritar
+        </button>
+      </div>
+ 
+      <!-- SHIPPING -->
+      <div class="pd-shipping">
+        <div class="pd-shipping-title">🚚 Calcular Frete</div>
+        <div class="pd-cep-row">
+          <input type="text" class="pd-cep-input" placeholder="00000-000" maxlength="9" />
+          <button class="pd-cep-btn">Calcular</button>
+        </div>
+        <div class="pd-shipping-options">
+          <div class="pd-shipping-opt">
+            <span>📦 Entrega Econômica</span>
+            <span class="pd-shipping-price">Grátis</span>
+          </div>
+          <div class="pd-shipping-opt">
+            <span>⚡ Entrega Rápida</span>
+            <span class="pd-shipping-price">R$ 14,90</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- QUICK INFO PILLS -->
+      <div class="pd-quick-info">
+        <div class="pd-qi-item">
+          <span class="pd-qi-icon">🎂</span>
+          <span>{{ ageRangeName }}</span>
+        </div>
+        <div class="pd-qi-item">
+          <span class="pd-qi-icon">🏷️</span>
+          <span>{{ brandName }}</span>
+        </div>
+        <div class="pd-qi-item">
+          <span class="pd-qi-icon">📦</span>
+          <span>{{ product.stock }} em estoque</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- TABS: DESCRIPTION / SPECS / REVIEWS -->
+  <div class="pd-tabs-section">
+    <div class="pd-tabs-nav">
+      <button class="pd-tab-btn" [class.pd-tab-active]="activeTab === 'description'" (click)="setTab('description')">
+        Descrição
+      </button>
+      <button class="pd-tab-btn" [class.pd-tab-active]="activeTab === 'specs'" (click)="setTab('specs')">
+        Especificações
+      </button>
+      <button class="pd-tab-btn" [class.pd-tab-active]="activeTab === 'reviews'" (click)="setTab('reviews')">
+        Avaliações
+      </button>
+    </div>
+ 
+    <!-- Tab: Descrição -->
+    <div class="pd-tab-content" *ngIf="activeTab === 'description'">
+      <p class="pd-description-text">{{ product.description }}</p>
+    </div>
+ 
+    <!-- Tab: Especificações -->
+    <div class="pd-tab-content" *ngIf="activeTab === 'specs'">
+      <table class="pd-specs-table">
+        <tbody>
+          <tr><td>Marca</td><td>{{ brandName }}</td></tr>
+          <tr><td>Categoria</td><td>{{ categoryName }}</td></tr>
+          <tr><td>Faixa Etária</td><td>{{ ageRangeName }}</td></tr>
+          <tr><td>Estoque</td><td>{{ product.stock }} unidades</td></tr>
+          <tr *ngIf="product.installments"><td>Parcelamento</td><td>Até {{ product.installments }}x sem juros</td></tr>
+        </tbody>
+      </table>
+    </div>
+ 
+    <!-- Tab: Avaliações -->
+    <div class="pd-tab-content pd-reviews" *ngIf="activeTab === 'reviews'">
+      <div class="pd-rating-summary">
+        <div class="pd-rating-score">0.0</div>
+        <div class="pd-stars">★★★★★</div>
+        <div class="pd-rating-count">0 avaliações</div>
+      </div>
+      <div class="pd-no-reviews">
+        <p>Seja o primeiro a avaliar este produto!</p>
+        <button class="pd-btn-review">Escrever avaliação</button>
+      </div>
+    </div>
+  </div>
+</div>
