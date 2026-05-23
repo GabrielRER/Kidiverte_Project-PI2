@@ -1,41 +1,50 @@
-<div class="cart-sidebar">
-  <div class="cart-header">
-    <h2>Meu Carrinho</h2>
-    <button class="close-button">×</button>
-  </div>
+@if (sidebarAberta) {
 
-  <div class="cart-items">
-    <div class="cart-item">
-      <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg" alt="Produto" class="item-image" />
+<div class="overlay-carrinho">
+  <div class="cart-sidebar">
+    <div class="cart-header">
+      <h2>Meu Carrinho</h2>
+      <button class="botao-fechar" (click)="fecharSidebar()">×</button>
+    </div>
 
-      <div class="item-info">
-        <h3>Minecraft Desktop</h3>
-        <p class="item-price">R$ 269,90</p>
+    <div class="cart-produtos">
+      <div class="cart-produto">
+        <img
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg"
+          alt="Produto"
+          class="imagem-produto"
+        />
 
-        <div class="quantity-control">
-          <button class="quantity-button" (click)="diminuirQuantidade()">-</button>
-          <span class="quantity-number">{{ quantidade }}</span>
-          <button class="quantity-button" (click)="aumentarQuantidade()">+</button>
+        <div class="informacao-produto">
+          <h3>Minecraft for Desktop</h3>
+          <p class="preco-produto">R$ 269,90</p>
+
+          <div class="controle-quantidade">
+            <button class="botao-mais-menos" (click)="diminuirQuantidade()">-</button>
+            <span class="botao-quantidade">{{ quantidade }}</span>
+            <button class="botao-mais-menos" (click)="aumentarQuantidade()">+</button>
+          </div>
         </div>
 
+        <button class="botao-remover">
+          <span class="material-symbols-outlined"> delete </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <strong>R$ {{ total.toFixed(2).replace('.', ',') }}</strong>
       </div>
 
-<button class="remove-button">
-    <span class="material-symbols-outlined">
-    delete
-    </span>
-</button>
+      <div class="cart-actions">
+        <button class="botao-finalizar-compra">Finalizar compra</button>
+        <button class="botao-continuar-comprando">Continuar comprando</button>
 
+        <img src="/Logos/logo_retangular.png" alt="Logo Kidiverte" class="logo-kidiverte" />
+      </div>
     </div>
-  </div>
-
-  <div class="cart-footer">
-    <div class="cart-total">
-      <span>Total:</span>
-      <strong>R$ {{ total.toFixed(2).replace('.', ',') }}</strong>
-    </div>
-
-    <button class="checkout-button">Finalizar compra</button>
-    <button class="continue-button">Continuar comprando</button>
   </div>
 </div>
+}
