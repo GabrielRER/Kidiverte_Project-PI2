@@ -1,10 +1,13 @@
 .cart-sidebar {
   width: 320px;
   min-height: 100vh;
-  background-color: #f8f3ff;
+  background-color: #f3fff4;
   padding: 24px;
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .cart-header {
@@ -13,42 +16,42 @@
   align-items: center;
 }
 
-.close-button,
-.remove-button,
+.botao-fechar,
+.botao-remover,
 .quantity-control button {
   cursor: pointer;
 }
 
-.close-button {
+.botao-fechar {
   border: none;
   background: transparent;
   font-size: 28px;
 }
 
-.cart-item {
+.cart-produto {
   display: flex;
   gap: 12px;
   margin-top: 24px;
   align-items: center;
 }
 
-.item-image {
+.imagem-produto {
   width: 70px;
   height: 70px;
   object-fit: cover;
 }
 
-.item-info h3 {
+.informacao-produto h3 {
   margin: 0;
   font-size: 16px;
 }
 
-.item-price {
+.preco-produto {
   margin: 8px 0;
   color: #6b3df5;
 }
 
-.quantity-control {
+.controle-quantidade {
     display: flex;
     gap: 16px;
     align-items: center;
@@ -56,7 +59,7 @@
 }
 
 .cart-footer {
-  margin-top: 300px;
+  margin-top: auto;
 }
 
 .cart-total {
@@ -66,8 +69,8 @@
   font-size: 18px;
 }
 
-.checkout-button,
-.continue-button {
+.botao-finalizar-compra,
+.botao-continuar-comprando {
   width: 100%;
   padding: 14px;
   border-radius: 24px;
@@ -75,19 +78,25 @@
   cursor: pointer;
 }
 
-.checkout-button {
+.botao-finalizar-compra {
   border: none;
   background-color: #8b4dff;
   color: white;
 }
 
-.continue-button {
+.botao-continuar-comprando {
   border: 1px solid #8b4dff;
   background: transparent;
   color: #8b4dff;
 }
+.controle-quantidade {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 12px;
+}
 
-.quantity-button {
+.botao-mais-menos {
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -99,11 +108,11 @@
   transition: 0.2s;
 }
 
-.quantity-button:hover {
+.botao-mais-menos:hover {
   background-color: #f1e7ff;
 }
 
-.quantity-number {
+.botao-quantidade {
   width: 42px;
   height: 42px;
   border: 2px solid #d9c2ff;
@@ -117,7 +126,7 @@
   font-weight: bold;
 }
 
-.remove-button {
+.botao-remover {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -132,10 +141,36 @@
   transition: 0.2s;
 }
 
-.remove-button:hover {
+.botao-remover:hover {
   background-color: #e7d9ff;
 }
 .material-symbols-outlined {
   font-size: 22px;
-  color: #1f1f1f;
+}
+.logo-kidiverte {
+  width: 220px;
+  display: block;
+  margin: 24px auto 0;
+}
+
+.cart-actions {
+  background-color: #d9c2ff;
+  margin: 24px -24px -24px;
+  padding: 28px 24px 32px;
+  border-radius: 0 0 24px 24px;
+}
+.overlay-carrinho {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  display: flex;
+  justify-content: flex-end;
+
+  z-index: 999;
 }
