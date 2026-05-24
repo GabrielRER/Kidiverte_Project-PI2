@@ -1,21 +1,26 @@
-<mat-card class="example-card" appearance="outlined">
+<mat-card id="card-container" appearance="outlined">
 
-    <img mat-card-image [src]="imageUrl" alt="descrição da foto">
+    <div class="content-wrapper">
+        <div class="container-image">
+            <img [src]="imageUrl" alt="Imagem do produto">
+        </div>
 
-    <mat-card-content>
+        <mat-card-content id="body-content">
 
-        <p>
+            <div class="title-container">
+                <p>
+                    Lego Minecraft Enderman
+                </p>
+                <app-star-rate id="starRate"></app-star-rate>
+            </div>
 
-            Defina aqui a descrição completa do seu produto. Essa é descrição de exemplo apenas para testes.
+            <div class="price-container">
+                <span>
+                    R$ 199,90
+                </span>
+            </div>
 
-        </p>
-
-    </mat-card-content>
-
-    <mat-card-actions>
-
-        <button mat-flat-button color="primary">COMPRAR</button>
-
-    </mat-card-actions>
+        </mat-card-content>
+    </div>
 
 </mat-card>

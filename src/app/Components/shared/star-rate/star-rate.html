@@ -1,0 +1,9 @@
+<div class="star-container" (mouseleave)="resetHover()">
+    @for (star of stars; track star; let i = $index){
+        <mat-icon class="star" 
+        (click)="setRating(i + 1)" 
+        (mouseenter)="setHover(i + 1);"
+        [class.filled]="star <= (hoverRating || currentRating)">star
+        </mat-icon>
+    }
+</div>
