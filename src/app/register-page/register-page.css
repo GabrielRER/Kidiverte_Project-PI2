@@ -16,6 +16,7 @@ body {
   display: flex;
   gap: 40px;
   padding: 40px;
+  align-items: center;
 }
 
 /* SIDEBAR */
@@ -26,6 +27,7 @@ body {
   background: #fff;
   border-radius: 20px;
   padding: 20px;
+  margin-bottom: 23px;
 }
 
 .perfil {
@@ -113,10 +115,6 @@ body {
 
 /* DATA DE NASCIMENTO MENOR */
 
-.full {
-  grid-column: span 1;
-  width: 50%;
-}
 
 .footer {
   width: 100%;
