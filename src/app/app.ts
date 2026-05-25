@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CartSidebar } from './components/cart-sidebar/cart-sidebar';
+import { CartSidebar } from './Components/cart-sidebar/cart-sidebar';
 
 @Component({
   selector: 'app-root',
