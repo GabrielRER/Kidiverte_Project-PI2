@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-register-page',
+  selector: 'app-profile-page',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './register-page.html',
-  styleUrls: ['./register-page.css']
-  
+  templateUrl: './profile-page.html',
+  styleUrls: ['./profile-page.css']
+
 })
-export class RegisterPage {
-abaAtiva: string = 'dados';
+export class ProfilePage {
+  abaAtiva: string = 'dados';
 
   selecionarAba(aba: string): void {
     this.abaAtiva = aba;
