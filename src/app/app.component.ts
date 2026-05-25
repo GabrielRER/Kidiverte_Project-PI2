@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Footer } from './components/shared/footer/footer';
-import { Header } from './components/shared/header/header';
-import { StarRate } from "./components/shared/star-rate/star-rate";
+import { Footer } from './Components/shared/footer/footer';
+import { Header } from './Components/shared/header/header';
+import { StarRate } from "./Components/shared/star-rate/star-rate";
 
 @Component({
   selector: 'app-root',
