@@ -1,4 +1,4 @@
-:host{
+:host {
     display: block;
     background-color: #ffffff;
 }
@@ -6,7 +6,8 @@
 #home-container {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #home-menu-content {
@@ -20,7 +21,7 @@
     margin-right: auto;
 }
 
-#categories-images{
+#categories-images {
     display: flex;
     justify-content: center;
     gap: 1.5vw;
@@ -28,7 +29,7 @@
     padding: 0 2vw;
 }
 
-#categories-images img{
+#categories-images img {
     width: 100%;
     max-width: 150px;
     height: auto;
@@ -37,22 +38,23 @@
     min-width: 0px;
 }
 
-#home-menu-content .carrossel-container{
+#home-menu-content .carrossel-container {
     display: flex;
     justify-content: center;
     margin-top: 10vh;
     width: 100%;
 }
 
-.carrossel-container{
+.carrossel-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    
+
 }
 
-#best-sellers, #new-toys{
+#best-sellers,
+#new-toys {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -60,16 +62,16 @@
     margin-bottom: 6vh;
 }
 
-.carrossel-container h2{
+.carrossel-container h2 {
     font-family: 'Fredoka', sans-serif;
     font-size: 32px;
     text-transform: uppercase;
     margin: 0;
-    
+
 }
 
-.carrossel-items{
-    display:flex;
+.carrossel-items {
+    display: flex;
     flex-direction: row;
     gap: 16px;
     width: 100%;
@@ -79,16 +81,16 @@
     padding-bottom: 16px;
 }
 
-.carrossel-items::-webkit-scrollbar{
+.carrossel-items::-webkit-scrollbar {
     display: none;
 }
 
-.carrossel-items{
+.carrossel-items {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-.carrossel-items app-card{
+.carrossel-items app-card {
     flex: 0 0 calc(20% - (16px * 4 / 5));
     scroll-snap-align: start;
     box-sizing: border-box;
@@ -147,8 +149,43 @@
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .arrow-btn {
         display: none !important;
     }
+}
+
+#brand_icons {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: justify;
+    margin: 10vh auto 20vh auto;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.big-brand-icon {
+    width: 100%;
+    max-width: 280px;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.small-icons-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    max-width: 320px;
+    max-height: 400px;
+
+}
+
+.small-brand-icons {
+    width: 100%;
+    min-width: 100px;
+    min-height: 200px;
+    
+    object-fit: contain;
 }

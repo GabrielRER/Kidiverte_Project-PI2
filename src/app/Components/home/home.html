@@ -39,7 +39,8 @@
 
                 <div class="carrossel-wrapper">
 
-                    <button class="arrow-btn left" (click)="scrollCarrosselBestSellers(-1)" aria-label="before"></button>
+                    <button class="arrow-btn left" (click)="scrollCarrosselBestSellers(-1)"
+                        aria-label="before"></button>
 
                     <div class="carrossel-items" #carrosselBestSellers>
                         @for (item of productsBestSellers; track item.id){
@@ -55,3 +56,17 @@
         </div>
 
     </div>
+
+    <div id="brand_icons">
+        <img class="big-brand-icon" src="assets/brand_icons/estrela.png" alt="estrela">
+        <div class="small-icons-container">
+            <img class="small-brand-icons" src="assets/brand_icons/melissa&doug.png" alt="melissa&doug">
+            <img class="small-brand-icons" src="assets/brand_icons/hasbro.png" alt="hasbro">
+        </div>
+        <img class="big-brand-icon" src="assets/brand_icons/mattel.png" alt="mattel">
+        <div class="small-icons-container">
+            <img class="small-brand-icons" src="assets/brand_icons/funko.png" alt="funko">
+            <img class="small-brand-icons" src="assets/brand_icons/lego.png" alt="lego">
+        </div>
+    </div>
+</div>
