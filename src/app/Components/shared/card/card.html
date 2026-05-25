@@ -1,26 +1,34 @@
 <mat-card id="card-container" appearance="outlined">
+    <div class="container-image">
+        <img [src]="imageUrl" alt="Imagem do produto">
+    </div>
 
-    <div class="content-wrapper">
-        <div class="container-image">
-            <img [src]="imageUrl" alt="Imagem do produto">
+    <mat-card-content id="body-content">
+
+        <div class="title-container">
+            <app-star-rate id="starRate"></app-star-rate>
+            <p>
+                Lego Minecraft Enderman
+            </p>
         </div>
 
-        <mat-card-content id="body-content">
+        <div class="price-container">
+            <span id="price">
+                Por R$ 30,99
+            </span>
+            <br>
+            <span>
+                ou 6x R$ 5,17 s/ juros
+            </span>
+        </div>
 
-            <div class="title-container">
-                <p>
-                    Lego Minecraft Enderman
-                </p>
-                <app-star-rate id="starRate"></app-star-rate>
-            </div>
+    </mat-card-content>
 
-            <div class="price-container">
-                <span>
-                    R$ 199,90
-                </span>
-            </div>
+    <mat-card-actions>
 
-        </mat-card-content>
-    </div>
+        <button mat-flat-button id="add-button">Adicionar</button>
+
+    </mat-card-actions>
+
 
 </mat-card>

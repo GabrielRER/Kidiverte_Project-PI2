@@ -1,0 +1,31 @@
+:host{
+    display: block;
+    background-color: #ffffff;
+}
+
+#home-container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+#home-menu-content {
+    margin-top: 150px;
+    border-radius: 68px;
+    width: 90%;
+    min-height: 100vh;
+    background-color: #aae5ff;
+}
+
+#categories-images{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: -80px;
+}
+
+#categories-images img{
+    width: 160px;
+    height: 170px;
+}
+
