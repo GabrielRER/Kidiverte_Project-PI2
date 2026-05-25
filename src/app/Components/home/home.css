@@ -184,8 +184,7 @@
 
 .small-brand-icons {
     width: 100%;
-    min-width: 100px;
+    min-width: 280px;
     min-height: 200px;
-    
     object-fit: contain;
 }
