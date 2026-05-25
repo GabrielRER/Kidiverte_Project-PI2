@@ -68,10 +68,12 @@ export class PlpComponent implements OnInit {
     this.quantidadeVisivel += 12;
   }
 
-  onPrecoChange(event: Event): void {
-    const value = (event.target as HTMLInputElement).value;
-    this.precoMax = Number(value);
-    this.quantidadeVisivel = 12;
-    this.aplicarFiltro();
-  }
+ onPrecoChange(event: Event): void {
+  const value = (event.target as HTMLInputElement).value;
+  this.precoMax = Number(value);
+
+  this.quantidadeVisivel = 12; // mantém comportamento correto
+
+  this.aplicarFiltro();
+}
 }
