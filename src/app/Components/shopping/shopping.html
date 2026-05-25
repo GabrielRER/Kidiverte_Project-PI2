@@ -1,0 +1,98 @@
+<div class="pagina-carrinho">
+
+  <!-- ── Lista de produtos ── -->
+  <div class="coluna-produtos">
+
+    <!-- Carrinho vazio -->
+    <div *ngIf="carrinhoVazio" class="carrinho-vazio">
+      <span>🛒</span>
+      <p>Seu carrinho está vazio.</p>
+      <button class="continuar" (click)="continuarComprando()">CONTINUAR COMPRANDO</button>
+    </div>
+
+    <!-- Um card por item do carrinho -->
+    <section class="produto-card" *ngFor="let item of itensCarrinho">
+      <!-- CORRIGIDO: images[0] e name em vez de imagem/nome (padrão do db.json) -->
+      <img class="produto-img" [src]="imagemProduto(item)" [alt]="item.produto.name">
+
+      <h2>{{ item.produto.name }}</h2>
+
+      <p class="preco-unitario">{{ formatarMoeda(item.produto.current_price) }}</p>
+
+      <div class="quantidade">
+        <!-- CORRIGIDO: passa item como parâmetro -->
+        <button (click)="diminuir(item)">−</button>
+        <span>{{ item.quantidade }}</span>
+        <button (click)="aumentar(item)">+</button>
+      </div>
+
+      <p class="preco-total">{{ formatarMoeda(item.produto.current_price * item.quantidade) }}</p>
+
+      <!-- CORRIGIDO: passa item como parâmetro -->
+      <button class="lixeira" (click)="remover(item)">🗑</button>
+    </section>
+
+  </div>
+
+  <!-- ── Sidebar de resumo ── -->
+  <aside class="resumo-lateral">
+
+    <div class="card frete">
+      <h3>Calcule o frete</h3>
+      <!-- Placeholder — funcionalidade de frete a implementar futuramente -->
+      <p class="receber">
+        Receber {{ itensCarrinho.length }} {{ itensCarrinho.length === 1 ? 'item' : 'itens' }} em
+        <span>00000-000</span>
+      </p>
+      <div class="opcao-frete">
+        <div>
+          <strong>Mais econômica</strong>
+          <p>Em até x dias úteis</p>
+        </div>
+        <div>
+          <p>R$ 00,00</p>
+          <span>⌄</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card cupom">
+      <h3>Cupom de desconto</h3>
+      <!-- CORRIGIDO: input com ngModel e botão com handler -->
+      <div class="campo-cupom">
+        <input type="text" placeholder="Código" [(ngModel)]="codigoCupom">
+        <button (click)="aplicarCupom()">›</button>
+      </div>
+      <p class="cupom-msg" *ngIf="mensagemCupom">{{ mensagemCupom }}</p>
+    </div>
+
+    <div class="card pedido">
+      <h3>Resumo do pedido</h3>
+
+      <div class="linha">
+        <strong>Subtotal</strong>
+        <span>{{ formatarMoeda(subtotal) }}</span>
+      </div>
+
+      <div class="linha">
+        <strong>Entrega</strong>
+        <span>R$00,00</span>
+      </div>
+
+      <!-- Desconto do cupom, aparece só se houver -->
+      <div class="linha" *ngIf="descontoCupom > 0">
+        <strong>Cupom</strong>
+        <span>− {{ formatarMoeda(descontoCupom) }}</span>
+      </div>
+
+      <div class="linha total">
+        <strong>Total</strong>
+        <span>{{ formatarMoeda(total) }}</span>
+      </div>
+
+      <button class="finalizar" (click)="finalizarCompra()">FINALIZAR COMPRA</button>
+      <button class="continuar" (click)="continuarComprando()">CONTINUAR COMPRANDO</button>
+    </div>
+
+  </aside>
+</div>

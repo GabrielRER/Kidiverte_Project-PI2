@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { Footer } from './Components/footer/footer';
 import { ProductDetail } from './Components/product-detail/product-detail';
 import { routes } from './app.routes';
+import { Shopping } from './Components/shopping/shopping';
 
 @NgModule({
   declarations: [
-    ProductDetail
+    ProductDetail,
+    Shopping,
   ],
   imports: [
     CommonModule,
