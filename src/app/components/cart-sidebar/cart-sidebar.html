@@ -14,8 +14,8 @@
         />
 
         <div class="informacao-produto">
-          <h3>Jogo de Tabuleiro Detetive com Aplicativo</h3>
-          <p class="preco-produto">R$ 269,90</p>
+          <h3>{{ produto.name }}</h3>
+          <p class="preco-produto"> R$ {{ produto.current_price.toFixed(2).replace('.',',') }}</p>
 
           <div class="controle-quantidade">
             <button class="botao-mais-menos" (click)="diminuirQuantidade()">-</button>
@@ -34,7 +34,8 @@
     <div class="cart-footer">
       <div class="cart-total">
         <span>Total:</span>
-        <strong>R$ {{ total.toFixed(2).replace('.', ',') }}</strong>
+        <strong>R$ {{ (produto.current_price * quantidade).toFixed(2).replace('.', ',') }}
+</strong>
       </div>
 
       <div class="cart-actions">

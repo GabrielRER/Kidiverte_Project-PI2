@@ -30,4 +30,10 @@ export class CartSidebar {
   get total() {
     return this.quantidade * this.preco;
   }
+  
+  produto = {
+  name: 'Lego Minecraft Enderman',
+  current_price: 269.90,
+  thumbnail_url: null
+};
 }

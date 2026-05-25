@@ -65,7 +65,7 @@ font-weight: 700;
 .preco-produto {
  margin: 0 0 10px;
   color: #8b4dff;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -83,7 +83,7 @@ font-weight: 700;
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .botao-finalizar-compra,
