@@ -8,6 +8,8 @@ export interface Product {
   description: string;
   current_price: number;
   images: string;
+  best_seller: boolean;
+  created_at: string;
 }
 
 @Injectable({

@@ -9,11 +9,48 @@
             <img src="assets/home_menu/esportes.png" alt="carrinhos">
             <img src="assets/home_menu/jogos.png" alt="carrinhos">
         </div>
-        
-        <div id="carrosel-container">
-            <div class="carrosel">
-                <h2>BRINQUEDOS NOVOS NO PEDAÇO</h2>
-                
+
+        <div class="carrossel-container">
+            <div id="new-toys">
+                <section>
+                    <h2>BRINQUEDOS NOVOS NO PEDAÇO</h2>
+                </section>
+
+                <div class="carrossel-wrapper">
+
+                    <button class="arrow-btn left" (click)="scrollCarrosselNewToys(-1)" aria-label="before"></button>
+
+                    <div class="carrossel-items" #carrosselNewToys>
+                        @for (item of productsNewToys; track item.id){
+                        <app-card [product]="item"></app-card>
+                        }
+                    </div>
+
+                    <button class="arrow-btn right" (click)="scrollCarrosselNewToys(1)" aria-label="next"></button>
+
+                </div>
+
+            </div>
+
+            <div id="best-sellers">
+                <section>
+                    <h2>MAIS VENDIDOS</h2>
+                </section>
+
+                <div class="carrossel-wrapper">
+
+                    <button class="arrow-btn left" (click)="scrollCarrosselBestSellers(-1)" aria-label="before"></button>
+
+                    <div class="carrossel-items" #carrosselBestSellers>
+                        @for (item of productsBestSellers; track item.id){
+                        <app-card [product]="item"></app-card>
+                        }
+                    </div>
+
+                    <button class="arrow-btn right" (click)="scrollCarrosselBestSellers(1)" aria-label="next"></button>
+
+                </div>
+
             </div>
         </div>
 

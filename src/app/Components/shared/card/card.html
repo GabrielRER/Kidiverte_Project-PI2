@@ -1,5 +1,4 @@
 <div id="cards-wrapper">
-    @for (product of products; track product.id) {
     <mat-card id="card-container" appearance="outlined">
         <div class="container-image">
             <img [src]="product.images" alt="product.name">
@@ -34,5 +33,4 @@
 
 
     </mat-card>
-    }
 </div>

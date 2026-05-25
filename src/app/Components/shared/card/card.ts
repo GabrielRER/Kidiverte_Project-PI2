@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { StarRate } from '../star-rate/star-rate';
 
 import { MatCardModule } from '@angular/material/card';
@@ -17,17 +17,5 @@ import { ProductService, Product } from '../../../services/product.service';
   styleUrl: './card.css',
 })
 export class Card {
-  products: Product[] = [];
-
-  constructor(private productService: ProductService) { }
-
-  ngOnInit(): void {
-    this.productService.getProducts().subscribe({
-      next: (data) => this.products = data,
-      error: (err) => console.error('Error fetching products:', err)
-    });
-  }
-
-  imageUrl = '/Images/minecraft_lego_image.png';
-
+  @Input({ required: true }) product!: Product;
 }
