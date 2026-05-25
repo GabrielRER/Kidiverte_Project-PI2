@@ -1,0 +1,68 @@
+<div class="container">
+
+  <!-- FILTRO -->
+  <aside class="filtro">
+    <h2>Filtros</h2>
+
+    <div class="filtro-secao">
+      <h3>Categoria</h3>
+      <label><input type="checkbox"> Carrinhos</label>
+      <label><input type="checkbox"> Bonecas</label>
+      <label><input type="checkbox"> Blocos</label>
+    </div>
+
+    <div class="filtro-secao">
+      <h3>Gênero</h3>
+      <label><input type="checkbox"> Masculino</label>
+      <label><input type="checkbox"> Feminino</label>
+      <label><input type="checkbox"> Unissex</label>
+    </div>
+
+    <div class="filtro-secao">
+      <h3>Idade</h3>
+      <label><input type="checkbox"> 2 a 3 anos</label>
+      <label><input type="checkbox"> 4 a 5 anos</label>
+    </div>
+
+    <div class="filtro-secao">
+      <h3>Marca</h3>
+      <label><input type="checkbox"> LEGO</label>
+      <label><input type="checkbox"> Mattel</label>
+    </div>
+
+    <!-- PREÇO -->
+    <div class="filtro-secao">
+      <h3>Faixa de preço</h3>
+      <input type="range" id="rangePreco" min="5" max="5000" value="5000">
+      <p id="valorPreco">Até R$ 5000</p>
+    </div>
+
+    <!-- IMAGEM -->
+    <div class="logo">
+      <!-- COLOCAR A IMAGEM DO PROJETO AQUI -->
+      <img src="logo_circular.png" alt="Logo">
+    </div>
+  </aside>
+
+  <!-- PRODUTOS -->
+  <main class="produtos">
+  <div id="listaProdutos" class="grid">
+    
+    <!-- EXEMPLO DE CARD (estrutura base) -->
+    <a href="/pdp.html?id=1" class="card-link">
+      <div class="card">
+        <div class="card-img">
+          <img src="caminho-da-imagem.png" alt="Produto">
+        </div>
+
+        <div class="card-info">
+          <h4 class="card-titulo">Nome do produto</h4>
+          <p class="card-preco">R$ 99,99</p>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <button id="btnVerMais">Ver mais</button>
+
