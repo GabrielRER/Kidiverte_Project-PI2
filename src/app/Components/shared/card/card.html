@@ -1,36 +1,33 @@
 <div id="cards-wrapper">
-    <mat-card id="card-container" appearance="outlined">
-        <div class="container-image">
-            <img [src]="product.images" alt="product.name">
-        </div>
+  <mat-card id="card-container" appearance="outlined">
+    
+    <div class="container-image" [routerLink]="['/produto', product.id]" style="cursor: pointer;">
+      <img [src]="product.images" [alt]="product.name">
+    </div>
 
-        <mat-card-content id="body-content">
+    <mat-card-content id="body-content">
+      <div class="title-container">
+        <app-star-rate id="starRate"></app-star-rate>
+        
+        <p [routerLink]="['/produto', product.id]" style="cursor: pointer;">
+          {{product.name}}
+        </p>
+      </div>
 
-            <div class="title-container">
-                <app-star-rate id="starRate"></app-star-rate>
-                <p>
-                    {{product.name}}
-                </p>
-            </div>
+      <div class="price-container">
+        <span id="price">
+          Por R$ {{product.current_price.toFixed(2).replace('.', ',')}}
+        </span>
+        <br>
+        <span>
+          ou 6x R$ {{(product.current_price / 6).toFixed(2).replace('.', ',')}} s/ juros
+        </span>
+      </div>
+    </mat-card-content>
 
-            <div class="price-container">
-                <span id="price">
-                    Por R$ {{product.current_price.toFixed(2).replace('.', ',')}}
-                </span>
-                <br>
-                <span>
-                    ou 6x R$ {{(product.current_price / 6).toFixed(2).replace('.', ',')}} s/ juros
-                </span>
-            </div>
+    <mat-card-actions>
+      <button mat-flat-button id="add-button" [routerLink]="['/produto', product.id]">Ver Detalhes</button>
+    </mat-card-actions>
 
-        </mat-card-content>
-
-        <mat-card-actions>
-
-            <button mat-flat-button id="add-button">Adicionar</button>
-
-        </mat-card-actions>
-
-
-    </mat-card>
+  </mat-card>
 </div>

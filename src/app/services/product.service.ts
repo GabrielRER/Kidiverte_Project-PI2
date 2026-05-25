@@ -6,9 +6,29 @@ export interface Product {
   id: number;
   name: string;
   description: string;
+
+  original_price: number | null;
   current_price: number;
-  images: string;
+
+  discount_percentage: number | null;
+
+  installments: number | null;
+  installment_value: number | null;
+  interest_free: boolean;
+
+  category_id: number;
+  brand_id: number;
+  gender_id: number;
+  age_range_id: number;
+
+  featured: boolean;
   best_seller: boolean;
+
+  thumbnail_url: string | null;
+  images: string[];
+
+  stock: number;
+
   created_at: string;
 }
 

@@ -1,30 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
- 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  original_price: number | null;
-  current_price: number;
-  discount_percentage: number | null;
-  installments: number | null;
-  installment_value: number | null;
-  interest_free: boolean;
-  category_id: number;
-  brand_id: number;
-  gender_id: number;
-  age_range_id: number;
-  featured: boolean;
-  best_seller: boolean;
-  thumbnail_url: string | null;
-  images: string[];
-  stock: number;
-}
+import { ProductService, Product } from '../../services/product.service';
+
  
 @Component({
   selector: 'app-product-detail',
@@ -41,7 +18,6 @@ export class ProductDetail implements OnInit {
   activeTab = 'description';
   addedToCart = false;
  
-  // Dados auxiliares para exibição
   private categories: Record<number, string> = {
     1: 'Carrinhos',
     2: 'Blocos de Montar',
@@ -66,23 +42,54 @@ export class ProductDetail implements OnInit {
     5: '14+ anos'
   };
  
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private productService: ProductService) {}
  
-  ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.http.get<{ products: Product[] }>('/db.json').subscribe({
-      next: (data) => {
-        this.product = data.products.find(p => p.id === id) || null;
+ngOnInit(): void {
+
+  this.route.paramMap.subscribe(params => {
+
+    this.loading = true;
+    this.error = false;
+
+    const id = Number(params.get('id'));
+
+    console.log('ID da rota:', id);
+
+    this.productService.getProducts().subscribe({
+      next: (products) => {
+
+        console.log(
+          products.map(p => ({
+            id: p.id,
+            tipo: typeof p.id
+          }))
+        );
+
+        this.product = products.find(
+          p => Number(p.id) === id
+        ) || null;
+
+        console.log('Produto encontrado:', this.product);
+
         this.loading = false;
-        if (!this.product) this.error = true;
+
+        if (!this.product) {
+          this.error = true;
+        }
       },
-      error: () => {
+
+      error: (err) => {
+        console.error('Erro API:', err);
+
         this.loading = false;
         this.error = true;
       }
     });
-  }
- 
+
+  });
+
+}
+
   get displayImages(): string[] {
     if (!this.product) return [];
     if (this.product.images && this.product.images.length > 0) {

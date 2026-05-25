@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StarRate } from '../star-rate/star-rate';
-
+import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductService, Product } from '../../../services/product.service';
@@ -11,7 +11,8 @@ import { ProductService, Product } from '../../../services/product.service';
   imports: [
     MatCardModule,
     MatButtonModule,
-    StarRate
+    StarRate,
+    RouterModule
   ],
   templateUrl: './card.html',
   styleUrl: './card.css',
