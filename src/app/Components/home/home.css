@@ -13,19 +13,47 @@
     margin-top: 150px;
     border-radius: 68px;
     width: 90%;
+    max-width: 1200px;
     min-height: 100vh;
     background-color: #aae5ff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home-menu-content #carrosel-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.carrosel{
+    width: 80%;
+    display: flex;
+    justify-content: justify;
+}
+
+.carrosel h2{
+    font-family: 'Fredoka', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    
 }
 
 #categories-images{
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: -80px;
+    gap: 1.5vw;
+    margin-top: -5vw;
+    padding: 0 2vw;
 }
 
 #categories-images img{
-    width: 160px;
-    height: 170px;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 1;
+    min-width: 0px;
 }
 
