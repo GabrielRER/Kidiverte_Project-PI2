@@ -1,34 +1,38 @@
-<mat-card id="card-container" appearance="outlined">
-    <div class="container-image">
-        <img [src]="imageUrl" alt="Imagem do produto">
-    </div>
-
-    <mat-card-content id="body-content">
-
-        <div class="title-container">
-            <app-star-rate id="starRate"></app-star-rate>
-            <p>
-                Lego Minecraft Enderman
-            </p>
+<div id="cards-wrapper">
+    @for (product of products; track product.id) {
+    <mat-card id="card-container" appearance="outlined">
+        <div class="container-image">
+            <img [src]="product.images" alt="product.name">
         </div>
 
-        <div class="price-container">
-            <span id="price">
-                Por R$ 30,99
-            </span>
-            <br>
-            <span>
-                ou 6x R$ 5,17 s/ juros
-            </span>
-        </div>
+        <mat-card-content id="body-content">
 
-    </mat-card-content>
+            <div class="title-container">
+                <app-star-rate id="starRate"></app-star-rate>
+                <p>
+                    {{product.name}}
+                </p>
+            </div>
 
-    <mat-card-actions>
+            <div class="price-container">
+                <span id="price">
+                    Por R$ {{product.current_price.toFixed(2).replace('.', ',')}}
+                </span>
+                <br>
+                <span>
+                    ou 6x R$ {{(product.current_price / 6).toFixed(2).replace('.', ',')}} s/ juros
+                </span>
+            </div>
 
-        <button mat-flat-button id="add-button">Adicionar</button>
+        </mat-card-content>
 
-    </mat-card-actions>
+        <mat-card-actions>
+
+            <button mat-flat-button id="add-button">Adicionar</button>
+
+        </mat-card-actions>
 
 
-</mat-card>
+    </mat-card>
+    }
+</div>
