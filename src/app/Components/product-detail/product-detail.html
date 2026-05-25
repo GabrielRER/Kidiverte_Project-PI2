@@ -1,10 +1,10 @@
-<!-- LOADING STATE -->
+
 <div class="pd-loading" *ngIf="loading">
   <div class="pd-spinner"></div>
   <p>Carregando produto...</p>
 </div>
  
-<!-- ERROR STATE -->
+
 <div class="pd-error" *ngIf="error && !loading">
   <div class="pd-error-icon">😕</div>
   <h2>Produto não encontrado</h2>
@@ -12,10 +12,10 @@
   <a routerLink="/home" class="pd-btn-primary">Voltar à loja</a>
 </div>
  
-<!-- PRODUCT DETAIL -->
+
 <div class="pd-wrapper" *ngIf="product && !loading">
  
-  <!-- BREADCRUMB -->
+  
   <nav class="pd-breadcrumb">
     <a routerLink="/home">Início</a>
     <span class="pd-breadcrumb-sep">›</span>
@@ -24,15 +24,15 @@
     <span class="pd-breadcrumb-current">{{ product.name }}</span>
   </nav>
  
-  <!-- MAIN SECTION -->
+  
   <div class="pd-main">
  
-    <!-- LEFT: GALLERY -->
+   
     <div class="pd-gallery">
-      <!-- Badge faixa etária -->
+     
       <div class="pd-age-badge" *ngIf="ageRangeName">{{ ageRangeName }}</div>
  
-      <!-- Imagem principal -->
+     
       <div class="pd-img-main">
         <div class="pd-discount-ribbon" *ngIf="hasDiscount">
           -{{ product.discount_percentage }}%
@@ -43,14 +43,14 @@
           (error)="$any($event.target).src='assets/placeholder.png'"
           class="pd-main-img"
         />
-        <!-- Badges sobrepostos -->
+        
         <div class="pd-img-badges">
           <span class="pd-badge pd-badge-seller" *ngIf="product.best_seller">🏆 Mais Vendido</span>
           <span class="pd-badge pd-badge-featured" *ngIf="product.featured">⭐ Destaque</span>
         </div>
       </div>
  
-      <!-- Thumbnails -->
+     
       <div class="pd-thumbs" *ngIf="displayImages.length > 1">
         <button
           class="pd-thumb"
@@ -64,20 +64,20 @@
       </div>
     </div>
  
-    <!-- RIGHT: INFO -->
+    
     <div class="pd-info">
  
-      <!-- Brand + Name -->
+      
       <div class="pd-brand-tag">{{ brandName }}</div>
       <h1 class="pd-product-name">{{ product.name }}</h1>
  
-      <!-- Stock indicator -->
+      
       <div class="pd-stock" [class.pd-stock-low]="product.stock <= 5" [class.pd-stock-out]="product.stock === 0">
         <span class="pd-stock-dot"></span>
         {{ stockStatus }}
       </div>
  
-      <!-- PRICING BLOCK -->
+      
       <div class="pd-pricing">
         <div class="pd-original" *ngIf="hasDiscount && product.original_price">
           De: <span>{{ formatPrice(product.original_price) }}</span>
@@ -96,7 +96,7 @@
           <span *ngIf="product.interest_free" class="pd-interest-free">sem juros</span>
         </div>
  
-        <!-- Formas de pagamento -->
+        
         <div class="pd-payment-icons">
           <span class="pd-pay-icon">💳 Cartão</span>
           <span class="pd-pay-icon">⚡ PIX</span>
@@ -104,7 +104,7 @@
         </div>
       </div>
  
-      <!-- QUANTITY + ADD TO CART -->
+      
       <div class="pd-actions">
         <div class="pd-qty-block">
           <label class="pd-qty-label">Quantidade</label>
@@ -130,7 +130,7 @@
         </button>
       </div>
  
-      <!-- SHIPPING -->
+      
       <div class="pd-shipping">
         <div class="pd-shipping-title">🚚 Calcular Frete</div>
         <div class="pd-cep-row">
@@ -149,7 +149,7 @@
         </div>
       </div>
  
-      <!-- QUICK INFO PILLS -->
+      
       <div class="pd-quick-info">
         <div class="pd-qi-item">
           <span class="pd-qi-icon">🎂</span>
@@ -167,7 +167,7 @@
     </div>
   </div>
  
-  <!-- TABS: DESCRIPTION / SPECS / REVIEWS -->
+  
   <div class="pd-tabs-section">
     <div class="pd-tabs-nav">
       <button class="pd-tab-btn" [class.pd-tab-active]="activeTab === 'description'" (click)="setTab('description')">
@@ -181,12 +181,12 @@
       </button>
     </div>
  
-    <!-- Tab: Descrição -->
+   
     <div class="pd-tab-content" *ngIf="activeTab === 'description'">
       <p class="pd-description-text">{{ product.description }}</p>
     </div>
  
-    <!-- Tab: Especificações -->
+    
     <div class="pd-tab-content" *ngIf="activeTab === 'specs'">
       <table class="pd-specs-table">
         <tbody>
@@ -199,7 +199,7 @@
       </table>
     </div>
  
-    <!-- Tab: Avaliações -->
+    
     <div class="pd-tab-content pd-reviews" *ngIf="activeTab === 'reviews'">
       <div class="pd-rating-summary">
         <div class="pd-rating-score">0.0</div>

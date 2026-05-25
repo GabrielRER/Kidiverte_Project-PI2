@@ -55,7 +55,7 @@
       "featured": true,
       "best_seller": true,
       "thumbnail_url": null,
-      "images": [],
+      "images": ["imagens_produtos/Lego Minecraft Enderman_1.webp"],
       "stock": 10
     },
     {
@@ -75,7 +75,7 @@
       "featured": true,
       "best_seller": true,
       "thumbnail_url": null,
-      "images": [],
+      "images": ["imagens_produtos/HotWheelsCarroPrateado5cm_2.jpg"],
       "stock": 25
     },
     {
@@ -95,7 +95,7 @@
       "featured": false,
       "best_seller": false,
       "thumbnail_url": null,
-      "images": [],
+      "images": ["imagens_produtos/Carro de Controle Remoto - Marvel - Homem-Aranha - Autoracing_3.jpg"],
       "stock": 8
     },
     {
@@ -115,7 +115,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Pista Hot Wheels Ataque do Tubarão - Mattel_4.jpg"],
     "stock": 12
   },
   {
@@ -135,7 +135,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Carrinho de Controle Remoto Garra de Prata - Candide_5.webp"],
     "stock": 18
   },
   {
@@ -155,7 +155,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Monster Truck Bone Shaker Escala 1-24 - Mattel_6.jpg"],
     "stock": 7
   },
   {
@@ -175,7 +175,7 @@
     "featured": true,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Super Garagem de Estacionamento em Madeira - Melissa & Doug_7.webp"],
     "stock": 5
   },
   {
@@ -195,7 +195,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Carrinho Relâmpago McQueen Cars Disney - Mattel_8.jpg"],
     "stock": 25
   },
 
@@ -216,7 +216,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/LEGO City Estação dos Bombeiros - LEGO_9.webp"],
     "stock": 10
   },
   {
@@ -236,7 +236,7 @@
     "featured": true,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/LEGO Star Wars Capacete de Darth Vader - LEGO_10.jfif"],
     "stock": 4
   },
   {
@@ -256,7 +256,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Kit de Blocos de Construção de Castelo Colorido - Melissa & Doug_11.jpg"],
     "stock": 14
   },
   {
@@ -276,7 +276,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/LEGO Creator Criaturas do Fundo do Mar 3 em 1 - LEGO_12.webp"],
     "stock": 22
   },
   {
@@ -296,7 +296,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/LEGO Marvel Armadura Robô do Iron Man - LEGO_13.jfif"],
     "stock": 30
   },
 
@@ -317,7 +317,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Boneca Barbie Fashionista Vestido Floral - Mattel_14.webp"],
     "stock": 40
   },
   {
@@ -337,7 +337,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Boneca Baby Alive Dia de Estreia - Hasbro_15.webp"],
     "stock": 11
   },
   {
@@ -357,7 +357,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Boneca Coleção Princesas Disney Cinderela - Mattel_16.png"],
     "stock": 16
   },
   {
@@ -377,7 +377,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Boneca Magnética de Vestir em Madeira Julia - Melissa & Doug_17.webp"],
     "stock": 9
   },
   {
@@ -397,7 +397,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Barbie Color Reveal Sereias Surpresa - Mattel_18.jpg"],
     "stock": 15
   },
 
@@ -418,7 +418,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/Funko Pop! Star Wars - Mandalorian com Grogu_19.webp"],
     "stock": 8
   },
   {
@@ -438,7 +438,7 @@
     "featured": true,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/20_Figura_Anime_Heroes_Naruto_Uzumaki_-_Bandai.jpg"],
     "stock": 6
   },
   {
@@ -458,7 +458,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/21_Box_Organizador_Cartas_de_Pokemon_Destinos_Paldea.jpg"],
     "stock": 50
   },
   {
@@ -478,7 +478,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/22_Boneco_Colecionavel_Roblox_Jailbreak_Great_Escape.jpg"],
     "stock": 19
   },
   {
@@ -498,7 +498,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/23_Funko_Pop_Marvel_Avengers_-_Iron_Man_Endgame.jpg"],
     "stock": 14
   },
 
@@ -519,7 +519,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/24_Girafa_Pick-a-Brick_de_Atividades_-_Fisher-Price.jpeg"],
     "stock": 13
   },
   {
@@ -539,7 +539,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/25_Cubo_Sensorial_de_Encaixe_de_Formas.jpg"],
     "stock": 21
   },
   {
@@ -559,7 +559,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/26_Pelucia_Interativa_Meu_Primeiro_Cachorrinho.jpg"],
     "stock": 9
   },
   {
@@ -579,7 +579,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/27_Chocalho_Mordedor_de_Chaves_Coloridas.jpeg"],
     "stock": 35
   },
   {
@@ -599,7 +599,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/28_Tapete_de_Atividades_Ginasio_do_Bebe_-_Fisher-Price.jpg"],
     "stock": 8
   },
 
@@ -620,7 +620,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/29_Lancador_de_Dardos_Nerf_Elite_2.0_Volt.jpg"],
     "stock": 45
   },
   {
@@ -640,7 +640,7 @@
     "featured": true,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/30_Patins_Ajustavel_Hot_Wheels_com_Acessorios.jpeg"],
     "stock": 10
   },
   {
@@ -660,7 +660,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/31_Kit_de_Mini_Traves_de_Futebol.jpeg"],
     "stock": 12
   },
   {
@@ -680,7 +680,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/32_Tabela_de_Basquete_Infantil_Ajustavel.jpeg"],
     "stock": 14
   },
   {
@@ -700,7 +700,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/33_Lancador_Nerf_Super_Soaker_Hidro_-_Hasbro.jpg"],
     "stock": 28
   },
 
@@ -721,7 +721,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/34_Jogo_de_Estrategia_Monopoly_Classico_-_Hasbro.jpg"],
     "stock": 20
   },
   {
@@ -741,7 +741,7 @@
     "featured": false,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/35_Jogo_de_Cartas_UNO_Original_-_Mattel.jpg"],
     "stock": 150
   },
   {
@@ -761,7 +761,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/36_Jogo_de_Tabuleiro_Operando_Classico_-_Hasbro.jpg"],
     "stock": 17
   },
   {
@@ -781,7 +781,7 @@
     "featured": true,
     "best_seller": true,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/37_Jogo_Jenga_de_Blocos_de_Madeira_Macica_-_Hasbro.jpg"],
     "stock": 33
   },
   {
@@ -801,7 +801,7 @@
     "featured": false,
     "best_seller": false,
     "thumbnail_url": null,
-    "images": [],
+    "images": ["imagens_produtos/38_Jogo_de_Tabuleiro_Detetive_com_Aplicativo.jpg"],
     "stock": 12
   }
   ],
