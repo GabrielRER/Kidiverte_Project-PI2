@@ -1,11 +1,6 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-plp',
-  templateUrl: './plp.html',
-  styleUrl: './plp.css',
-})
-export class Plp {}
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 type Produto = {
   id: number;
@@ -14,98 +9,69 @@ type Produto = {
   img: string;
 };
 
-// BASE DE PRODUTOS (mock)
-const produtos: Produto[] = [
-  {
-    id: 1,
-    nome: "Carrinho Hot Wheels",
-    preco: 30,
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    id: 2,
-    nome: "Lego Minecraft",
-    preco: 280,
-    img: "https://via.placeholder.com/150"
+@Component({
+  selector: 'app-plp',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './plp.html',
+  styleUrls: ['./plp.css']
+})
+export class PlpComponent implements OnInit {
+
+  produtos: Produto[] = [];
+  produtosFiltrados: Produto[] = [];
+
+  quantidadeVisivel: number = 12;
+  precoMax: number = 5000;
+
+  ngOnInit(): void {
+    this.gerarProdutos();
+    this.aplicarFiltro();
   }
-];
 
-// simular até 38 produtos
-while (produtos.length < 38) {
-  const copia: Produto[] = produtos.map((p, index) => ({
-    ...p,
-    id: produtos.length + index + 1
-  }));
-  produtos.push(...copia);
-}
-produtos.length = 38;
+  gerarProdutos(): void {
+    const base: Produto[] = [
+      {
+        id: 1,
+        nome: 'Carrinho Hot Wheels',
+        preco: 30,
+        img: 'https://via.placeholder.com/150'
+      },
+      {
+        id: 2,
+        nome: 'Lego Minecraft',
+        preco: 280,
+        img: 'https://via.placeholder.com/150'
+      }
+    ];
 
-// CONTROLE DE EXIBIÇÃO
-let quantidadeVisivel: number = 12;
+    this.produtos = [...base];
 
-// ELEMENTOS DOM
-const lista = document.getElementById("listaProdutos") as HTMLDivElement;
-const btn = document.getElementById("btnVerMais") as HTMLButtonElement;
-const range = document.getElementById("rangePreco") as HTMLInputElement;
-const valorPreco = document.getElementById("valorPreco") as HTMLParagraphElement;
+    while (this.produtos.length < 38) {
+      const copia = this.produtos.map((p, index) => ({
+        ...p,
+        id: this.produtos.length + index + 1
+      }));
+      this.produtos.push(...copia);
+    }
 
-// RENDERIZAÇÃO DOS PRODUTOS
-function renderProdutos(): void {
-  lista.innerHTML = "";
+    this.produtos = this.produtos.slice(0, 38);
+  }
 
-  const precoMax: number = parseFloat(range.value);
+  aplicarFiltro(): void {
+    this.produtosFiltrados = this.produtos.filter(
+      p => p.preco <= this.precoMax
+    );
+  }
 
-  const filtrados: Produto[] = produtos.filter(
-    (p) => p.preco <= precoMax
-  );
+  verMais(): void {
+    this.quantidadeVisivel += 12;
+  }
 
-  const produtosVisiveis = filtrados.slice(0, quantidadeVisivel);
-
-  produtosVisiveis.forEach((prod) => {
-    // LINK (PDP)
-    const link = document.createElement("a");
-    link.href = `/pdp.html?id=${prod.id}`;
-    link.classList.add("card-link");
-
-    // CARD
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    card.innerHTML = `
-      <div class="card-img">
-        <img src="${prod.img}" alt="${prod.nome}">
-      </div>
-      <div class="card-info">
-        <h4 class="card-titulo">${prod.nome}</h4>
-        <p class="card-preco">R$ ${prod.preco.toFixed(2)}</p>
-      </div>
-    `;
-
-    link.appendChild(card);
-    lista.appendChild(link);
-  });
-
-  // CONTROLE DO BOTÃO
-  if (quantidadeVisivel >= filtrados.length) {
-    btn.style.display = "none";
-  } else {
-    btn.style.display = "block";
+  onPrecoChange(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.precoMax = Number(value);
+    this.quantidadeVisivel = 12;
+    this.aplicarFiltro();
   }
 }
-
-// BOTÃO "VER MAIS"
-btn.addEventListener("click", (): void => {
-  quantidadeVisivel += 12;
-  renderProdutos();
-});
-
-// FILTRO DE PREÇO
-range.addEventListener("input", (): void => {
-  valorPreco.textContent = `Até R$ ${range.value}`;
-  quantidadeVisivel = 12;
-  renderProdutos();
-});
-
-// INIT
-renderProdutos();
-

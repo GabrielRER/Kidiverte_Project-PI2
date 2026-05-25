@@ -1,13 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Plp } from './Components/plp/plp';
+import { PlpComponent } from './Components/plp/plp';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Plp],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [RouterOutlet, PlpComponent],
+  templateUrl: './app.html'
 })
-export class App {
-  protected readonly title = signal('kidiverteProject');
-}
+export class App {}
