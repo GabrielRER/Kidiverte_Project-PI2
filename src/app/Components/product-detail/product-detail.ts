@@ -146,8 +146,6 @@ export class ProductDetail implements OnInit {
  
   addToCart(): void {
     this.addedToCart = true;
-    // Aqui você pode integrar com seu CartService
-    // this.cartService.add(this.product!, this.quantity);
     setTimeout(() => (this.addedToCart = false), 2500);
   }
  
