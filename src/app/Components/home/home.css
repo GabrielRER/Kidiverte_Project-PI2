@@ -159,32 +159,38 @@
     width: 90%;
     max-width: 1200px;
     display: flex;
-    justify-content: justify;
+    justify-content: space-between;
+    align-items: stretch;
     margin: 10vh auto 20vh auto;
-    flex-direction: row;
-    gap: 1vw;
+    gap: 1.5vw;
 }
 
 .big-brand-icon {
     width: 100%;
-    max-width: 280px;
-    max-height: 400px;
+    height: 90%;
+    max-width: 275px;
+    min-height: 380px;
     object-fit: contain;
 }
 
 .small-icons-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
-    
-    max-width: 320px;
-    max-height: 400px;
+    width: 100%;
+    min-width: 280px;
+    gap: 17px;
 
+}
+
+.small-icons-container img {
+    margin: 0 0 0 0;
+    height: 100%;
+    
 }
 
 .small-brand-icons {
     width: 100%;
-    min-width: 280px;
-    min-height: 200px;
+    flex: 1;
     object-fit: contain;
 }
