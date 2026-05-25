@@ -1,0 +1,124 @@
+<div class="container">
+
+  <!-- MENU LATERAL -->
+  <aside class="sidebar">
+
+    <div class="perfil">
+      <div class="icone">
+        <span>👤</span>
+      </div>
+
+      <h2>Olá!</h2>
+    </div>
+
+    <button
+      class="menu-btn"
+      [class.active]="abaAtiva === 'dados'"
+      (click)="selecionarAba('dados')">
+      Dados Pessoais
+    </button>
+
+    <button
+      class="menu-btn"
+      [class.active]="abaAtiva === 'pedidos'"
+      (click)="selecionarAba('pedidos')">
+      Pedidos
+    </button>
+
+    <button
+      class="menu-btn"
+      [class.active]="abaAtiva === 'enderecos'"
+      (click)="selecionarAba('enderecos')">
+      Endereços
+    </button>
+
+    <button class="menu-btn sair">
+      Sair
+    </button>
+
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <section class="content">
+
+    <!-- DADOS PESSOAIS -->
+    <div *ngIf="abaAtiva === 'dados'">
+
+      <h1>Dados Pessoais</h1>
+
+      <div class="card">
+
+        <div class="grid">
+
+          <div class="input-group">
+            <label>Nome</label>
+            <input type="text">
+          </div>
+
+          <div class="input-group">
+            <label>Sobrenome</label>
+            <input type="text">
+          </div>
+
+          <div class="input-group">
+            <label>E-mail</label>
+            <input type="email">
+          </div>
+
+          <div class="input-group">
+            <label>Gênero</label>
+            <input type="text">
+          </div>
+
+          <div class="input-group">
+            <label>CPF</label>
+            <input type="text">
+          </div>
+
+          <div class="input-group">
+            <label>Telefone</label>
+            <input type="text">
+          </div>
+
+          <div class="input-group full">
+            <label>Data de nascimento</label>
+            <input type="date">
+          </div>
+
+        </div>
+
+        <div class="footer">
+          <button class="editar-btn">
+            EDITAR
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PEDIDOS -->
+    <div *ngIf="abaAtiva === 'pedidos'">
+
+      <h1>Pedidos</h1>
+
+      <div class="card">
+        <p>Nenhum pedido encontrado.</p>
+      </div>
+
+    </div>
+
+    <!-- ENDEREÇOS -->
+    <div *ngIf="abaAtiva === 'enderecos'">
+
+      <h1>Endereços</h1>
+
+      <div class="card">
+        <p>Nenhum endereço cadastrado.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
