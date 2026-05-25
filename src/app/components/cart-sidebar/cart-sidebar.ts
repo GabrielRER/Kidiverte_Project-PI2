@@ -1,20 +1,17 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cart-sidebar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './cart-sidebar.html',
   styleUrl: './cart-sidebar.css',
 })
-
 export class CartSidebar {
-
   quantidade = 1;
   preco = 269.9;
 
-  sidebarAberta = true;
+  @Output() fechar = new EventEmitter<void>();
 
   aumentarQuantidade() {
     this.quantidade++;
@@ -27,15 +24,10 @@ export class CartSidebar {
   }
 
   fecharSidebar() {
-    this.sidebarAberta = false;
-  }
-
-  abrirSidebar() {
-    this.sidebarAberta = true;
+    this.fechar.emit();
   }
 
   get total() {
     return this.quantidade * this.preco;
   }
-
 }
