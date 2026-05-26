@@ -1,4 +1,3 @@
-#!/bin/sh
 . "$(dirname "$0")/husky.sh"
 
 # Captura os parâmetros do Git para saber o nome da branch de destino
