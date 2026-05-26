@@ -1,0 +1,113 @@
+<div class="pmt-container">
+  <div class="pmt-main-content">
+    
+    <div class="pmt-box pmt-delivery-box">
+      <div class="pmt-delivery-info">
+        <h3>Entrega para {{ shippingAddress.recipient }}</h3>
+        <p>{{ shippingAddress.street }} {{ shippingAddress.number }}, {{ shippingAddress.neighborhood }}, {{ shippingAddress.city }} - {{ shippingAddress.state }}, {{ shippingAddress.cep }}, {{ shippingAddress.country }}</p>
+      </div>
+      <button class="pmt-btn-link">alterar</button>
+    </div>
+
+    <div class="pmt-box pmt-payment-box">
+      <h2>Método de pagamento</h2>
+      
+      <div class="pmt-payment-options">
+        
+        <div class="pmt-method-group" [class.pmt-method-active]="paymentMethod === 'credit_card'">
+          <div class="pmt-method-header">
+            <label class="pmt-radio-container">
+              <input type="radio" name="pay-method" checked (change)="selectPayment('credit_card')">
+              <span class="pmt-checkmark"></span>
+              <strong>Seus cartões de crédito</strong>
+            </label>
+          </div>
+          <div class="pmt-method-body pmt-cc-body">
+            <button class="pmt-add-card">
+              <span class="pmt-icon-plus">+</span>
+              <span class="pmt-card-placeholder">💳</span>
+              <span class="pmt-add-text">Adicionar um cartão de crédito</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pmt-method-group" [class.pmt-method-active]="paymentMethod === 'pix'">
+          <div class="pmt-method-header">
+            <label class="pmt-radio-container">
+              <input type="radio" name="pay-method" (change)="selectPayment('pix')">
+              <span class="pmt-checkmark"></span>
+              <strong>Pix</strong>
+            </label>
+          </div>
+          <div class="pmt-method-body">
+            <p><span class="pmt-badge-icon">💠</span> O código Pix gerado para o pagamento é válido por 30 minutos após a finalização do pedido.</p>
+          </div>
+        </div>
+
+        <div class="pmt-method-group" [class.pmt-method-active]="paymentMethod === 'boleto'">
+          <div class="pmt-method-header">
+            <label class="pmt-radio-container">
+              <input type="radio" name="pay-method" (change)="selectPayment('boleto')">
+              <span class="pmt-checkmark"></span>
+              <strong>Boleto</strong>
+            </label>
+          </div>
+          <div class="pmt-method-body">
+            <p><span class="pmt-badge-icon">📋</span> O boleto gerado para o pagamento é válido por 7 dias após a finalização do pedido.</p>
+          </div>
+        </div>
+
+        <div class="pmt-method-group pmt-gift-group">
+          <div class="pmt-method-header">
+            <label class="pmt-radio-container-disabled">
+              <span class="pmt-icon-plus-gray">+</span>
+              <strong>Gift Card</strong>
+            </label>
+          </div>
+          <div class="pmt-method-body pmt-inline-form">
+            <input type="text" placeholder="Digitar código" class="pmt-input-gift">
+            <button class="pmt-btn-apply-gift">Aplicar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="pmt-sidebar">
+    
+    <div class="pmt-box-sidebar">
+      <h3>Cupom de desconto</h3>
+      <div class="pmt-coupon-field">
+        <input type="text" placeholder="Código" [(ngModel)]="couponCode" (keyup.enter)="applyCoupon()">
+        <button class="pmt-btn-arrow" (click)="applyCoupon()">›</button>
+      </div>
+    </div>
+
+    <div class="pmt-box-sidebar pmt-summary-box">
+      <h3>Resumo do pedido</h3>
+      
+      <div class="pmt-summary-rows">
+        <div class="pmt-summary-line">
+          <span>Subtotal</span>
+          <span>{{ formatPrice(subtotal) }}</span>
+        </div>
+        <div class="pmt-summary-line">
+          <span>Entrega</span>
+          <span>{{ shippingFee === 0 ? 'R$00,00' : formatPrice(shippingFee) }}</span>
+        </div>
+        <div class="pmt-summary-line pmt-discount-line" *ngIf="discountAmount > 0">
+          <span>Desconto</span>
+          <span>- {{ formatPrice(discountAmount) }}</span>
+        </div>
+        <div class="pmt-summary-line pmt-total-line">
+          <strong>Total</strong>
+          <strong class="pmt-total-price">{{ formatPrice(total) }}</strong>
+        </div>
+      </div>
+
+      <button class="pmt-btn-finalize" (click)="finishPurchase()">FINALIZAR COMPRA</button>
+    </div>
+
+  </div>
+</div>

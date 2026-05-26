@@ -10,6 +10,7 @@ import { ShippingCalculator } from './Components/shared/shipping-calculator/ship
 import { Footer } from './Components/footer/footer';
 import { routes } from './app.routes';
 import { StarRate } from './Components/shared/star-rate/star-rate';
+import { Payment } from './Components/payment/payment';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StarRate } from './Components/shared/star-rate/star-rate';
     Card,
     ShippingCalculator,
     Shopping,
-    StarRate
+    StarRate,
+    Payment,
   ],
   providers: []
 })
