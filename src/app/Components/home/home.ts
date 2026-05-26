@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ProductService, Product } from '../../services/product.service';
 import { Card } from '../shared/card/card';
