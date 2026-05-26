@@ -96,7 +96,7 @@ export class PlpComponent implements OnInit {
       return;
     }
 
-    // Filtra baseado nas propriedades exatas do seu db.json
+    // Filtra baseado nas propriedades exatas do db.json
     this.produtosFiltrados = this.produtos.filter(produto => {
       
       const passaCategoria = this.categoriasSelecionadas.length === 0 || 
