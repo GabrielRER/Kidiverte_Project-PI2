@@ -1,4 +1,4 @@
-. "$(dirname "$0")/husky.sh"
+
 
 # Captura os parâmetros do Git para saber o nome da branch de destino
 # $3 indica se foi uma mudança de branch (1) ou apenas um checkout de arquivo (0)
