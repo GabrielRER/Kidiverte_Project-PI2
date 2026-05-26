@@ -1,7 +1,6 @@
 .navbar-wrapper {
-  padding: 15px;
-  background-color: #ffffff;
-  font-family: sans-serif;
+  position: relative;
+  z-index: 100; 
 }
 
 
