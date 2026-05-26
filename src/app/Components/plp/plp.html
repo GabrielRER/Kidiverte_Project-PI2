@@ -1,1 +1,107 @@
-<p>plp works!</p>
+<div class="container">
+
+  <!-- FILTRO -->
+  <aside class="filtro">
+    <h2>Filtros</h2>
+
+    <div class="filtro-secao">
+      <h3>Categoria</h3>
+      <label><input type="checkbox"> Carrinhos</label>
+      <label><input type="checkbox"> Bonecas</label>
+      <label><input type="checkbox"> Colecionáveis</label>
+      <label><input type="checkbox"> Bebês</label>
+      <label><input type="checkbox"> Esportes</label>
+      <label><input type="checkbox"> Jogos</label>
+    </div>
+
+    <div class="filtro-secao">
+      <h3>Gênero</h3>
+      <label><input type="checkbox"> Masculino</label>
+      <label><input type="checkbox"> Feminino</label>
+      <label><input type="checkbox"> Unissex</label>
+    </div>
+
+    <div class="filtro-secao">
+      <h3>Idade</h3>
+      <label><input type="checkbox"> 2 a 3 anos</label>
+      <label><input type="checkbox"> 3 a 5 anos</label>
+      <label><input type="checkbox"> 5 a 7 anos</label>
+      <label><input type="checkbox"> 7 a 9 anos</label>
+      <label><input type="checkbox"> 9 a 12 anos</label>
+      <label><input type="checkbox"> 13+</label>
+      <label><input type="checkbox"> 18+</label>
+    </div>
+
+    <div class="filtro-secao">
+      <h3>Marca</h3>
+      <label><input type="checkbox"> Lego</label>
+      <label><input type="checkbox"> Hasbro</label>
+      <label><input type="checkbox"> Mattel</label>
+      <label><input type="checkbox"> Bandai</label>
+      <label><input type="checkbox"> Melissa & Doug</label>
+      <label><input type="checkbox"> Funko</label>
+      <label><input type="checkbox"> Pokémon</label>
+      <label><input type="checkbox"> Roblox</label>
+    </div>
+
+    <div class="filtro-secao">
+      <h3>Faixa de preço</h3>
+
+      <input
+        type="range"
+        min="5"
+        max="5000"
+        [value]="precoMax"
+        (input)="onPrecoChange($event)"
+      >
+
+      <p>R$ 5,00 - R$ {{ precoMax }}</p>
+    </div>
+
+    <div class="logo">
+      <img src="/Logos/logo_circular.png" alt="logo">
+    </div>
+  </aside>
+
+  
+  <main class="produtos">
+
+    <div class="grid">
+
+      <a
+        *ngFor="let prod of produtosFiltrados | slice:0:quantidadeVisivel"
+        [routerLink]="['/pdp', prod.id]"
+        class="card-link"
+      >
+        <div class="card">
+
+          <div class="card-img">
+            <img [src]="prod.img" [alt]="prod.nome">
+          </div>
+
+          <div class="card-info">
+            <h4>{{ prod.nome }}</h4>
+            <p>R$ {{ prod.preco }}</p>
+          </div>
+
+        </div>
+      </a>
+
+    </div>
+
+    
+    <p class="contador">
+      Mostrando {{ quantidadeVisivel > produtosFiltrados.length ? produtosFiltrados.length : quantidadeVisivel }}
+      de {{ produtosFiltrados.length }} itens
+    </p>
+
+    <button
+      *ngIf="quantidadeVisivel < produtosFiltrados.length"
+      (click)="verMais()"
+    >
+      mostrar mais
+    </button>
+
+  </main>
+
+</div>

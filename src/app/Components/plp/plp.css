@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  background: white;
+}
+
+/* FILTRO */
+.filtro {
+  width: 280px;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  height: fit-content;
+}
+
+.filtro h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.filtro-secao {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.filtro-secao h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.filtro label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* SLIDER BASE */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* TRILHO PREENCHIDO (fake visual) */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(to right, #8a5cf6, #8a5cf6);
+  border-radius: 5px;
+}
+
+/* BOLINHA */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #8a5cf6;
+  cursor: pointer;
+  margin-top: -5px;
+  border: none;
+}
+
+/* FIREFOX */
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: #ddd;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #8a5cf6;
+  border: none;
+}
+
+/* LOGO */
+.logo {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 140px;
+}
+
+/* PRODUTOS */
+.produtos {
+  flex: 1;
+  background: #cbb4f5;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMG */
+.card-img {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* INFO */
+.card-info h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 10px 0 5px;
+}
+
+.card-info p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* BOTÃO */
+button {
+  margin: 25px auto 10px;
+  display: block;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #5ec0e6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.contador {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #555;
+}
