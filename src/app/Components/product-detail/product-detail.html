@@ -230,7 +230,6 @@
              - [rating] recebe a nota atual (input)
              - (ratingChange) captura nova nota emitida pelo usuário (output) -->
         <app-star-rate
-          [productId]="product.id"
           [rating]="product.rating || 0"
           (ratingChange)="atualizarNotaProduto($event)">
         </app-star-rate>

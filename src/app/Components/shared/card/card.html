@@ -7,7 +7,7 @@
 
     <mat-card-content id="body-content">
       <div class="title-container">
-        <app-star-rate id="starRate" [productId]="product.id"></app-star-rate>
+        <app-star-rate id="starRate"></app-star-rate>
         
         <p [routerLink]="['/produto', product.id]" style="cursor: pointer;">
           {{product.name}}

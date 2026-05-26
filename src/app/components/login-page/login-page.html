@@ -2,8 +2,9 @@
   <div class="card">
     <img id="kidivertepet-logo" src="assets/login/kidivertepet.png" alt="Login Image" class="login-image">
 
+
     <section>
-      <form (ngSubmit)="onSubmit()">
+      <form>
         <div class="field">
           <label for="email">E-mail</label>
           <div class="input-wrap">
@@ -19,17 +20,14 @@
             <input type="password" id="senha" name="senha" [(ngModel)]="form.senha" placeholder="••••••••" />
           </div>
         </div>
-
-        <div *ngIf="erro" style="color: #d32f2f; font-size: 14px; margin-top: 10px; text-align: center;">
-          {{ erro }}
-        </div>
       </form>
       <p class="register-link-text">Ainda não tem uma conta?</p>
       <a class="register-link-text" href="/register">Cadastre-se</a>
 
-      <button class="login-button" mat-button type="submit" (click)="onSubmit()" [disabled]="carregando">
-        {{ carregando ? 'Carregando...' : 'Entrar' }}
-      </button>
+      <button class="login-button" mat-button type="submit">Entrar</button>
     </section>
+
   </div>
+
+
 </div>
