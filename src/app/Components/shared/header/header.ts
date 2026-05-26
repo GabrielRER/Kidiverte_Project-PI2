@@ -2,31 +2,39 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-// - Output: marca uma propriedade como saída do componente (evento para o pai)
-// - EventEmitter: objeto que dispara eventos customizados entre componentes
+import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-header',   // Tag usada para inserir o header: <app-header>
-  standalone: true,         // Componente independente, sem precisar de NgModule
-  imports: [CommonModule],  // Importar CommonModule para usar ngClass
+  selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header {
 
-  // @Output declara um evento que este componente filho pode emitir para o componente pai.
-  // O pai escuta com: <app-header (abrirCarrinho)="minhaFuncao()">
   @Output() abrirCarrinho = new EventEmitter<void>();
-  // EventEmitter<void> indica que o evento não carrega nenhum dado — é só um sinal
 
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    public authService: AuthService
+  ) {}
 
-  // Método chamado quando o usuário clica no ícone do carrinho no template
-  // Ele emite o evento 'abrirCarrinho' para que o componente pai
-  // saiba que deve abrir o sidebar do carrinho
   abrirCartSidebar() {
-    console.log('Botão clicado'); // Log de debug para confirmar o clique
-    this.abrirCarrinho.emit();    // Dispara o evento para o componente pai
+    console.log('Botão clicado');
+    this.abrirCarrinho.emit();
+  }
+
+  isLoginPage(): boolean {
+    return this.router.url === '/login';
+  }
+
+  navigateProfile(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/profile']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   isLoginPage(): boolean {
