@@ -139,7 +139,9 @@ ngOnInit(): void {
  
   addToCart(): void {
   if (this.product) {
-    this.cartService.adicionarItem(this.product);
+    for (let i = 0; i < this.quantity; i++) {
+      this.cartService.adicionarItem(this.product);
+    }
     this.addedToCart = true;
     setTimeout(() => (this.addedToCart = false), 2500);
   }
