@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, Product } from '../../services/product.service';
 
@@ -42,53 +42,35 @@ export class ProductDetail implements OnInit {
     5: '14+ anos'
   };
  
-  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private cdr: ChangeDetectorRef
+  ) {}
  
 ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.loading = true;
+      this.error = false;
 
-  this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
 
-    this.loading = true;
-    this.error = false;
-
-    const id = Number(params.get('id'));
-
-    console.log('ID da rota:', id);
-
-    this.productService.getProducts().subscribe({
-      next: (products) => {
-
-        console.log(
-          products.map(p => ({
-            id: p.id,
-            tipo: typeof p.id
-          }))
-        );
-
-        this.product = products.find(
-          p => Number(p.id) === id
-        ) || null;
-
-        console.log('Produto encontrado:', this.product);
-
-        this.loading = false;
-
-        if (!this.product) {
+      this.productService.getProducts().subscribe({
+        next: (products) => {
+          this.product = products.find(p => Number(p.id) === id) || null;
+          this.loading = false;
+          if (!this.product) this.error = true;
+          this.cdr.detectChanges(); 
+        },
+        error: (err) => {
+          console.error('Erro API:', err);
+          this.loading = false;
           this.error = true;
+          this.cdr.detectChanges(); 
         }
-      },
-
-      error: (err) => {
-        console.error('Erro API:', err);
-
-        this.loading = false;
-        this.error = true;
-      }
+      });
     });
-
-  });
-
-}
+  }
 
   get displayImages(): string[] {
     if (!this.product) return [];
