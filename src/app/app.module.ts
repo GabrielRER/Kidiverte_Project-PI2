@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     Card,
     ShippingCalculator,
     HttpClientModule,
+    RouterModule,
   ],
 
   providers: [
