@@ -5,6 +5,7 @@ import { Header } from './Components/shared/header/header';
 import { StarRate } from "./Components/shared/star-rate/star-rate";
 import { CartSidebar } from "./Components/cart-sidebar/cart-sidebar";
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Footer, Header, CartSidebar],
@@ -16,11 +17,7 @@ export class App {
 
   sidebarAberta = false;
 
-  abrirSidebar() {
-    this.sidebarAberta = true;
-  }
+  abrirSidebar() {this.sidebarAberta = true;}
 
-  fecharSidebar() {
-    this.sidebarAberta = false;
-  }
+  fecharSidebar() {this.sidebarAberta = false;}
 }

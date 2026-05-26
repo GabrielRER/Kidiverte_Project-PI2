@@ -1,9 +1,8 @@
-<p>Sidebar aberta: {{ sidebarAberta }}</p>
+<app-header (abrirCarrinho)="abrirSidebar()"></app-header>
 
 @if (sidebarAberta) {
-<app-cart-sidebar (fechar)="fecharSidebar()"></app-cart-sidebar>
+  <app-cart-sidebar (fechar)="fecharSidebar()"></app-cart-sidebar>
 }
-<app-header (abrirCarrinho)="abrirSidebar()"></app-header>
+
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-

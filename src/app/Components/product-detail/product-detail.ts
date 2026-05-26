@@ -1,3 +1,5 @@
+import { inject } from '@angular/core';
+import { CartService } from '../../services/cart.service'
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, Product } from '../../services/product.service';
@@ -17,6 +19,8 @@ export class ProductDetail implements OnInit {
   selectedImageIndex = 0;
   activeTab = 'description';
   addedToCart = false;
+
+  private cartService = inject(CartService);
  
   private categories: Record<number, string> = {
     1: 'Carrinhos',
@@ -134,9 +138,12 @@ ngOnInit(): void {
   }
  
   addToCart(): void {
+  if (this.product) {
+    this.cartService.adicionarItem(this.product);
     this.addedToCart = true;
     setTimeout(() => (this.addedToCart = false), 2500);
   }
+}
  
   formatPrice(value: number | null): string {
     if (value == null) return '-';

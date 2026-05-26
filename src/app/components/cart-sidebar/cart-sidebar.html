@@ -1,46 +1,53 @@
 <div class="overlay-carrinho">
   <div class="cart-sidebar">
     <div class="cart-header">
-      <h2>Meu Carrinho</h2>
+      <h2>Meu Carrinho ({{ cartService.totalItens() }})</h2>
       <button class="botao-fechar" (click)="fecharSidebar()">×</button>
     </div>
 
+      @if (cartService.itensCarrinho().length === 0) {
+      <div class="cart-vazio">
+        <p>Seu carrinho está vazio!</p>
+      </div>
+    }
+
     <div class="cart-produtos">
+       @for (item of cartService.itensCarrinho(); track item.product.id) {
       <div class="cart-produto">
         <img
-          src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg"
-          alt="Produto"
-          class="imagem-produto"
+          [src]="item.product.images && item.product.images.length > 0 ? item.product.images[0] : 'assets/placeholder.png'"
+            [alt]="item.product.name"
+            class="imagem-produto"
         />
 
         <div class="informacao-produto">
-          <h3>{{ produto.name }}</h3>
-          <p class="preco-produto"> R$ {{ produto.current_price.toFixed(2).replace('.',',') }}</p>
+          <h3>{{ item.product.name }}</h3>
+            <p class="preco-produto">{{ formatPrice(item.product.current_price) }}</p>
 
           <div class="controle-quantidade">
-            <button class="botao-mais-menos" (click)="diminuirQuantidade()">-</button>
-            <span class="botao-quantidade">{{ quantidade }}</span>
-            <button class="botao-mais-menos" (click)="aumentarQuantidade()">+</button>
+            <button class="botao-mais-menos" (click)="cartService.diminuirQuantidade(item.product.id)">-</button>
+              <span class="botao-quantidade">{{ item.quantidade }}</span>
+              <button class="botao-mais-menos" (click)="cartService.aumentarQuantidade(item.product.id)">+</button>
+            </div>
           </div>
+<button class="botao-remover" (click)="cartService.removerItem(item.product.id)">
+            <span class="material-symbols-outlined">delete</span>
+          </button>
         </div>
-
-        <button class="botao-remover">
-          <span class="material-symbols-outlined"> delete </span>
-        </button>
-      </div>
+  }
     </div>
     
 
     <div class="cart-footer">
       <div class="cart-total">
         <span>Total:</span>
-        <strong>R$ {{ (produto.current_price * quantidade).toFixed(2).replace('.', ',') }}
-</strong>
+        <strong>{{ formatPrice(cartService.totalPreco()) }}</strong>
       </div>
+
 
       <div class="cart-actions">
         <button class="botao-finalizar-compra">Finalizar compra</button>
-        <button class="botao-continuar-comprando">Continuar comprando</button>
+        <button class="botao-continuar-comprando" (click)="fecharSidebar()">Continuar comprando</button>
 
         <img src="/Logos/logo_retangular.png" alt="Logo Kidiverte" class="logo-kidiverte" />
       </div>

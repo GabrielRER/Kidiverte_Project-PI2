@@ -1,39 +1,25 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-sidebar',
   standalone: true,
-  imports: [],
+ 
   templateUrl: './cart-sidebar.html',
   styleUrl: './cart-sidebar.css',
 })
 export class CartSidebar {
-  quantidade = 1;
-  preco = 269.9;
-
   @Output() fechar = new EventEmitter<void>();
 
-  aumentarQuantidade() {
-    this.quantidade++;
-  }
+  cartService: CartService = inject(CartService);
 
-  diminuirQuantidade() {
-    if (this.quantidade > 1) {
-      this.quantidade--;
-    }
-  }
 
   fecharSidebar() {
     this.fechar.emit();
   }
 
-  get total() {
-    return this.quantidade * this.preco;
+  formatPrice(value: number): string {
+    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
-  
-  produto = {
-  name: 'Lego Minecraft Enderman',
-  current_price: 269.90,
-  thumbnail_url: null
-};
 }
