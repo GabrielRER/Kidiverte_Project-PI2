@@ -1,10 +1,14 @@
 <div class="container">
 
+  <!-- COLUNA DE FILTROS -->
   <aside class="filtro">
     <h2>Filtros</h2>
 
+    <!-- FILTRO DE CATEGORIA -->
     <div class="filtro-secao">
       <h3>Categoria</h3>
+
+      <!-- Cada checkbox adiciona/remove um ID no array de filtros -->
       <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(1)" (change)="toggleFiltro(categoriasSelecionadas, 1, $event)"> Carrinhos</label>
       <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(2)" (change)="toggleFiltro(categoriasSelecionadas, 2, $event)"> Blocos de Construção</label>
       <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(3)" (change)="toggleFiltro(categoriasSelecionadas, 3, $event)"> Bonecas</label>
@@ -14,6 +18,7 @@
       <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(7)" (change)="toggleFiltro(categoriasSelecionadas, 7, $event)"> Jogos de Tabuleiro e Cartas</label>
     </div>
 
+    <!-- FILTRO DE GÊNERO -->
     <div class="filtro-secao">
       <h3>Gênero</h3>
       <label><input type="checkbox" (change)="toggleFiltro(generosSelecionados, 1, $event)"> Masculino</label>
@@ -21,6 +26,7 @@
       <label><input type="checkbox" (change)="toggleFiltro(generosSelecionados, 3, $event)"> Unissex</label>
     </div>
 
+    <!-- FILTRO DE IDADE -->
     <div class="filtro-secao">
       <h3>Idade</h3>
       <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 1, $event)"> Baby (0 a 3 anos)</label>
@@ -32,6 +38,7 @@
       <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 7, $event)"> 18+ anos</label>
     </div>
 
+    <!-- FILTRO DE MARCA -->
     <div class="filtro-secao">
       <h3>Marca</h3>
       <label><input type="checkbox" [checked]="marcasSelecionadas.includes(1)" (change)="toggleFiltro(marcasSelecionadas, 1, $event)"> Lego</label>
@@ -45,8 +52,11 @@
       <label><input type="checkbox" [checked]="marcasSelecionadas.includes(9)" (change)="toggleFiltro(marcasSelecionadas, 9, $event)"> Candide</label>
     </div>
 
+    <!-- FILTRO DE PREÇO -->
     <div class="filtro-secao">
       <h3>Faixa de preço</h3>
+
+      <!-- Slider controla o valor máximo -->
       <input
         type="range"
         min="5"
@@ -54,32 +64,44 @@
         [value]="precoMax"
         (input)="onPrecoChange($event)"
       >
+
+      <!-- Exibição dinâmica do valor -->
       <p>R$ 5,00 - R$ {{ precoMax }}</p>
     </div>
 
+    <!-- LOGO DECORATIVA -->
     <div class="logo">
       <img src="/Logos/logo_circular.png" alt="logo">
     </div>
   </aside>
 
+  <!-- ÁREA DE PRODUTOS -->
   <main class="produtos">
+
+    <!-- GRID DE CARDS -->
     <div class="grid">
+
+      <!-- Renderiza produtos limitando pela quantidadeVisivel -->
       <div *ngFor="let prod of produtosFiltrados | slice:0:quantidadeVisivel">
         <app-card [product]="prod"></app-card>
       </div>
+
     </div>
 
+    <!-- CONTADOR DE ITENS EXIBIDOS -->
     <p class="contador">
       Mostrando {{ quantidadeVisivel > produtosFiltrados.length ? produtosFiltrados.length : quantidadeVisivel }}
       de {{ produtosFiltrados.length }} itens
     </p>
 
+    <!-- BOTÃO DE PAGINAÇÃO -->
     <button
       *ngIf="quantidadeVisivel < produtosFiltrados.length"
       (click)="verMais()"
     >
       mostrar mais
     </button>
+
   </main>
 
 </div>
