@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Captura os parâmetros do Git para saber o nome da branch de destino
+# $3 indica se foi uma mudança de branch (1) ou apenas um checkout de arquivo (0)
+if [ "$3" = "1" ]; then
+  CURRENT_BRANCH=$(git branch --show-current)
+  
+  # Se a branch atual for a main, roda o instalador
+  if [ "$CURRENT_BRANCH" = "main" ]; then
+    echo "🔄 Branch main detectada! Atualizando dependências de forma automática..."
+    npm install
+  fi
+fi
