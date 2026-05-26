@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from './Components/home/home';
+<<<<<<< HEAD
 import { Card } from './Components/shared/card/card';
 import { ProductDetail } from './Components/product-detail/product-detail';
 import { Shopping } from './Components/shopping/shopping';
@@ -10,4 +11,10 @@ export const routes: Routes = [
   { path: 'card', component: Card },
   { path: 'produto/:id', component: ProductDetail },
   { path: 'carrinho', component: Shopping },
+=======
+
+export const routes: Routes = [
+  { path: '', component: Home },
+  { path: 'home', component: Home }
+>>>>>>> cartsidebar
 ];

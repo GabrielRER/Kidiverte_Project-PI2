@@ -1,0 +1,5 @@
+<app-header (abrirCarrinho)="abrirSidebar()"></app-header>
+
+@if (sidebarAberta) {
+  <app-cart-sidebar (fechar)="fecharSidebar()"></app-cart-sidebar>
+}
