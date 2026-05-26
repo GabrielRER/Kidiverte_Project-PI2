@@ -1,8 +1,8 @@
 <!-- Wrapper externo: fornece o fundo branco e o padding ao redor da navbar -->
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" [ngClass]="{ 'login-page': isLoginPage() }">
 
   <!-- Barra de navegação principal: layout flex com 3 seções (logo | busca | ícones) -->
-  <nav class="navbar-container">
+  <nav class="navbar-container" [ngClass]="{ 'login-page': isLoginPage() }">
 
     <!-- ===== SEÇÃO ESQUERDA: Logo da marca ===== -->
     <div class="left-section">
