@@ -15,6 +15,10 @@ export const routes: Routes = [
   { path: 'shopping', component: Shopping },
   { path: '', component: PlpComponent},
   {path: 'pdp/:id', loadComponent: () =>
-      import('./Components/plp/plp').then(m => m.PlpComponent)}
+      import('./Components/plp/plp').then(m => m.PlpComponent)},
+  { path: 'carrinho', component: Shopping },
+  { path: 'plp', component: PlpComponent },
+  { path: 'pdp/:id', component: ProductDetail },
+  { path: 'produto/:id', component: ProductDetail }
 
-]
+];

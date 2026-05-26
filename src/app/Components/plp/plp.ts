@@ -1,79 +1,119 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService, Product } from '../../services/product.service';
+import { Card } from '../shared/card/card';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
-type Produto = {
-  id: number;
-  nome: string;
-  preco: number;
-  img: string;
-};
 
 @Component({
   selector: 'app-plp',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, Card],
   templateUrl: './plp.html',
-  styleUrls: ['./plp.css']
+  styleUrl: './plp.css'
 })
 export class PlpComponent implements OnInit {
+  produtos: Product[] = [];
+  produtosFiltrados: Product[] = [];
+  quantidadeVisivel: number = 9; 
+  precoMax: number = 1000;
 
-  produtos: Produto[] = [];
-  produtosFiltrados: Produto[] = [];
+  categoriasSelecionadas: number[] = [];
+  generosSelecionados: number[] = [];
+  idadesSelecionadas: number[] = [];
+  marcasSelecionadas: number[] = [];
 
-  quantidadeVisivel: number = 12;
-  precoMax: number = 5000;
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.gerarProdutos();
-    this.aplicarFiltro();
-  }
+    this.productService.getProducts().subscribe({
+      next: (dados) => {
+        this.produtos = dados;
 
-  gerarProdutos(): void {
-    const base: Produto[] = [
-      {
-        id: 1,
-        nome: 'Carrinho Hot Wheels',
-        preco: 30,
-        img: 'https://via.placeholder.com/150'
+        this.route.queryParams.subscribe(params => {
+          this.categoriasSelecionadas = [];
+          this.marcasSelecionadas = [];
+
+          if (params['categoria']) {
+            this.categoriasSelecionadas.push(Number(params['categoria']));
+          }
+
+          if (params['marca']) {
+            const mapaMarcas: { [key: string]: number } = {
+              'Lego': 1, 'Hasbro': 2, 'Mattel': 3, 'Bandai': 4, 
+              'Melissa & Doug': 5, 'Funko': 6, 'Pokémon': 7, 'Roblox': 8, 'Candide': 9
+            };
+            
+            const idMarca = mapaMarcas[params['marca']];
+            if (idMarca) {
+              this.marcasSelecionadas.push(idMarca);
+            }
+          }
+
+          this.aplicarFiltros(); 
+          this.cdr.detectChanges(); 
+        });
       },
-      {
-        id: 2,
-        nome: 'Lego Minecraft',
-        preco: 280,
-        img: 'https://via.placeholder.com/150'
-      }
-    ];
-
-    this.produtos = [...base];
-
-    while (this.produtos.length < 38) {
-      const copia = this.produtos.map((p, index) => ({
-        ...p,
-        id: this.produtos.length + index + 1
-      }));
-      this.produtos.push(...copia);
-    }
-
-    this.produtos = this.produtos.slice(0, 38);
+      error: (err) => console.error('Erro ao buscar produtos:', err)
+    });
   }
 
-  aplicarFiltro(): void {
-    this.produtosFiltrados = this.produtos.filter(
-      p => p.preco <= this.precoMax
-    );
+  toggleFiltro(lista: any[], valor: any, event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+    if (checkbox.checked) {
+      lista.push(valor);
+    } else {
+      const index = lista.indexOf(valor);
+      if (index > -1) {
+        lista.splice(index, 1);
+      }
+    }
+    this.aplicarFiltros();
+  }
+
+  onPrecoChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.precoMax = Number(input.value);
+    this.aplicarFiltros();
   }
 
   verMais(): void {
-    this.quantidadeVisivel += 12;
+    this.quantidadeVisivel += 9;
   }
 
- onPrecoChange(event: Event): void {
-  const value = (event.target as HTMLInputElement).value;
-  this.precoMax = Number(value);
+  aplicarFiltros(): void {
+    // Se não tiver nenhum filtro selecionado, exibe tudo
+    if (
+      this.categoriasSelecionadas.length === 0 &&
+      this.marcasSelecionadas.length === 0 &&
+      this.idadesSelecionadas.length === 0 &&
+      this.generosSelecionados.length === 0
+    ) {
+      this.produtosFiltrados = [...this.produtos];
+      return;
+    }
 
-  this.quantidadeVisivel = 12; // mantém comportamento correto
+    // Filtra baseado nas propriedades exatas do seu db.json
+    this.produtosFiltrados = this.produtos.filter(produto => {
+      
+      const passaCategoria = this.categoriasSelecionadas.length === 0 || 
+                             this.categoriasSelecionadas.includes(produto.category_id);
 
-  this.aplicarFiltro();
-}
+      const passaGenero = this.generosSelecionados.length === 0 || 
+                          this.generosSelecionados.includes(produto.gender_id);
+
+      const passaIdade = this.idadesSelecionadas.length === 0 || 
+                         this.idadesSelecionadas.includes(produto.age_range_id);
+
+      const passaMarca = this.marcasSelecionadas.length === 0 || 
+                         this.marcasSelecionadas.includes(produto.brand_id);
+
+      const passaPreco = produto.current_price <= this.precoMax;
+
+      return passaCategoria && passaGenero && passaIdade && passaMarca && passaPreco;
+    });
+  }
 }
