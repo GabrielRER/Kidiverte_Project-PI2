@@ -7,6 +7,10 @@
   font-family: sans-serif;
 }
 
+.navbar-wrapper.login-page {
+  background-color: #d0c0ff;
+}
+
 
 /* ===== NAVBAR PRINCIPAL ===== */
 
@@ -25,6 +29,11 @@
   max-width: 1200px;                        /* Limita a largura em telas grandes */
   margin: 0 auto;                           /* Centraliza horizontalmente */
   gap: 20px;                               /* Espaço entre as seções */
+}
+
+.navbar-container.login-page {
+  background-color: #d0c0ff;
+  border: 1px solid #c9b5e6;
 }
 
 
