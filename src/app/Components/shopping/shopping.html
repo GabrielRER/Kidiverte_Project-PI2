@@ -1,9 +1,7 @@
 <div class="sh-page">
 
-  <!-- ── Coluna esquerda: itens ── -->
   <div class="sh-items-col">
 
-    <!-- Carrinho vazio -->
     <div class="sh-empty" *ngIf="carrinhoVazio">
       <div class="sh-empty-icon">🛒</div>
       <h2>Seu carrinho está vazio</h2>
@@ -11,24 +9,24 @@
       <button class="sh-btn-continue" (click)="continuarComprando()">Continuar comprando</button>
     </div>
 
-    <!-- Cards de produto -->
-    <div class="sh-card" *ngFor="let item of itensCarrinho">
-      <img class="sh-card-img" [src]="imagemProduto(item)" [alt]="item.produto.name"
+    <div class="sh-card" *ngFor="let item of cartService.itensCarrinho()">
+      <img class="sh-card-img" [src]="imagemProduto(item)" [alt]="item.product.name"
            (error)="$any($event.target).src='assets/placeholder.png'" />
 
       <div class="sh-card-info">
-        <h3 class="sh-card-name">{{ item.produto.name }}</h3>
-        <p class="sh-card-price">{{ formatarMoeda(item.produto.current_price) }}</p>
+        <h3 class="sh-card-name">{{ item.product.name }}</h3>
+        <p class="sh-card-price">{{ formatarMoeda(item.product.current_price) }}</p>
       </div>
 
       <div class="sh-card-actions">
         <div class="sh-qty">
-          <button class="sh-qty-btn" (click)="diminuir(item)" [disabled]="item.quantidade <= 1">−</button>
+          <button class="sh-qty-btn" (click)="cartService.diminuirQuantidade(item.product.id)" [disabled]="item.quantidade <= 1">−</button>
           <span class="sh-qty-val">{{ item.quantidade }}</span>
-          <button class="sh-qty-btn" (click)="aumentar(item)" [disabled]="item.quantidade >= item.produto.stock">+</button>
+          <button class="sh-qty-btn" (click)="cartService.aumentarQuantidade(item.product.id)" [disabled]="item.quantidade >= item.product.stock">+</button>
         </div>
-        <span class="sh-card-subtotal">{{ formatarMoeda(item.produto.current_price * item.quantidade) }}</span>
-        <button class="sh-remove-btn" (click)="remover(item)" title="Remover">
+        <span class="sh-card-subtotal">{{ formatarMoeda(item.product.current_price * item.quantidade) }}</span>
+        
+        <button class="sh-remove-btn" (click)="cartService.removerItem(item.product.id)" title="Remover">
           <span class="material-symbols-outlined">delete</span>
         </button>
       </div>
@@ -43,7 +41,7 @@
     <div class="sh-box">
       <h3 class="sh-box-title">🚚 Calcular o frete</h3>
       <p class="sh-frete-label">
-        Receber {{ itensCarrinho.length }} {{ itensCarrinho.length === 1 ? 'item' : 'itens' }} em
+        Receber {{ cartService.totalItens() }} {{ cartService.totalItens() === 1 ? 'item' : 'itens' }} em
         <span class="sh-cep-span">{{ cepAtual || '00000-000' }}</span>
       </p>
       <div class="sh-cep-row">
@@ -71,7 +69,7 @@
           </span>
         </div>
       </div>
-      <!-- Placeholder se não calculou ainda -->
+      
       <div class="sh-frete-opcao sh-frete-placeholder" *ngIf="opcoesFreteDisponiveis.length === 0 && !erroFrete">
         <div class="sh-frete-left">
           <div>
