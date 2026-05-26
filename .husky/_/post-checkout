@@ -11,3 +11,4 @@ if [ "$3" = "1" ]; then
     npm install
   fi
 fi
+
