@@ -85,34 +85,29 @@ export class PlpComponent implements OnInit {
   }
 
   aplicarFiltros(): void {
-    // Se não tiver nenhum filtro selecionado, exibe tudo
-    if (
-      this.categoriasSelecionadas.length === 0 &&
-      this.marcasSelecionadas.length === 0 &&
-      this.idadesSelecionadas.length === 0 &&
-      this.generosSelecionados.length === 0
-    ) {
-      this.produtosFiltrados = [...this.produtos];
-      return;
-    }
-
-    // Filtra baseado nas propriedades exatas do db.json
+    
     this.produtosFiltrados = this.produtos.filter(produto => {
+      
       
       const passaCategoria = this.categoriasSelecionadas.length === 0 || 
                              this.categoriasSelecionadas.includes(produto.category_id);
 
+      
       const passaGenero = this.generosSelecionados.length === 0 || 
                           this.generosSelecionados.includes(produto.gender_id);
 
+      
       const passaIdade = this.idadesSelecionadas.length === 0 || 
                          this.idadesSelecionadas.includes(produto.age_range_id);
 
+      
       const passaMarca = this.marcasSelecionadas.length === 0 || 
                          this.marcasSelecionadas.includes(produto.brand_id);
 
+      
       const passaPreco = produto.current_price <= this.precoMax;
 
+      
       return passaCategoria && passaGenero && passaIdade && passaMarca && passaPreco;
     });
   }
