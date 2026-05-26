@@ -9,6 +9,7 @@ import { Shopping } from './Components/shopping/shopping';
 import { ShippingCalculator } from './Components/shared/shipping-calculator/shipping-calculator';
 import { Footer } from './Components/footer/footer';
 import { routes } from './app.routes';
+import { StarRate } from './Components/shared/star-rate/star-rate';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { routes } from './app.routes';
     Card,
     ShippingCalculator,
     Shopping,
+    StarRate
   ],
   providers: []
 })

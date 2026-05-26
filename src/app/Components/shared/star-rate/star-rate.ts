@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core'; 
 import { MatIconModule } from '@angular/material/icon';
-
 
 @Component({
   selector: 'app-star-rate',
@@ -9,17 +8,20 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './star-rate.css',
 })
 export class StarRate {
-
   stars: number[] = [1, 2, 3, 4, 5];
-  currentRating: number = 0;
+  
+  @Input() rating: number = 0;
+  
+  @Output() ratingChange = new EventEmitter<number>(); 
+
   hoverRating: number = 0;
 
   setRating(rating: number): void {
-    this.currentRating = rating;
+    this.rating = rating;
+    this.ratingChange.emit(this.rating); 
   }
 
   setHover(rating: number): void {
-    console.log('Hovering over star: ', rating);
     this.hoverRating = rating;
   }
 

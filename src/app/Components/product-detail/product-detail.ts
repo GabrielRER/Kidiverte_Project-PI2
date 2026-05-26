@@ -3,7 +3,6 @@ import { CartService } from '../../services/cart.service'
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, Product } from '../../services/product.service';
-import { ShippingCalculator } from '../shared/shipping-calculator/shipping-calculator';
 
  
 @Component({
@@ -150,4 +149,10 @@ ngOnInit(): void {
     if (value == null) return '-';
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
+
+  atualizarNotaProduto(novaNota: number): void {
+  if (this.product) {
+    this.product.rating = novaNota;
+  }
+ }
 }

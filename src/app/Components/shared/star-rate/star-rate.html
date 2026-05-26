@@ -3,7 +3,7 @@
         <mat-icon class="star" 
         (click)="setRating(i + 1)" 
         (mouseenter)="setHover(i + 1);"
-        [class.filled]="star <= (hoverRating || currentRating)">star
+        [class.filled]="star <= (hoverRating || rating)">star
         </mat-icon>
     }
 </div>
