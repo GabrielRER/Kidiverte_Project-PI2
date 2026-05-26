@@ -1,0 +1,272 @@
+/* Container Geral da Página */
+.pmt-container {
+  display: flex;
+  gap: 24px;
+  padding: 30px;
+  background-color: #D3C7FB; 
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+
+.pmt-main-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pmt-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 320px;
+}
+
+
+.pmt-box {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pmt-delivery-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.pmt-delivery-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.pmt-delivery-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #4A4A4A;
+}
+
+.pmt-btn-link {
+  background: none;
+  border: none;
+  color: #7C3AED;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+.pmt-payment-box {
+  border: 2px solid #3B82F6; 
+}
+
+.pmt-payment-box h2 {
+  margin: 0 0 24px 0;
+  font-size: 22px;
+  color: #000000;
+}
+
+
+.pmt-method-group {
+  border-bottom: 1px solid #E5E7EB;
+  padding: 16px 0;
+}
+
+.pmt-method-group:last-child {
+  border-bottom: none;
+}
+
+.pmt-method-header {
+  margin-bottom: 8px;
+}
+
+.pmt-method-body {
+  padding-left: 28px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.pmt-method-body p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.pmt-radio-container, .pmt-radio-container-disabled {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.pmt-cc-body {
+  padding-top: 10px;
+}
+
+.pmt-add-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pmt-icon-plus {
+  color: #9CA3AF;
+  font-size: 20px;
+}
+
+.pmt-icon-plus-gray {
+  color: #9CA3AF;
+  font-size: 18px;
+  margin-right: 4px;
+}
+
+.pmt-card-placeholder {
+  font-size: 24px;
+}
+
+.pmt-add-text {
+  color: #7C3AED;
+  font-size: 14px;
+}
+
+
+.pmt-gift-group .pmt-method-body {
+  padding-top: 12px;
+}
+
+.pmt-inline-form {
+  display: flex;
+  gap: 10px;
+}
+
+.pmt-input-gift {
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background: #F9FAFB;
+  width: 180px;
+}
+
+.pmt-btn-apply-gift {
+  background: #F3F4F6;
+  border: 1px solid #D1D5DB;
+  border-radius: 20px;
+  padding: 6px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #374151;
+}
+
+
+.pmt-badge-icon {
+  font-size: 18px;
+}
+
+
+.pmt-box-sidebar {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pmt-box-sidebar h3 {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+.pmt-coupon-field {
+  display: flex;
+  position: relative;
+}
+
+.pmt-coupon-field input {
+  width: 100%;
+  padding: 10px 40px 10px 14px;
+  border: 1px solid #D1D5DB;
+  border-radius: 20px;
+  background: #F9FAFB;
+  font-size: 14px;
+  outline: none;
+}
+
+.pmt-btn-arrow {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #7C3AED;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-bottom: 2px;
+}
+
+
+.pmt-summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.pmt-summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #000000;
+}
+
+.pmt-total-line {
+  border-top: 1px solid #F3F4F6;
+  padding-top: 14px;
+  font-size: 16px;
+}
+
+.pmt-total-price {
+  color: #7C3AED;
+}
+
+
+.pmt-btn-finalize {
+  width: 100%;
+  background: #7C3AED;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+
+.pmt-btn-finalize:hover {
+  background: #6D28D9;
+}
