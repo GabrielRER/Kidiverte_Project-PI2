@@ -1,8 +1,8 @@
 <!-- Wrapper externo: fornece o fundo branco e o padding ao redor da navbar -->
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" [ngClass]="{ 'login-page': isLoginPage() }">
 
   <!-- Barra de navegação principal: layout flex com 3 seções (logo | busca | ícones) -->
-  <nav class="navbar-container">
+  <nav class="navbar-container" [ngClass]="{ 'login-page': isLoginPage() }">
 
     <!-- ===== SEÇÃO ESQUERDA: Logo da marca ===== -->
     <div class="left-section">
@@ -34,7 +34,7 @@
     <div class="right-section">
 
       <!-- Botão de perfil do usuário (funcionalidade futura) -->
-      <button class="icon-btn" aria-label="Perfil do Usuário">
+      <button class="icon-btn" aria-label="Perfil do Usuário" (click)="navigateProfile()">
         <!-- Ícone SVG de pessoa: silhueta de usuário desenhada inline -->
         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
              viewBox="0 0 24 24" fill="none" stroke="currentColor"

@@ -1,124 +1,102 @@
 <div class="container">
 
-  <!-- MENU LATERAL -->
   <aside class="sidebar">
-
     <div class="perfil">
       <div class="icone">
         <span>👤</span>
       </div>
-
-      <h2>Olá!</h2>
+      <h2>Olá, {{ usuario?.name }}!</h2>
     </div>
 
-    <button
-      class="menu-btn"
-      [class.active]="abaAtiva === 'dados'"
-      (click)="selecionarAba('dados')">
+    <button class="menu-btn" [class.active]="abaAtiva === 'dados'" (click)="selecionarAba('dados')">
       Dados Pessoais
     </button>
-
-    <button
-      class="menu-btn"
-      [class.active]="abaAtiva === 'pedidos'"
-      (click)="selecionarAba('pedidos')">
+    <button class="menu-btn" [class.active]="abaAtiva === 'pedidos'" (click)="selecionarAba('pedidos')">
       Pedidos
     </button>
-
-    <button
-      class="menu-btn"
-      [class.active]="abaAtiva === 'enderecos'"
-      (click)="selecionarAba('enderecos')">
+    <button class="menu-btn" [class.active]="abaAtiva === 'enderecos'" (click)="selecionarAba('enderecos')">
       Endereços
     </button>
-
-    <button class="menu-btn sair">
+    <button class="menu-btn sair" (click)="logout()">
       Sair
     </button>
-
   </aside>
 
-  <!-- CONTEÚDO -->
   <section class="content">
-
-    <!-- DADOS PESSOAIS -->
     <div *ngIf="abaAtiva === 'dados'">
-
       <h1>Dados Pessoais</h1>
 
       <div class="card">
+        <div *ngIf="sucesso" style="color: #4caf50; margin-bottom: 15px; text-align: center; font-weight: 500;">
+          {{ sucesso }}
+        </div>
+        <div *ngIf="erro" style="color: #d32f2f; margin-bottom: 15px; text-align: center; font-weight: 500;">
+          {{ erro }}
+        </div>
 
         <div class="grid">
-
           <div class="input-group">
             <label>Nome</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="usuario!.name" [disabled]="!editando">
           </div>
-
           <div class="input-group">
             <label>Sobrenome</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="usuario!.surname" [disabled]="!editando">
           </div>
-
           <div class="input-group">
             <label>E-mail</label>
-            <input type="email">
+            <input type="email" [(ngModel)]="usuario!.email" [disabled]="!editando">
           </div>
-
           <div class="input-group">
             <label>Gênero</label>
-            <input type="text">
+            <select [(ngModel)]="usuario!.gender" [disabled]="!editando">
+              <option value="">Selecione</option>
+              <option *ngFor="let g of generos" [value]="g">{{ g }}</option>
+            </select>
           </div>
-
           <div class="input-group">
             <label>CPF</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="usuario!.cpf" (input)="maskCPF($event)" [disabled]="!editando">
           </div>
-
           <div class="input-group">
             <label>Telefone</label>
-            <input type="text">
+            <input type="tel" [(ngModel)]="usuario!.phone" (input)="maskPhone($event)" [disabled]="!editando">
           </div>
-
           <div class="input-group full">
             <label>Data de nascimento</label>
-            <input type="date">
+            <input type="date" [(ngModel)]="usuario!.birthDate" [disabled]="!editando">
           </div>
-
         </div>
 
         <div class="footer">
-          <button class="editar-btn">
+          <button *ngIf="!editando" class="editar-btn" (click)="toggleEdicao()">
             EDITAR
           </button>
+          <div *ngIf="editando" style="display: flex; gap: 10px;">
+            <button class="editar-btn" (click)="salvarDados()" [disabled]="carregando">
+              {{ carregando ? 'Salvando...' : 'SALVAR' }}
+            </button>
+            <button class="editar-btn" style="background-color: #888;" (click)="toggleEdicao()">
+              CANCELAR
+            </button>
+          </div>
         </div>
-
       </div>
-
     </div>
 
-    <!-- PEDIDOS -->
     <div *ngIf="abaAtiva === 'pedidos'">
-
       <h1>Pedidos</h1>
-
       <div class="card">
         <p>Nenhum pedido encontrado.</p>
       </div>
-
     </div>
 
-    <!-- ENDEREÇOS -->
     <div *ngIf="abaAtiva === 'enderecos'">
-
       <h1>Endereços</h1>
-
       <div class="card">
         <p>Nenhum endereço cadastrado.</p>
       </div>
-
     </div>
-
   </section>
 
 </div>

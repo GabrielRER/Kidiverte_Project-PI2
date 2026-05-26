@@ -85,14 +85,18 @@
 
       </div>
 
+      <div *ngIf="erro" style="color: #d32f2f; font-size: 14px; margin: 15px 0; text-align: center;">
+        {{ erro }}
+      </div>
+
       <div class="divider"></div>
 
       <div class="btn-wrap">
-        <button type="submit" [class.saved]="saved">
-          <mat-icon *ngIf="!saved">save</mat-icon>
+        <button type="submit" [class.saved]="saved" [disabled]="carregando">
+          <mat-icon *ngIf="!saved && !carregando">save</mat-icon>
           <mat-icon *ngIf="saved">check_circle</mat-icon>
 
-          {{ saved ? '✓ Cadastro salvo!' : 'Salvar cadastro' }}
+          {{ carregando ? 'Cadastrando...' : (saved ? '✓ Cadastro salvo!' : 'Salvar cadastro') }}
         </button>
       </div>
 

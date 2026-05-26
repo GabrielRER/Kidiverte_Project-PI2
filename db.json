@@ -950,5 +950,29 @@
       "height": 6,
       "length": 40
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Gabriel",
+      "surname": "Ramos",
+      "email": "gabriel@example.com",
+      "password": "senha123",
+      "gender": "Masculino",
+      "cpf": "123.456.789-00",
+      "phone": "(11) 99999-9999",
+      "birthDate": "1990-01-15",
+      "createdAt": "2025-01-01T10:00:00Z"
+    }
+  ],
+  "ratings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "productId": 1,
+      "rating": 5,
+      "comment": "Ótimo produto!",
+      "createdAt": "2025-01-15T14:30:00Z"
+    }
   ]
 }
