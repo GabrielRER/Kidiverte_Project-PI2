@@ -36,4 +36,8 @@ export class Header {
       this.router.navigate(['/login']);
     }
   }
+
+  isLoginPage(): boolean {
+    return this.router.url === '/login';
+  }
 }

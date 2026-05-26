@@ -12,11 +12,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './plp.css'
 })
 export class PlpComponent implements OnInit {
+
+  // Lista completa de produtos vindos do serviço
   produtos: Product[] = [];
+
+  // Lista após aplicação dos filtros
   produtosFiltrados: Product[] = [];
+
+  // Controla quantos produtos aparecem na tela
   quantidadeVisivel: number = 9; 
+
+  // Valor máximo do slider de preço
   precoMax: number = 1000;
 
+  // Arrays que guardam os filtros selecionados
   categoriasSelecionadas: number[] = [];
   generosSelecionados: number[] = [];
   idadesSelecionadas: number[] = [];
@@ -29,18 +38,25 @@ export class PlpComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    // Busca os produtos do backend
     this.productService.getProducts().subscribe({
       next: (dados) => {
         this.produtos = dados;
 
+        // Observa mudanças na URL (query params)
         this.route.queryParams.subscribe(params => {
+
+          // Reseta os filtros antes de aplicar novos
           this.categoriasSelecionadas = [];
           this.marcasSelecionadas = [];
 
+          // Se vier categoria na URL, adiciona no filtro
           if (params['categoria']) {
             this.categoriasSelecionadas.push(Number(params['categoria']));
           }
 
+          // Converte nome da marca (URL) para ID interno
           if (params['marca']) {
             const mapaMarcas: { [key: string]: number } = {
               'Lego': 1, 'Hasbro': 2, 'Mattel': 3, 'Bandai': 4, 
@@ -53,7 +69,10 @@ export class PlpComponent implements OnInit {
             }
           }
 
+          // Aplica os filtros após leitura dos parâmetros
           this.aplicarFiltros(); 
+
+          // Força atualização da tela (garante sincronização)
           this.cdr.detectChanges(); 
         });
       },
