@@ -1,79 +1,95 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-type Produto = {
-  id: number;
-  nome: string;
-  preco: number;
-  img: string;
-};
+import { Card } from '../shared/card/card'; 
+import { ProductService, Product } from '../../services/product.service';
 
 @Component({
   selector: 'app-plp',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, Card], 
   templateUrl: './plp.html',
   styleUrls: ['./plp.css']
 })
 export class PlpComponent implements OnInit {
 
-  produtos: Produto[] = [];
-  produtosFiltrados: Produto[] = [];
+  produtos: Product[] = [];
+  produtosFiltrados: Product[] = [];
 
   quantidadeVisivel: number = 12;
   precoMax: number = 5000;
 
+  categoriasSelecionadas: number[] = [];
+  generosSelecionados: number[] = [];
+  idadesSelecionadas: number[] = [];  
+  marcasSelecionadas: number[] = [];  
+
+  constructor(private productService: ProductService) {}
+
   ngOnInit(): void {
-    this.gerarProdutos();
+    this.carregarProdutosReais();
+  }
+
+  carregarProdutosReais(): void {
+    this.productService.getProducts().subscribe({
+      next: (dados) => {
+        this.produtos = dados;
+        this.aplicarFiltro();
+      },
+      error: (err) => {
+        console.error('Erro ao buscar produtos do servidor:', err);
+      }
+    });
+  }
+
+  toggleFiltro(lista: number[], id: number, event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+    
+    if (checkbox.checked) {
+      lista.push(id);
+    } else {
+      const index = lista.indexOf(id);
+      if (index > -1) lista.splice(index, 1);
+    }
+
+    this.quantidadeVisivel = 12;
     this.aplicarFiltro();
   }
 
-  gerarProdutos(): void {
-    const base: Produto[] = [
-      {
-        id: 1,
-        nome: 'Carrinho Hot Wheels',
-        preco: 30,
-        img: 'https://via.placeholder.com/150'
-      },
-      {
-        id: 2,
-        nome: 'Lego Minecraft',
-        preco: 280,
-        img: 'https://via.placeholder.com/150'
-      }
-    ];
-
-    this.produtos = [...base];
-
-    while (this.produtos.length < 38) {
-      const copia = this.produtos.map((p, index) => ({
-        ...p,
-        id: this.produtos.length + index + 1
-      }));
-      this.produtos.push(...copia);
-    }
-
-    this.produtos = this.produtos.slice(0, 38);
-  }
-
   aplicarFiltro(): void {
-    this.produtosFiltrados = this.produtos.filter(
-      p => p.preco <= this.precoMax
-    );
+    this.produtosFiltrados = this.produtos.filter(p => {
+      // 1. Filtro de Preço
+      const batePreco = p.current_price <= this.precoMax;
+
+      // 2. Filtro de Categoria
+      const bateCategoria = this.categoriasSelecionadas.length === 0 || 
+                             this.categoriasSelecionadas.includes(p.category_id);
+
+      // 3. Filtro de Gênero
+      const bateGenero = this.generosSelecionados.length === 0 || 
+                          this.generosSelecionados.includes(p.gender_id);
+
+      // 4. Filtro de Idade
+      const bateIdade = this.idadesSelecionadas.length === 0 || 
+                        this.idadesSelecionadas.includes(p.age_range_id);
+
+      // 5. Filtro de Marca
+      const bateMarca = this.marcasSelecionadas.length === 0 || 
+                        this.marcasSelecionadas.includes(p.brand_id);
+
+      // O produto passará em todos os filtros ativos
+      return batePreco && bateCategoria && bateGenero && bateIdade && bateMarca;
+    });
   }
 
   verMais(): void {
     this.quantidadeVisivel += 12;
   }
 
- onPrecoChange(event: Event): void {
-  const value = (event.target as HTMLInputElement).value;
-  this.precoMax = Number(value);
-
-  this.quantidadeVisivel = 12; // mantém comportamento correto
-
-  this.aplicarFiltro();
-}
+  onPrecoChange(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.precoMax = Number(value);
+    this.quantidadeVisivel = 12;
+    this.aplicarFiltro();
+  }
 }

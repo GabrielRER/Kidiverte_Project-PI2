@@ -1,47 +1,46 @@
 <div class="container">
 
-  <!-- FILTRO -->
   <aside class="filtro">
     <h2>Filtros</h2>
 
     <div class="filtro-secao">
       <h3>Categoria</h3>
-      <label><input type="checkbox"> Carrinhos</label>
-      <label><input type="checkbox"> Bonecas</label>
-      <label><input type="checkbox"> Colecionáveis</label>
-      <label><input type="checkbox"> Bebês</label>
-      <label><input type="checkbox"> Esportes</label>
-      <label><input type="checkbox"> Jogos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 1, $event)"> Carrinhos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 2, $event)"> Bonecas</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 3, $event)"> Colecionáveis</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 4, $event)"> Bebês</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 5, $event)"> Esportes</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 6, $event)"> Jogos</label>
     </div>
 
     <div class="filtro-secao">
       <h3>Gênero</h3>
-      <label><input type="checkbox"> Masculino</label>
-      <label><input type="checkbox"> Feminino</label>
-      <label><input type="checkbox"> Unissex</label>
+      <label><input type="checkbox" (change)="toggleFiltro(generosSelecionados, 1, $event)"> Masculino</label>
+      <label><input type="checkbox" (change)="toggleFiltro(generosSelecionados, 2, $event)"> Feminino</label>
+      <label><input type="checkbox" (change)="toggleFiltro(generosSelecionados, 3, $event)"> Unissex</label>
     </div>
 
     <div class="filtro-secao">
       <h3>Idade</h3>
-      <label><input type="checkbox"> 2 a 3 anos</label>
-      <label><input type="checkbox"> 3 a 5 anos</label>
-      <label><input type="checkbox"> 5 a 7 anos</label>
-      <label><input type="checkbox"> 7 a 9 anos</label>
-      <label><input type="checkbox"> 9 a 12 anos</label>
-      <label><input type="checkbox"> 13+</label>
-      <label><input type="checkbox"> 18+</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 1, $event)"> 2 a 3 anos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 2, $event)"> 3 a 5 anos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 3, $event)"> 5 a 7 anos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 4, $event)"> 7 a 9 anos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 5, $event)"> 9 a 12 anos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 6, $event)"> 13+</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 7, $event)"> 18+</label>
     </div>
 
     <div class="filtro-secao">
       <h3>Marca</h3>
-      <label><input type="checkbox"> Lego</label>
-      <label><input type="checkbox"> Hasbro</label>
-      <label><input type="checkbox"> Mattel</label>
-      <label><input type="checkbox"> Bandai</label>
-      <label><input type="checkbox"> Melissa & Doug</label>
-      <label><input type="checkbox"> Funko</label>
-      <label><input type="checkbox"> Pokémon</label>
-      <label><input type="checkbox"> Roblox</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 1, $event)"> Lego</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 2, $event)"> Hasbro</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 3, $event)"> Mattel</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 4, $event)"> Bandai</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 5, $event)"> Melissa & Doug</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 6, $event)"> Funko</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 7, $event)"> Pokémon</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 8, $event)"> Roblox</label>
     </div>
 
     <div class="filtro-secao">
@@ -68,24 +67,9 @@
 
     <div class="grid">
 
-      <a
-        *ngFor="let prod of produtosFiltrados | slice:0:quantidadeVisivel"
-        [routerLink]="['/pdp', prod.id]"
-        class="card-link"
-      >
-        <div class="card">
-
-          <div class="card-img">
-            <img [src]="prod.img" [alt]="prod.nome">
-          </div>
-
-          <div class="card-info">
-            <h4>{{ prod.nome }}</h4>
-            <p>R$ {{ prod.preco }}</p>
-          </div>
-
-        </div>
-      </a>
+      <div *ngFor="let prod of produtosFiltrados | slice:0:quantidadeVisivel">
+        <app-card [product]="prod"></app-card>
+      </div>
 
     </div>
 

@@ -9,10 +9,8 @@ export const routes: Routes = [
   { path: '', component: Home },
   { path: 'home', component: Home },
   { path: 'card', component: Card },
-  { path: 'produto/:id', component: ProductDetail },
   { path: 'carrinho', component: Shopping },
-  { path: '', component: PlpComponent},
-  {path: 'pdp/:id', loadComponent: () =>
-      import('./Components/plp/plp').then(m => m.PlpComponent)}
-
-]
+  { path: 'plp', component: PlpComponent },
+  { path: 'pdp/:id', component: ProductDetail },
+  { path: 'produto/:id', component: ProductDetail } 
+];
