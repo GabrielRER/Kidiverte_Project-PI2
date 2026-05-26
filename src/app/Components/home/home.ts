@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService, Product } from '../../services/product.service';
 import { Card } from '../shared/card/card';
 
@@ -32,7 +33,7 @@ export class Home implements OnInit {
     });
   }
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe({
@@ -45,5 +46,13 @@ export class Home implements OnInit {
     });
   }
 
+  filtrarCategoria(idCategoria: number): void {
+    this.router.navigate(['/plp'], { queryParams: { categoria: idCategoria } });
+  }
+
+  
+  filtrarMarca(nomeMarca: string): void {
+    this.router.navigate(['/plp'], { queryParams: { marca: nomeMarca } });
+  }
 
 }

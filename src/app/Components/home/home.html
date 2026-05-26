@@ -1,13 +1,13 @@
 <div id="home-container">
     <div id="home-menu-content">
         <div id="categories-images">
-            <img src="assets/home_menu/carrinhos.png" alt="carrinhos">
-            <img src="assets/home_menu/blocos.png" alt="carrinhos">
-            <img src="assets/home_menu/bonecas.png" alt="carrinhos">
-            <img src="assets/home_menu/colecionaveis.png" alt="carrinhos">
-            <img src="assets/home_menu/bebes.png" alt="carrinhos">
-            <img src="assets/home_menu/esportes.png" alt="carrinhos">
-            <img src="assets/home_menu/jogos.png" alt="carrinhos">
+            <img src="assets/home_menu/carrinhos.png" alt="carrinhos" (click)="filtrarCategoria(1)" style="cursor: pointer;">
+            <img src="assets/home_menu/blocos.png" alt="blocos" (click)="filtrarCategoria(2)" style="cursor: pointer;">
+            <img src="assets/home_menu/bonecas.png" alt="bonecas" (click)="filtrarCategoria(3)" style="cursor: pointer;">
+            <img src="assets/home_menu/colecionaveis.png" alt="colecionaveis" (click)="filtrarCategoria(4)" style="cursor: pointer;">
+            <img src="assets/home_menu/bebes.png" alt="bebes" (click)="filtrarCategoria(5)" style="cursor: pointer;">
+            <img src="assets/home_menu/esportes.png" alt="esportes" (click)="filtrarCategoria(6)" style="cursor: pointer;">
+            <img src="assets/home_menu/jogos.png" alt="jogos" (click)="filtrarCategoria(7)" style="cursor: pointer;">
         </div>
 
         <div class="carrossel-container">
@@ -58,15 +58,15 @@
     </div>
 
     <div id="brand_icons">
-        <img class="big-brand-icon" src="assets/brand_icons/estrela.png" alt="estrela">
+        <img class="big-brand-icon" src="assets/brand_icons/estrela.png" alt="estrela" (click)="filtrarMarca('Estrela')" style="cursor: pointer;">
         <div class="small-icons-container">
-            <img class="small-brand-icons" src="assets/brand_icons/melissa&doug.png" alt="melissa&doug">
-            <img class="small-brand-icons" src="assets/brand_icons/hasbro.png" alt="hasbro">
+            <img class="small-brand-icons" src="assets/brand_icons/melissa&doug.png" alt="melissa&doug" (click)="filtrarMarca('Melissa & Doug')" style="cursor: pointer;">
+            <img class="small-brand-icons" src="assets/brand_icons/hasbro.png" alt="hasbro" (click)="filtrarMarca('Hasbro')" style="cursor: pointer;">
         </div>
-        <img class="big-brand-icon" src="assets/brand_icons/mattel.png" alt="mattel">
+        <img class="big-brand-icon" src="assets/brand_icons/mattel.png" alt="mattel" (click)="filtrarMarca('Mattel')" style="cursor: pointer;">
         <div class="small-icons-container">
-            <img class="small-brand-icons" src="assets/brand_icons/funko.png" alt="funko">
-            <img class="small-brand-icons" src="assets/brand_icons/lego.png" alt="lego">
+            <img class="small-brand-icons" src="assets/brand_icons/funko.png" alt="funko" (click)="filtrarMarca('Funko')" style="cursor: pointer;">
+            <img class="small-brand-icons" src="assets/brand_icons/lego.png" alt="lego" (click)="filtrarMarca('Lego')" style="cursor: pointer;">
         </div>
     </div>
 </div>

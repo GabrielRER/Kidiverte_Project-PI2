@@ -5,13 +5,13 @@
 
     <div class="filtro-secao">
       <h3>Categoria</h3>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 1, $event)"> Carrinhos</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 2, $event)"> Blocos de Construção</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 3, $event)"> Bonecas</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 4, $event)"> Colecionáveis</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 5, $event)"> Bebês / Brinquedos de Atividades</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 6, $event)"> Esportes e Exterior</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 7, $event)"> Jogos de Tabuleiro e Cartas</label>
+      <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(1)" (change)="toggleFiltro(categoriasSelecionadas, 1, $event)"> Carrinhos</label>
+      <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(2)" (change)="toggleFiltro(categoriasSelecionadas, 2, $event)"> Blocos de Construção</label>
+      <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(3)" (change)="toggleFiltro(categoriasSelecionadas, 3, $event)"> Bonecas</label>
+      <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(4)" (change)="toggleFiltro(categoriasSelecionadas, 4, $event)"> Colecionáveis</label>
+      <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(5)" (change)="toggleFiltro(categoriasSelecionadas, 5, $event)"> Bebês / Brinquedos de Atividades</label>
+      <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(6)" (change)="toggleFiltro(categoriasSelecionadas, 6, $event)"> Esportes e Exterior</label>
+      <label><input type="checkbox" [checked]="categoriasSelecionadas.includes(7)" (change)="toggleFiltro(categoriasSelecionadas, 7, $event)"> Jogos de Tabuleiro e Cartas</label>
     </div>
 
     <div class="filtro-secao">
@@ -34,15 +34,15 @@
 
     <div class="filtro-secao">
       <h3>Marca</h3>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 1, $event)"> Lego</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 2, $event)"> Hasbro</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 3, $event)"> Mattel</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 4, $event)"> Bandai</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 5, $event)"> Melissa & Doug</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 6, $event)"> Funko</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 7, $event)"> Pokémon</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 8, $event)"> Roblox</label>
-      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 9, $event)"> Candide</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(1)" (change)="toggleFiltro(marcasSelecionadas, 1, $event)"> Lego</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(2)" (change)="toggleFiltro(marcasSelecionadas, 2, $event)"> Hasbro</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(3)" (change)="toggleFiltro(marcasSelecionadas, 3, $event)"> Mattel</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(4)" (change)="toggleFiltro(marcasSelecionadas, 4, $event)"> Bandai</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(5)" (change)="toggleFiltro(marcasSelecionadas, 5, $event)"> Melissa & Doug</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(6)" (change)="toggleFiltro(marcasSelecionadas, 6, $event)"> Funko</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(7)" (change)="toggleFiltro(marcasSelecionadas, 7, $event)"> Pokémon</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(8)" (change)="toggleFiltro(marcasSelecionadas, 8, $event)"> Roblox</label>
+      <label><input type="checkbox" [checked]="marcasSelecionadas.includes(9)" (change)="toggleFiltro(marcasSelecionadas, 9, $event)"> Candide</label>
     </div>
 
     <div class="filtro-secao">
