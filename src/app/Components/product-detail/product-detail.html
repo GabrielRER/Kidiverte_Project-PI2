@@ -131,23 +131,7 @@
       </div>
  
       
-      <div class="pd-shipping">
-        <div class="pd-shipping-title">🚚 Calcular Frete</div>
-        <div class="pd-cep-row">
-          <input type="text" class="pd-cep-input" placeholder="00000-000" maxlength="9" />
-          <button class="pd-cep-btn">Calcular</button>
-        </div>
-        <div class="pd-shipping-options">
-          <div class="pd-shipping-opt">
-            <span>📦 Entrega Econômica</span>
-            <span class="pd-shipping-price">Grátis</span>
-          </div>
-          <div class="pd-shipping-opt">
-            <span>⚡ Entrega Rápida</span>
-            <span class="pd-shipping-price">R$ 14,90</span>
-          </div>
-        </div>
-      </div>
+      <app-shipping-calculator [quantidade]="quantity"></app-shipping-calculator>
  
       
       <div class="pd-quick-info">

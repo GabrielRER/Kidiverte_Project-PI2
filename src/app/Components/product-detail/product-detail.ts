@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, Product } from '../../services/product.service';
+import { ShippingCalculator } from '../shared/shipping-calculator/shipping-calculator';
 
  
 @Component({

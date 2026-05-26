@@ -1,0 +1,15 @@
+{
+  "/melhorenvio": {
+    "target": "https://sandbox.melhorenvio.com.br",
+    "changeOrigin": true,
+    "secure": false,
+    "xfwd": false,
+    "pathRewrite": {
+      "^/melhorenvio": ""
+    },
+    "headers": {
+      "User-Agent": "KiDiverte (duduleiteriveiro@gmail.com)"
+    },
+    "logLevel": "debug"
+  }
+}
