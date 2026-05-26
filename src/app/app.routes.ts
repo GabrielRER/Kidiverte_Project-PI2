@@ -5,20 +5,28 @@ import { ProductDetail } from './Components/product-detail/product-detail';
 import { Shopping } from './Components/shopping/shopping';
 import { PlpComponent } from './Components/plp/plp';
 import { Payment } from './Components/payment/payment';
+import { ProfilePage } from './Components/profile-page/profile-page';
+import { LoginPage } from './Components/login-page/login-page';
+import { RegisterPage } from './Components/register-page/register-page';
 
 export const routes: Routes = [
-  { path: '', component: Home },
-  { path: 'payment', component: Payment },
-  { path: 'home', component: Home },
-  { path: 'card', component: Card },
-  { path: 'produto/:id', component: ProductDetail },
-  { path: 'shopping', component: Shopping },
-  { path: '', component: PlpComponent},
-  {path: 'pdp/:id', loadComponent: () =>
-      import('./Components/plp/plp').then(m => m.PlpComponent)},
-  { path: 'carrinho', component: Shopping },
-  { path: 'plp', component: PlpComponent },
-  { path: 'pdp/:id', component: ProductDetail },
-  { path: 'produto/:id', component: ProductDetail }
+    { path: '', component: Home },
+    { path: 'payment', component: Payment },
+    { path: 'home', component: Home },
+    { path: 'card', component: Card },
+    { path: 'produto/:id', component: ProductDetail },
+    { path: 'shopping', component: Shopping },
+    { path: '', component: PlpComponent },
+    {
+        path: 'pdp/:id', loadComponent: () =>
+            import('./Components/plp/plp').then(m => m.PlpComponent)
+    },
+    { path: 'carrinho', component: Shopping },
+    { path: 'plp', component: PlpComponent },
+    { path: 'pdp/:id', component: ProductDetail },
+    { path: 'produto/:id', component: ProductDetail },
+    { path: '', component: ProfilePage },
+    { path: 'login', component: LoginPage },
+    { path: 'register', component: RegisterPage }
 
 ];
