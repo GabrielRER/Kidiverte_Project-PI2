@@ -32,7 +32,6 @@
     background-color: #d0c0ff;
     min-height: 100vh;
     width: 100%;
-    position: fixed;
     overflow-y: auto;
 }
 
