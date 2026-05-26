@@ -193,3 +193,15 @@
     height: 180px;
     object-fit: contain;
 }
+
+.big-brand-icon, 
+.small-icons-container {
+    
+    flex: 1 1 calc(20% - 10px); 
+    
+    
+    max-width: calc(20% - 10px); 
+    
+    height: auto;
+    object-fit: contain;
+}
