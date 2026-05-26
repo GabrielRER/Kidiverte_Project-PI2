@@ -1,97 +1,126 @@
-<div class="pagina-carrinho">
+<div class="sh-page">
 
-  <!-- ── Lista de produtos ── -->
-  <div class="coluna-produtos">
+  <!-- ── Coluna esquerda: itens ── -->
+  <div class="sh-items-col">
 
     <!-- Carrinho vazio -->
-    <div *ngIf="carrinhoVazio" class="carrinho-vazio">
-      <span>🛒</span>
-      <p>Seu carrinho está vazio.</p>
-      <button class="continuar" (click)="continuarComprando()">CONTINUAR COMPRANDO</button>
+    <div class="sh-empty" *ngIf="carrinhoVazio">
+      <div class="sh-empty-icon">🛒</div>
+      <h2>Seu carrinho está vazio</h2>
+      <p>Adicione produtos para continuar</p>
+      <button class="sh-btn-continue" (click)="continuarComprando()">Continuar comprando</button>
     </div>
 
-    <!-- Um card por item do carrinho -->
-    <section class="produto-card" *ngFor="let item of itensCarrinho">
-      <!-- CORRIGIDO: images[0] e name em vez de imagem/nome (padrão do db.json) -->
-      <img class="produto-img" [src]="imagemProduto(item)" [alt]="item.produto.name">
+    <!-- Cards de produto -->
+    <div class="sh-card" *ngFor="let item of itensCarrinho">
+      <img class="sh-card-img" [src]="imagemProduto(item)" [alt]="item.produto.name"
+           (error)="$any($event.target).src='assets/placeholder.png'" />
 
-      <h2>{{ item.produto.name }}</h2>
-
-      <p class="preco-unitario">{{ formatarMoeda(item.produto.current_price) }}</p>
-
-      <div class="quantidade">
-        <!-- CORRIGIDO: passa item como parâmetro -->
-        <button (click)="diminuir(item)">−</button>
-        <span>{{ item.quantidade }}</span>
-        <button (click)="aumentar(item)">+</button>
+      <div class="sh-card-info">
+        <h3 class="sh-card-name">{{ item.produto.name }}</h3>
+        <p class="sh-card-price">{{ formatarMoeda(item.produto.current_price) }}</p>
       </div>
 
-      <p class="preco-total">{{ formatarMoeda(item.produto.current_price * item.quantidade) }}</p>
-
-      <!-- CORRIGIDO: passa item como parâmetro -->
-      <button class="lixeira" (click)="remover(item)">🗑</button>
-    </section>
+      <div class="sh-card-actions">
+        <div class="sh-qty">
+          <button class="sh-qty-btn" (click)="diminuir(item)" [disabled]="item.quantidade <= 1">−</button>
+          <span class="sh-qty-val">{{ item.quantidade }}</span>
+          <button class="sh-qty-btn" (click)="aumentar(item)" [disabled]="item.quantidade >= item.produto.stock">+</button>
+        </div>
+        <span class="sh-card-subtotal">{{ formatarMoeda(item.produto.current_price * item.quantidade) }}</span>
+        <button class="sh-remove-btn" (click)="remover(item)" title="Remover">
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+      </div>
+    </div>
 
   </div>
 
-  <!-- ── Sidebar de resumo ── -->
-  <aside class="resumo-lateral">
 
-    <div class="card frete">
-      <h3>Calcule o frete</h3>
-      <!-- Placeholder — funcionalidade de frete a implementar futuramente -->
-      <p class="receber">
+  <aside class="sh-summary" *ngIf="!carrinhoVazio">
+
+    
+    <div class="sh-box">
+      <h3 class="sh-box-title">🚚 Calcular o frete</h3>
+      <p class="sh-frete-label">
         Receber {{ itensCarrinho.length }} {{ itensCarrinho.length === 1 ? 'item' : 'itens' }} em
-        <span>00000-000</span>
+        <span class="sh-cep-span">{{ cepAtual || '00000-000' }}</span>
       </p>
-      <div class="opcao-frete">
-        <div>
-          <strong>Mais econômica</strong>
-          <p>Em até x dias úteis</p>
+      <div class="sh-cep-row">
+        <input type="text" class="sh-cep-input" placeholder="00000-000" maxlength="9"
+               [(ngModel)]="cepDigitado" (input)="onCepInput()" (keyup.enter)="calcularFrete()" />
+        <button class="sh-cep-btn" (click)="calcularFrete()" [disabled]="calculandoFrete">
+          {{ calculandoFrete ? '...' : '›' }}
+        </button>
+      </div>
+      <div class="sh-frete-erro" *ngIf="erroFrete">⚠️ {{ erroFrete }}</div>
+      <div class="sh-frete-opcoes" *ngIf="opcoesFreteDisponiveis.length > 0">
+        <div class="sh-frete-opcao"
+             *ngFor="let op of opcoesFreteDisponiveis"
+             [class.sh-frete-selecionada]="opcaoFreteSelecionada?.id === op.id"
+             (click)="selecionarFrete(op)">
+          <div class="sh-frete-left">
+            <img *ngIf="op.logo" [src]="op.logo" [alt]="op.nome" class="sh-frete-logo" />
+            <div>
+              <strong>{{ op.nome }}</strong>
+              <p>Em até {{ op.prazo }} dia{{ op.prazo > 1 ? 's' : '' }} útei{{ op.prazo > 1 ? 's' : 'l' }}</p>
+            </div>
+          </div>
+          <span class="sh-frete-preco">
+            {{ op.preco === '0.00' ? 'Grátis' : 'R$ ' + formatarFretePreco(op.preco) }}
+          </span>
         </div>
-        <div>
-          <p>R$ 00,00</p>
-          <span>⌄</span>
+      </div>
+      <!-- Placeholder se não calculou ainda -->
+      <div class="sh-frete-opcao sh-frete-placeholder" *ngIf="opcoesFreteDisponiveis.length === 0 && !erroFrete">
+        <div class="sh-frete-left">
+          <div>
+            <strong>Mais econômica</strong>
+            <p>Em até x dias úteis</p>
+          </div>
         </div>
+        <span class="sh-frete-preco">R$ 00,00</span>
       </div>
     </div>
 
-    <div class="card cupom">
-      <h3>Cupom de desconto</h3>
-      <!-- CORRIGIDO: input com ngModel e botão com handler -->
-      <div class="campo-cupom">
-        <input type="text" placeholder="Código" [(ngModel)]="codigoCupom">
-        <button (click)="aplicarCupom()">›</button>
+    <!-- Cupom -->
+    <div class="sh-box">
+      <h3 class="sh-box-title">🏷️ Cupom de desconto</h3>
+      <div class="sh-cupom-row">
+        <input type="text" class="sh-cupom-input" placeholder="Código" [(ngModel)]="codigoCupom" />
+        <button class="sh-cupom-btn" (click)="aplicarCupom()">›</button>
       </div>
-      <p class="cupom-msg" *ngIf="mensagemCupom">{{ mensagemCupom }}</p>
+      <p class="sh-cupom-msg" *ngIf="mensagemCupom"
+         [class.sh-cupom-ok]="descontoCupom > 0"
+         [class.sh-cupom-err]="descontoCupom === 0">
+        {{ mensagemCupom }}
+      </p>
     </div>
 
-    <div class="card pedido">
-      <h3>Resumo do pedido</h3>
+    <!-- Resumo -->
+    <div class="sh-box sh-resumo">
+      <h3 class="sh-box-title">📋 Resumo do pedido</h3>
 
-      <div class="linha">
-        <strong>Subtotal</strong>
+      <div class="sh-resumo-linha">
+        <span>Subtotal</span>
         <span>{{ formatarMoeda(subtotal) }}</span>
       </div>
-
-      <div class="linha">
-        <strong>Entrega</strong>
-        <span>R$00,00</span>
+      <div class="sh-resumo-linha">
+        <span>Entrega</span>
+        <span>{{ opcaoFreteSelecionada ? (opcaoFreteSelecionada.preco === '0.00' ? 'Grátis' : 'R$ ' + formatarFretePreco(opcaoFreteSelecionada.preco)) : 'R$ 00,00' }}</span>
       </div>
-
-      <!-- Desconto do cupom, aparece só se houver -->
-      <div class="linha" *ngIf="descontoCupom > 0">
-        <strong>Cupom</strong>
+      <div class="sh-resumo-linha sh-desconto" *ngIf="descontoCupom > 0">
+        <span>Cupom</span>
         <span>− {{ formatarMoeda(descontoCupom) }}</span>
       </div>
 
-      <div class="linha total">
-        <strong>Total</strong>
+      <div class="sh-resumo-total">
+        <span>Total</span>
         <span>{{ formatarMoeda(total) }}</span>
       </div>
 
-      <button class="finalizar" (click)="finalizarCompra()">FINALIZAR COMPRA</button>
-      <button class="continuar" (click)="continuarComprando()">CONTINUAR COMPRANDO</button>
+      <button class="sh-btn-pay" (click)="finalizarCompra()">IR PARA PAGAMENTO</button>
+      <button class="sh-btn-continue" (click)="continuarComprando()">CONTINUAR COMPRANDO</button>
     </div>
 
   </aside>
