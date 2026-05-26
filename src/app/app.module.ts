@@ -7,7 +7,7 @@ import { Card } from './Components/shared/card/card';
 import { ProductDetail } from './Components/product-detail/product-detail';
 import { Shopping } from './Components/shopping/shopping';
 import { ShippingCalculator } from './Components/shared/shipping-calculator/shipping-calculator';
-import { Footer } from './Components/footer/footer';
+import { Footer } from './Components/shared/footer/footer';
 import { routes } from './app.routes';
 import { StarRate } from './Components/shared/star-rate/star-rate';
 import { Payment } from './Components/payment/payment';

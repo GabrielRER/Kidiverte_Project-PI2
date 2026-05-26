@@ -1,3 +1,6 @@
+/* ===== WRAPPER EXTERNO ===== */
+
+/* Fundo branco de toda a área do header, com padding ao redor da navbar */
 .navbar-wrapper {
   padding: 15px;
   background-color: #ffffff;
@@ -5,71 +8,94 @@
 }
 
 
+/* ===== NAVBAR PRINCIPAL ===== */
+
+/* Card branco com bordas arredondadas (formato de pílula) que contém
+   as 3 seções: logo | busca | ícones.
+   max-width + margin: 0 auto centralizam a navbar na tela */
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
   padding: 10px 30px;
-  border-radius: 50px; 
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
-  border: 1px solid #eaeaea; 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  gap: 20px;
+  border-radius: 50px;                     /* Formato de pílula */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para efeito flutuante */
+  border: 1px solid #eaeaea;               /* Borda cinza clara */
+  max-width: 1200px;                        /* Limita a largura em telas grandes */
+  margin: 0 auto;                           /* Centraliza horizontalmente */
+  gap: 20px;                               /* Espaço entre as seções */
 }
 
 
+/* ===== SEÇÃO DIREITA (ícones) ===== */
+
+/* Agrupa os ícones de perfil e carrinho lado a lado */
 .right-section {
   display: flex;
   align-items: center;
-  gap: 30px;
-  margin-right: 50px; 
+  gap: 30px;       /* Espaço entre os dois ícones */
+  margin-right: 50px; /* Recuo da borda direita para não colar na extremidade */
   height: 100%;
 }
 
+
+/* ===== SEÇÃO ESQUERDA (logo) ===== */
 
 .left-section {
   display: flex;
   align-items: center;
-  gap: 70px;
-  margin-left: 20px;
+  gap: 0px;
+  margin-left: 20px; /* Recuo da borda esquerda */
   height: 100%;
 }
 
 
+/* ===== LOGO DA MARCA ===== */
+
+/* Altura fixa; object-fit: contain mantém proporção sem distorcer */
 .brand-logo {
-  height: 45px; 
+  height: 45px;
   object-fit: contain;
 }
 
 
+/* ===== BARRA DE BUSCA ===== */
+
+/* Container cinza em forma de pílula que agrupa o input e o botão de lupa.
+   flex: 1 faz a busca crescer e ocupar todo o espaço disponível entre logo e ícones.
+   max-width impede que fique grande demais em telas largas */
 .search-container {
   display: flex;
   align-items: center;
-  background-color: #e8e8e8; 
+  background-color: #e8e8e8;
   border-radius: 30px;
   padding: 8px 15px;
-  flex: 1; 
+  flex: 1;
   max-width: 600px;
 }
 
+/* Input transparente (herda o fundo cinza do container) sem borda ou outline */
 .search-input {
   border: none;
   background: transparent;
-  outline: none;
+  outline: none;   /* Remove o contorno padrão do browser ao focar */
   width: 100%;
   font-size: 15px;
   color: #333;
   padding: 5px;
 }
 
-
+/* Cor do texto placeholder */
 .search-input::placeholder {
   color: #888;
 }
 
 
+/* ===== BOTÕES DE ÍCONE (perfil, carrinho e busca) ===== */
+
+/* Estilo base compartilhado entre os três botões de ícone.
+   background: none remove o fundo padrão do <button> */
 .icon-btn,
 .search-btn {
   background: none;
@@ -79,14 +105,15 @@
   align-items: center;
   justify-content: center;
   padding: 5px;
-  margin: 0; 
-  line-height: 0; 
+  margin: 0;
+  line-height: 0;  /* Remove espaço extra abaixo de elementos inline */
   color: #000;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease; /* Animação suave de escala no hover */
 }
 
+/* Efeito de leve aumento + escurecimento ao passar o mouse */
 .icon-btn:hover,
 .search-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Aumenta 10% no hover */
   color: #555;
 }

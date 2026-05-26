@@ -1,92 +1,124 @@
+<!-- ===== ESTADO DE LOADING ===== -->
+<!-- *ngIf exibe este bloco apenas enquanto a requisição à API estiver em andamento -->
 <div class="pd-loading" *ngIf="loading">
-  <div class="pd-spinner"></div>
+  <div class="pd-spinner"></div> <!-- Spinner animado via CSS (animação 'spin') -->
   <p>Carregando produto...</p>
 </div>
 
 
+<!-- ===== ESTADO DE ERRO ===== -->
+<!-- Exibido quando o produto não é encontrado ou a API retorna erro -->
 <div class="pd-error" *ngIf="error && !loading">
   <div class="pd-error-icon">😕</div>
   <h2>Produto não encontrado</h2>
   <p>O produto que você procura não está disponível.</p>
+  <!-- routerLink navega de volta para a home sem recarregar a página -->
   <a routerLink="/home" class="pd-btn-primary">Voltar à loja</a>
 </div>
 
 
+<!-- ===== CONTEÚDO PRINCIPAL ===== -->
+<!-- Só renderizado quando o produto foi carregado com sucesso -->
 <div class="pd-wrapper" *ngIf="product && !loading">
 
-
+  <!-- BREADCRUMB: trilha de navegação Início > Categoria > Produto -->
   <nav class="pd-breadcrumb">
     <a routerLink="/home">Início</a>
     <span class="pd-breadcrumb-sep">›</span>
-    <span>{{ categoryName }}</span>
+    <span>{{ categoryName }}</span>   <!-- Getter que resolve o nome da categoria -->
     <span class="pd-breadcrumb-sep">›</span>
     <span class="pd-breadcrumb-current">{{ product.name }}</span>
   </nav>
 
 
+  <!-- GRID PRINCIPAL: galeria (esquerda) + informações (direita) -->
   <div class="pd-main">
 
-
+    <!-- ===== GALERIA DE IMAGENS ===== -->
     <div class="pd-gallery">
 
+      <!-- Badge de faixa etária exibido acima da imagem (*ngIf evita exibir se vazio) -->
       <div class="pd-age-badge" *ngIf="ageRangeName">{{ ageRangeName }}</div>
 
-
+      <!-- Imagem principal do produto -->
       <div class="pd-img-main">
+
+        <!-- Faixa de desconto (ribbon) exibida somente se o produto tiver desconto -->
         <div class="pd-discount-ribbon" *ngIf="hasDiscount">
           -{{ product.discount_percentage }}%
         </div>
-        <img [src]="displayImages[selectedImageIndex] || 'assets/placeholder.png'" [alt]="product.name"
-          (error)="$any($event.target).src='assets/placeholder.png'" class="pd-main-img" />
 
+        <!-- [src] binding dinâmico com a imagem selecionada; fallback para placeholder em caso de erro -->
+        <img
+          [src]="displayImages[selectedImageIndex] || 'assets/placeholder.png'"
+          [alt]="product.name"
+          (error)="$any($event.target).src='assets/placeholder.png'"
+          class="pd-main-img"
+        />
+
+        <!-- Badges de "Mais Vendido" e "Destaque" sobrepostos à imagem -->
         <div class="pd-img-badges">
-          <span class="pd-badge pd-badge-seller" *ngIf="product.best_seller">🏆 Mais Vendido</span>
+          <span class="pd-badge pd-badge-seller"   *ngIf="product.best_seller">🏆 Mais Vendido</span>
           <span class="pd-badge pd-badge-featured" *ngIf="product.featured">⭐ Destaque</span>
         </div>
       </div>
 
-
+      <!-- Miniaturas de imagens: só exibidas se houver mais de 1 imagem -->
       <div class="pd-thumbs" *ngIf="displayImages.length > 1">
-        <button class="pd-thumb" *ngFor="let img of displayImages; let i = index"
-          [class.pd-thumb-active]="i === selectedImageIndex" (click)="selectImage(i)">
-          <img [src]="img" [alt]="'Imagem ' + (i + 1)" (error)="$any($event.target).src='assets/placeholder.png'" />
+        <!-- *ngFor itera sobre as imagens; (click) chama selectImage() com o índice -->
+        <button
+          class="pd-thumb"
+          *ngFor="let img of displayImages; let i = index"
+          [class.pd-thumb-active]="i === selectedImageIndex"
+          (click)="selectImage(i)"
+        >
+          <img [src]="img" [alt]="'Imagem ' + (i + 1)"
+               (error)="$any($event.target).src='assets/placeholder.png'" />
         </button>
       </div>
     </div>
 
 
+    <!-- ===== PAINEL DE INFORMAÇÕES ===== -->
     <div class="pd-info">
 
-
+      <!-- Tag da marca e nome do produto -->
       <div class="pd-brand-tag">{{ brandName }}</div>
       <h1 class="pd-product-name">{{ product.name }}</h1>
 
-
-      <div class="pd-stock" [class.pd-stock-low]="product.stock <= 5" [class.pd-stock-out]="product.stock === 0">
+      <!-- Status do estoque com classe CSS condicional:
+           verde (normal) → laranja (low: <= 5) → vermelho (out: esgotado) -->
+      <div class="pd-stock"
+           [class.pd-stock-low]="product.stock <= 5"
+           [class.pd-stock-out]="product.stock === 0">
         <span class="pd-stock-dot"></span>
-        {{ stockStatus }}
+        {{ stockStatus }} <!-- Getter que retorna 'Em estoque', 'Últimas X unidades!' ou 'Esgotado' -->
       </div>
 
-
+      <!-- ===== BLOCO DE PREÇOS ===== -->
       <div class="pd-pricing">
+
+        <!-- Preço original riscado — só exibido se houver desconto E preço original cadastrado -->
         <div class="pd-original" *ngIf="hasDiscount && product.original_price">
           De: <span>{{ formatPrice(product.original_price) }}</span>
         </div>
 
+        <!-- Preço atual em destaque + pílula de economia -->
         <div class="pd-current-row">
           <span class="pd-current-price">{{ formatPrice(product.current_price) }}</span>
           <span class="pd-savings-pill" *ngIf="hasDiscount">
-            Economize {{ formatPrice(savings) }}
+            Economize {{ formatPrice(savings) }} <!-- Getter savings = original - atual -->
           </span>
         </div>
 
+        <!-- Parcelamento: só exibido se o produto tiver installments e installment_value -->
         <div class="pd-installments" *ngIf="product.installments && product.installment_value">
           ou <strong>{{ product.installments }}x</strong> de
           <strong>{{ formatPrice(product.installment_value) }}</strong>
           <span *ngIf="product.interest_free" class="pd-interest-free">sem juros</span>
         </div>
 
-
+        <!-- Ícones informativos dos métodos de pagamento aceitos -->
         <div class="pd-payment-icons">
           <span class="pd-pay-icon">💳 Cartão</span>
           <span class="pd-pay-icon">⚡ PIX</span>
@@ -95,7 +127,10 @@
       </div>
 
 
+      <!-- ===== AÇÕES DO USUÁRIO ===== -->
       <div class="pd-actions">
+
+        <!-- Controle de quantidade: botões − e + com limites (mín 1, máx = estoque) -->
         <div class="pd-qty-block">
           <label class="pd-qty-label">Quantidade</label>
           <div class="pd-qty-control">
@@ -105,20 +140,29 @@
           </div>
         </div>
 
-        <button class="pd-btn-cart" [class.pd-btn-added]="addedToCart" [disabled]="!isInStock" (click)="addToCart()">
+        <!-- Botão de carrinho:
+             - [class.pd-btn-added] muda a cor para verde ao adicionar
+             - [disabled] bloqueia se produto estiver fora de estoque -->
+        <button
+          class="pd-btn-cart"
+          [class.pd-btn-added]="addedToCart"
+          [disabled]="!isInStock"
+          (click)="addToCart()"
+        >
           <span *ngIf="!addedToCart">🛒 Adicionar ao Carrinho</span>
-          <span *ngIf="addedToCart">✅ Adicionado!</span>
+          <span *ngIf="addedToCart">✅ Adicionado!</span> <!-- Feedback visual temporário -->
         </button>
 
-        <button class="pd-btn-wishlist" title="Favoritar">
-          ♡ Favoritar
-        </button>
+        <!-- Botão de favoritos (funcionalidade futura) -->
+        <button class="pd-btn-wishlist" title="Favoritar">♡ Favoritar</button>
       </div>
 
 
+      <!-- Componente filho de cálculo de frete (CEP) -->
       <app-shipping-calculator></app-shipping-calculator>
 
 
+      <!-- Chips de informações rápidas: faixa etária, marca e estoque -->
       <div class="pd-quick-info">
         <div class="pd-qi-item">
           <span class="pd-qi-icon">🎂</span>
@@ -137,7 +181,10 @@
   </div>
 
 
+  <!-- ===== SEÇÃO DE TABS ===== -->
   <div class="pd-tabs-section">
+
+    <!-- Navegação das abas: [class.pd-tab-active] destaca a aba selecionada -->
     <div class="pd-tabs-nav">
       <button class="pd-tab-btn" [class.pd-tab-active]="activeTab === 'description'" (click)="setTab('description')">
         Descrição
@@ -150,29 +197,20 @@
       </button>
     </div>
 
+    <!-- ABA: Descrição — texto livre do produto -->
     <div class="pd-tab-content" *ngIf="activeTab === 'description'">
       <p class="pd-description-text">{{ product.description }}</p>
     </div>
 
+    <!-- ABA: Especificações — tabela com dados técnicos do produto -->
     <div class="pd-tab-content" *ngIf="activeTab === 'specs'">
       <table class="pd-specs-table">
         <tbody>
-          <tr>
-            <td>Marca</td>
-            <td>{{ brandName }}</td>
-          </tr>
-          <tr>
-            <td>Categoria</td>
-            <td>{{ categoryName }}</td>
-          </tr>
-          <tr>
-            <td>Faixa Etária</td>
-            <td>{{ ageRangeName }}</td>
-          </tr>
-          <tr>
-            <td>Estoque</td>
-            <td>{{ product.stock }} unidades</td>
-          </tr>
+          <tr><td>Marca</td>      <td>{{ brandName }}</td></tr>
+          <tr><td>Categoria</td>  <td>{{ categoryName }}</td></tr>
+          <tr><td>Faixa Etária</td><td>{{ ageRangeName }}</td></tr>
+          <tr><td>Estoque</td>    <td>{{ product.stock }} unidades</td></tr>
+          <!-- Linha de parcelamento só aparece se o produto tiver essa informação -->
           <tr *ngIf="product.installments">
             <td>Parcelamento</td>
             <td>Até {{ product.installments }}x sem juros</td>
@@ -181,17 +219,25 @@
       </table>
     </div>
 
+    <!-- ABA: Avaliações -->
     <div class="pd-tab-content" *ngIf="activeTab === 'reviews'">
 
+      <!-- Nota média com pipe de formatação numérica (ex: 4.5) -->
       <div class="pd-rating-summary" *ngIf="product">
         <div class="pd-rating-score">{{ (product.rating || 0) | number:'1.1-1' }}</div>
 
-        <app-star-rate [rating]="product.rating || 0" (ratingChange)="atualizarNotaProduto($event)">
+        <!-- Componente filho de estrelas:
+             - [rating] recebe a nota atual (input)
+             - (ratingChange) captura nova nota emitida pelo usuário (output) -->
+        <app-star-rate
+          [rating]="product.rating || 0"
+          (ratingChange)="atualizarNotaProduto($event)">
         </app-star-rate>
 
         <div class="pd-rating-count">0 avaliações</div>
       </div>
 
+      <!-- Convite para ser o primeiro a avaliar -->
       <div class="pd-no-reviews">
         <p>Seja o primeiro a avaliar este produto!</p>
         <button class="pd-btn-review">Escrever avaliação</button>
