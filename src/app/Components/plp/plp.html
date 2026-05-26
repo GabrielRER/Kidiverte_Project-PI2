@@ -6,11 +6,12 @@
     <div class="filtro-secao">
       <h3>Categoria</h3>
       <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 1, $event)"> Carrinhos</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 2, $event)"> Bonecas</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 3, $event)"> Colecionáveis</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 4, $event)"> Bebês</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 5, $event)"> Esportes</label>
-      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 6, $event)"> Jogos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 2, $event)"> Blocos de Construção</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 3, $event)"> Bonecas</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 4, $event)"> Colecionáveis</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 5, $event)"> Bebês / Brinquedos de Atividades</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 6, $event)"> Esportes e Exterior</label>
+      <label><input type="checkbox" (change)="toggleFiltro(categoriasSelecionadas, 7, $event)"> Jogos de Tabuleiro e Cartas</label>
     </div>
 
     <div class="filtro-secao">
@@ -22,13 +23,13 @@
 
     <div class="filtro-secao">
       <h3>Idade</h3>
-      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 1, $event)"> 2 a 3 anos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 1, $event)"> Baby (0 a 3 anos)</label>
       <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 2, $event)"> 3 a 5 anos</label>
       <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 3, $event)"> 5 a 7 anos</label>
       <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 4, $event)"> 7 a 9 anos</label>
       <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 5, $event)"> 9 a 12 anos</label>
-      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 6, $event)"> 13+</label>
-      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 7, $event)"> 18+</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 6, $event)"> 13+ anos</label>
+      <label><input type="checkbox" (change)="toggleFiltro(idadesSelecionadas, 7, $event)"> 18+ anos</label>
     </div>
 
     <div class="filtro-secao">
@@ -41,19 +42,18 @@
       <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 6, $event)"> Funko</label>
       <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 7, $event)"> Pokémon</label>
       <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 8, $event)"> Roblox</label>
+      <label><input type="checkbox" (change)="toggleFiltro(marcasSelecionadas, 9, $event)"> Candide</label>
     </div>
 
     <div class="filtro-secao">
       <h3>Faixa de preço</h3>
-
       <input
         type="range"
         min="5"
-        max="5000"
+        max="1000"
         [value]="precoMax"
         (input)="onPrecoChange($event)"
       >
-
       <p>R$ 5,00 - R$ {{ precoMax }}</p>
     </div>
 
@@ -62,18 +62,13 @@
     </div>
   </aside>
 
-  
   <main class="produtos">
-
     <div class="grid">
-
       <div *ngFor="let prod of produtosFiltrados | slice:0:quantidadeVisivel">
         <app-card [product]="prod"></app-card>
       </div>
-
     </div>
 
-    
     <p class="contador">
       Mostrando {{ quantidadeVisivel > produtosFiltrados.length ? produtosFiltrados.length : quantidadeVisivel }}
       de {{ produtosFiltrados.length }} itens
@@ -85,7 +80,6 @@
     >
       mostrar mais
     </button>
-
   </main>
 
 </div>

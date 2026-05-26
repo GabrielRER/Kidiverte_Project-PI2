@@ -17,7 +17,7 @@ export class PlpComponent implements OnInit {
   produtosFiltrados: Product[] = [];
 
   quantidadeVisivel: number = 12;
-  precoMax: number = 5000;
+  precoMax: number = 1000;
 
   categoriasSelecionadas: number[] = [];
   generosSelecionados: number[] = [];
@@ -58,26 +58,20 @@ export class PlpComponent implements OnInit {
 
   aplicarFiltro(): void {
     this.produtosFiltrados = this.produtos.filter(p => {
-      // 1. Filtro de Preço
       const batePreco = p.current_price <= this.precoMax;
 
-      // 2. Filtro de Categoria
       const bateCategoria = this.categoriasSelecionadas.length === 0 || 
                              this.categoriasSelecionadas.includes(p.category_id);
 
-      // 3. Filtro de Gênero
       const bateGenero = this.generosSelecionados.length === 0 || 
                           this.generosSelecionados.includes(p.gender_id);
 
-      // 4. Filtro de Idade
       const bateIdade = this.idadesSelecionadas.length === 0 || 
                         this.idadesSelecionadas.includes(p.age_range_id);
 
-      // 5. Filtro de Marca
       const bateMarca = this.marcasSelecionadas.length === 0 || 
                         this.marcasSelecionadas.includes(p.brand_id);
 
-      // O produto passará em todos os filtros ativos
       return batePreco && bateCategoria && bateGenero && bateIdade && bateMarca;
     });
   }
