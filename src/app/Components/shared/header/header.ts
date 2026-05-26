@@ -2,13 +2,14 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 // - Output: marca uma propriedade como saída do componente (evento para o pai)
 // - EventEmitter: objeto que dispara eventos customizados entre componentes
 
 @Component({
   selector: 'app-header',   // Tag usada para inserir o header: <app-header>
   standalone: true,         // Componente independente, sem precisar de NgModule
-  imports: [CommonModule],  // Importar CommonModule para usar ngClass
+  imports: [CommonModule, RouterModule],  // Importar CommonModule para usar ngClass
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

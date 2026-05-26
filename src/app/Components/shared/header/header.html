@@ -5,10 +5,11 @@
   <nav class="navbar-container" [ngClass]="{ 'login-page': isLoginPage() }">
 
     <!-- ===== SEÇÃO ESQUERDA: Logo da marca ===== -->
-    <div class="left-section">
-      <!-- Logo retangular da KiDiverte carregada de /Logos/ -->
-      <img src="/Logos/logo_retangular.png" alt="KiDiverte Logo" class="brand-logo">
-    </div>
+<div class="left-section">
+  <a routerLink="/home" class="logo-link">
+    <img src="/Logos/logo_retangular.png" alt="KiDiverte Logo" class="brand-logo">
+  </a>
+</div>
 
     <!-- ===== SEÇÃO CENTRAL: Barra de busca ===== -->
     <!-- flex: 1 no CSS faz esta seção crescer e ocupar o espaço disponível entre logo e ícones -->
@@ -34,7 +35,7 @@
     <div class="right-section">
 
       <!-- Botão de perfil do usuário (funcionalidade futura) -->
-      <button class="icon-btn" aria-label="Perfil do Usuário">
+      <button class="icon-btn" routerLink="/login" aria-label="Perfil do Usuário">
         <!-- Ícone SVG de pessoa: silhueta de usuário desenhada inline -->
         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
              viewBox="0 0 24 24" fill="none" stroke="currentColor"
