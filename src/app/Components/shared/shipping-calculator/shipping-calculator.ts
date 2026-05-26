@@ -1,8 +1,9 @@
-import { Component, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, inject } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { switchMap, map } from 'rxjs/operators';
+import { CartService } from '../../../services/cart.service';
 
 interface ViaCepResponse {
   cep: string;
@@ -13,7 +14,8 @@ interface ViaCepResponse {
   erro?: boolean;
 }
 
-interface FreteOpcao {
+// ADICIONADO O EXPORT AQUI:
+export interface FreteOpcao {
   id: number;
   nome: string;
   preco: string;
@@ -114,7 +116,7 @@ interface FreteOpcao {
   `]
 })
 export class ShippingCalculator {
-  @Input() quantidade: number = 1;
+  private cartService = inject(CartService);
 
   private readonly TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTYiLCJqdGkiOiJhZGM4OGU2OWM3NTk5NDlkZWMxMWZmZTM2MzE1Yjg3OGU2ZDkxNWE4MGNlYTkyNGM1NDA0NGE0Y2M4YjcyOTM1MTRjYWYyZTY1NzhmNDI0MCIsImlhdCI6MTc3OTc3MDAxNy4yNjE4ODksIm5iZiI6MTc3OTc3MDAxNy4yNjE4OTMsImV4cCI6MTgxMTMwNjAxNy4yNTA3NDUsInN1YiI6ImExZGU3ZWYwLTZkNDEtNDU3OS05N2Q1LTg1NmRiZjA4Yzg2OSIsInNjb3BlcyI6WyJzaGlwcGluZy1jYWxjdWxhdGUiXX0.SpPf6wHhxhLkdVob-eynqIrLdPP4OzAJV9frdqOpxXBogv7l1BeHsgeUo8vXzIa5Im0RMWUq9a45mc6trfQq6InF770TY2x--z64R3jFXJ1lL6IbCq78YhkmPsImDvoLT0ZNZYf3v18AjPGALMx0W8drkhi1Z5tizb9eU_5WOBQ3eGKIdG6TRKUDVV8Fi6FtgEG9sFEZOm3qKD0QG6ZTNgT9uWZ94z32syze8SrXqs-0BUYl-_ksfUMKGEkvTf2DaQqJq0zlMjDmidKl74DNGPUwHz7U31Dd4XKs6magICicFIAXMO570xj07ouOWRtIWfMTYXVM3qedqvRH2BHJNGsVZPjUu8GfFBfPyvTIXwmQWpy0CMnQVZyLknWVrfj0-CfS0MdR8SciAebyGvXigMa-Qs2ZdDQ1L95bPSgx4j9Ce2PxxQJXkEq9S_9Gjo5hQyuNrW7aa5oNISf69-4K0x1GryxHJeukRZFEU59-DqNGyv0DK3lZSa_ojtq2bVoDTaAFTzshK3iEx81rSe2lw6jofpkkoBbDJZ64hJfrd8Lh7vh30i-_-V3zOgLZBZOhBRF6YMxm7Q6GIyUe0P-XJVUl1MWZHc18KT8MGodBeGi7TA0eMK72oCLllPBB7qDPCDGDVau6Suz_S1gHcPvg8jddfEja5W8ZNMQdo1iLlHI';
   private readonly CEP_ORIGEM = '01402000';
@@ -171,17 +173,7 @@ export class ShippingCalculator {
         const body = {
           from: { postal_code: this.CEP_ORIGEM },
           to:   { postal_code: cepLimpo },
-          products: [
-            {
-              id: '1',
-              width: 50,
-              height: 50,
-              length: 50,
-              weight: 15 * this.quantidade,
-              insurance_value: 0,
-              quantity: this.quantidade
-            }
-          ],
+          products: this.cartService.obterProdutosParaFrete(),
           options: { receipt: false, own_hand: false }
         };
 
@@ -214,7 +206,8 @@ export class ShippingCalculator {
 
   selecionarFrete(frete: FreteOpcao): void {
     this.freteSelecionado = frete;
-    this.cdr.detectChanges();
+    this.cartService.freteSelecionado = frete; 
+    this.cdr.detectChanges(); 
   }
 
   formatarPreco(preco: string): string {

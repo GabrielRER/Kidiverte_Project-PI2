@@ -19,7 +19,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Lego Minecraft Enderman_1.webp"],
       "stock": 10,
-      "created_at": "2024-11-15T14:23:00Z"
+      "created_at": "2024-11-15T14:23:00Z",
+      "weight": 0.45,
+      "width": 19,
+      "height": 7,
+      "length": 26
     },
     {
       "id": 2,
@@ -40,7 +44,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/HotWheelsCarroPrateado5cm_2.jpg"],
       "stock": 25,
-      "created_at": "2025-01-20T09:15:30Z"
+      "created_at": "2025-01-20T09:15:30Z",
+      "weight": 0.05,
+      "width": 11,
+      "height": 4,
+      "length": 11
     },
     {
       "id": 3,
@@ -61,7 +69,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Carro de Controle Remoto - Marvel - Homem-Aranha - Autoracing_3.jpg"],
       "stock": 8,
-      "created_at": "2025-03-12T16:45:00Z"
+      "created_at": "2025-03-12T16:45:00Z",
+      "weight": 0.60,
+      "width": 16,
+      "height": 14,
+      "length": 28
     },
     {
       "id": 4,
@@ -82,12 +94,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Pista Hot Wheels Ataque do Tubarão - Mattel_4.jpg"],
       "stock": 12,
-      "created_at": "2024-08-05T10:00:00Z"
+      "created_at": "2024-08-05T10:00:00Z",
+      "weight": 1.20,
+      "width": 30,
+      "height": 15,
+      "length": 45
     },
     {
       "id": 5,
       "name": "Carrinho de Controle Remoto Garra de Prata - Candide",
-      "description": "Supere qualquer obstáculo com o veículo Garra de Prata. Equipado com rádio controle de 3 funções e pneus de alta aderência prontos para a ação.",
+      "description": "Supere qualquer obstáculo com o veículo Garra de Prata. Equipado com rádio controle de 3 funções and pneus de alta aderência prontos para a ação.",
       "original_price": null,
       "current_price": 89.99,
       "discount_percentage": null,
@@ -103,12 +119,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Carrinho de Controle Remoto Garra de Prata - Candide_5.webp"],
       "stock": 18,
-      "created_at": "2025-02-18T11:30:22Z"
+      "created_at": "2025-02-18T11:30:22Z",
+      "weight": 0.55,
+      "width": 15,
+      "height": 13,
+      "length": 25
     },
     {
       "id": 6,
       "name": "Monster Truck Bone Shaker Escala 1:24 - Mattel",
-      "description": "Com rodas gigantescas e uma carcaça de metal destruidora, o Bone Shaker está pronto para esmagar seus rivais na arena de corrida.",
+      "description": "Com rodas gigantescas and uma carcaça de metal destruidora, o Bone Shaker está pronto para esmagar seus rivais na arena de corrida.",
       "original_price": 159.90,
       "current_price": 139.90,
       "discount_percentage": 12,
@@ -124,12 +144,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Monster Truck Bone Shaker Escala 1-24 - Mattel_6.jpg"],
       "stock": 7,
-      "created_at": "2024-12-25T18:20:00Z"
+      "created_at": "2024-12-25T18:20:00Z",
+      "weight": 0.40,
+      "width": 14,
+      "height": 13,
+      "length": 21
     },
     {
       "id": 7,
       "name": "Super Garagem de Estacionamento em Madeira - Melissa & Doug",
-      "description": "Um brinquedo educativo clássico em madeira de alta qualidade. Inclui elevador manual, cancelas de trânsito e 4 carrinhos coloridos.",
+      "description": "Um brinquedo educativo clássico em madeira de alta qualidade. Inclui elevador manual, cancelas de trânsito and 4 carrinhos coloridos.",
       "original_price": null,
       "current_price": 289.99,
       "discount_percentage": null,
@@ -145,7 +169,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Super Garagem de Estacionamento em Madeira - Melissa & Doug_7.webp"],
       "stock": 5,
-      "created_at": "2025-04-02T08:14:10Z"
+      "created_at": "2025-04-02T08:14:10Z",
+      "weight": 2.50,
+      "width": 34,
+      "height": 18,
+      "length": 48
     },
     {
       "id": 8,
@@ -166,12 +194,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Carrinho Relâmpago McQueen Cars Disney - Mattel_8.jpg"],
       "stock": 25,
-      "created_at": "2024-10-10T13:40:00Z"
+      "created_at": "2024-10-10T13:40:00Z",
+      "weight": 0.08,
+      "width": 12,
+      "height": 5,
+      "length": 14
     },
     {
       "id": 9,
       "name": "LEGO City Estação dos Bombeiros - LEGO",
-      "description": "Construa uma central de bombeiros completa de 3 andares! Inclui um caminhão de resgate, helicóptero e 5 minifiguras heróicas com acessórios.",
+      "description": "Construa uma central de bombeiros completa de 3 andares! Inclui um caminhão de resgate, helicóptero and 5 minifiguras heróicas com acessórios.",
       "original_price": 399.90,
       "current_price": 349.90,
       "discount_percentage": 12,
@@ -187,7 +219,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/LEGO City Estação dos Bombeiros - LEGO_9.webp"],
       "stock": 10,
-      "created_at": "2025-01-05T17:55:00Z"
+      "created_at": "2025-01-05T17:55:00Z",
+      "weight": 1.10,
+      "width": 28,
+      "height": 9,
+      "length": 48
     },
     {
       "id": 10,
@@ -208,12 +244,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/LEGO Star Wars Capacete de Darth Vader - LEGO-10.jfif"],
       "stock": 4,
-      "created_at": "2024-09-19T21:05:14Z"
+      "created_at": "2024-09-19T21:05:14Z",
+      "weight": 0.95,
+      "width": 19,
+      "height": 12,
+      "length": 35
     },
     {
       "id": 11,
       "name": "Kit de Blocos de Construção de Castelo Colorido - Melissa & Doug",
-      "description": "Contém 100 blocos de madeira maciça em formatos e cores variados para as crianças estimularem o raciocínio espacial construindo fortalezas e torres.",
+      "description": "Contém 100 blocos de madeira maciça em formatos and cores variados para as crianças estimularem o raciocínio espacial construindo fortalezas and torres.",
       "original_price": 199.90,
       "current_price": 179.90,
       "discount_percentage": 10,
@@ -229,12 +269,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Kit de Blocos de Construção de Castelo Colorido - Melissa & Doug_11.jpg"],
       "stock": 14,
-      "created_at": "2025-03-30T10:22:00Z"
+      "created_at": "2025-03-30T10:22:00Z",
+      "weight": 1.80,
+      "width": 23,
+      "height": 9,
+      "length": 34
     },
     {
       "id": 12,
       "name": "LEGO Creator Criaturas do Fundo do Mar 3 em 1 - LEGO",
-      "description": "Monte um tubarão feroz com caranguejo, desmonte e transforme-o em uma lula flexível ou em um peixe-pescador das profundezas do oceano.",
+      "description": "Monte um tubarão feroz com caranguejo, desmonte and transforme-o em uma lula flexível ou em um peixe-pescador das profundezas do oceano.",
       "original_price": null,
       "current_price": 129.99,
       "discount_percentage": null,
@@ -250,7 +294,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/LEGO Creator Criaturas do Fundo do Mar 3 em 1 - LEGO_12.webp"],
       "stock": 22,
-      "created_at": "2025-02-14T14:50:00Z"
+      "created_at": "2025-02-14T14:50:00Z",
+      "weight": 0.30,
+      "width": 14,
+      "height": 5,
+      "length": 26
     },
     {
       "id": 13,
@@ -271,12 +319,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/LEGO Marvel Armadura Robô do Iron Man - LEGO_13.jfif"],
       "stock": 30,
-      "created_at": "2024-07-28T09:11:05Z"
+      "created_at": "2024-07-28T09:11:05Z",
+      "weight": 0.15,
+      "width": 14,
+      "height": 5,
+      "length": 16
     },
     {
       "id": 14,
       "name": "Boneca Barbie Fashionista Vestido Floral - Mattel",
-      "description": "A Barbie Fashionista celebra a diversidade com visuais e estilos modernos. Perfeita para criar histórias cheias de glamour e imaginação.",
+      "description": "A Barbie Fashionista celebra a diversidade com visuais and estilos modernos. Perfeita para criar histórias cheias de glamour and imaginação.",
       "original_price": null,
       "current_price": 89.99,
       "discount_percentage": null,
@@ -292,12 +344,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Boneca Barbie Fashionista Vestido Floral - Mattel_14.webp"],
       "stock": 40,
-      "created_at": "2025-04-15T15:33:40Z"
+      "created_at": "2025-04-15T15:33:40Z",
+      "weight": 0.25,
+      "width": 12,
+      "height": 6,
+      "length": 33
     },
     {
       "id": 15,
       "name": "Boneca Baby Alive Dia de Estreia - Hasbro",
-      "description": "Uma boneca adorável que bebe água na mamadeira e faz xixi na fraldinha de verdade! Acompanha acessórios fofos para o cuidado diário.",
+      "description": "Uma boneca adorável que bebe água na mamadeira and faz xixi na fraldinha de verdade! Acompanha acessórios fofos para o cuidado diário.",
       "original_price": 229.90,
       "current_price": 189.90,
       "discount_percentage": 17,
@@ -313,12 +369,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Boneca Baby Alive Dia de Estreia - Hasbro_15.webp"],
       "stock": 11,
-      "created_at": "2024-12-01T11:00:00Z"
+      "created_at": "2024-12-01T11:00:00Z",
+      "weight": 0.75,
+      "width": 23,
+      "height": 11,
+      "length": 35
     },
     {
       "id": 16,
       "name": "Boneca Coleção Princesas Disney Cinderela - Mattel",
-      "description": "Encante-se com o brilho real da Cinderela. Traje clássico de gala azul cintilante, tiara elegante e sapatinhos removíveis inclusos.",
+      "description": "Encante-se com o brilho real da Cinderela. Traje clássico de gala azul cintilante, tiara elegante and sapatinhos removíveis inclusos.",
       "original_price": null,
       "current_price": 119.99,
       "discount_percentage": null,
@@ -334,12 +394,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Boneca Coleção Princesas Disney Cinderela - Mattel_16.png"],
       "stock": 16,
-      "created_at": "2025-01-10T14:25:00Z"
+      "created_at": "2025-01-10T14:25:00Z",
+      "weight": 0.28,
+      "width": 12,
+      "height": 6,
+      "length": 33
     },
     {
       "id": 17,
       "name": "Boneca Magnética de Vestir em Madeira Julia - Melissa & Doug",
-      "description": "Uma boneca de madeira com suporte e 24 peças de roupas magnéticas para misturar, combinar e criar dezenas de trajes estilosos.",
+      "description": "Uma boneca de madeira com suporte and 24 peças de roupas magnéticas para misturar, combinar and criar dezenas de trajes estilosos.",
       "original_price": 149.90,
       "current_price": 134.90,
       "discount_percentage": 10,
@@ -355,12 +419,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Boneca Magnética de Vestir em Madeira Julia - Melissa & Doug_17.webp"],
       "stock": 9,
-      "created_at": "2024-10-22T10:50:00Z"
+      "created_at": "2024-10-22T10:50:00Z",
+      "weight": 0.65,
+      "width": 22,
+      "height": 3,
+      "length": 30
     },
     {
       "id": 18,
       "name": "Barbie Color Reveal Sereias Surpresa - Mattel",
-      "description": "Descubra qual sereia está escondida no tubo! Adicione água morna e veja a tinta se revelar misteriosamente revelando o visual secreto da boneca.",
+      "description": "Descubra qual sereia está escondida no tubo! Adicione água morna and veja a tinta se revelar misteriosamente revelando o visual secreto da boneca.",
       "original_price": 189.90,
       "current_price": 159.90,
       "discount_percentage": 15,
@@ -376,7 +444,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Barbie Color Reveal Sereias Surpresa - Mattel_18.jpg"],
       "stock": 15,
-      "created_at": "2025-03-05T16:18:00Z"
+      "created_at": "2025-03-05T16:18:00Z",
+      "weight": 0.32,
+      "width": 9,
+      "height": 9,
+      "length": 33
     },
     {
       "id": 19,
@@ -397,12 +469,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/Funko Pop! Star Wars - Mandalorian com Grogu_19.webp"],
       "stock": 8,
-      "created_at": "2024-06-14T13:45:10Z"
+      "created_at": "2024-06-14T13:45:10Z",
+      "weight": 0.18,
+      "width": 12,
+      "height": 9,
+      "length": 16
     },
     {
       "id": 20,
       "name": "Figura Anime Heroes Naruto Uzumaki - Bandai",
-      "description": "Ação ninja realista! Figura com mais de 16 pontos de articulação, mãos intercambiáveis e o efeito do ataque icônico Rasengan.",
+      "description": "Ação ninja realista! Figura com mais de 16 pontos de articulação, mãos intercambiáveis and o efeito do ataque icônico Rasengan.",
       "original_price": 249.90,
       "current_price": 219.90,
       "discount_percentage": 12,
@@ -418,12 +494,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/20_Figura_Anime_Heroes_Naruto_Uzumaki_-_Bandai.jpg"],
       "stock": 6,
-      "created_at": "2024-12-18T19:30:00Z"
+      "created_at": "2024-12-18T19:30:00Z",
+      "weight": 0.22,
+      "width": 13,
+      "height": 5,
+      "length": 25
     },
     {
       "id": 21,
       "name": "Box Organizador Cartas de Pokémon Destinos Paldea - Pokémon",
-      "description": "Expanda sua coleção com cartas raras e brilhantes da região de Paldea. Contém boosters metalizados e 1 carta holográfica promocional.",
+      "description": "Expanda sua coleção com cartas raras and brilhantes da região de Paldea. Contém boosters metalizados and 1 carta holográfica promocional.",
       "original_price": null,
       "current_price": 69.99,
       "discount_percentage": null,
@@ -439,12 +519,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/21_Box_Organizador_Cartas_de_Pokemon_Destinos_Paldea.jpg"],
       "stock": 50,
-      "created_at": "2025-04-20T11:15:00Z"
+      "created_at": "2025-04-20T11:15:00Z",
+      "weight": 0.35,
+      "width": 15,
+      "height": 9,
+      "length": 20
     },
     {
       "id": 22,
       "name": "Boneco Colecionável Roblox Jailbreak: Great Escape - Roblox",
-      "description": "Traga os avatares virtuais do jogo direto para as suas mãos. Inclui 2 figuras de personagens misteriosos e um código exclusivo para resgatar itens no jogo.",
+      "description": "Traga os avatares virtuais do jogo direto para as suas mãos. Inclui 2 figuras de personagens misteriosos and um código exclusivo para resgatar itens no jogo.",
       "original_price": 119.90,
       "current_price": 99.90,
       "discount_percentage": 16,
@@ -460,7 +544,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/22_Boneco_Colecionavel_Roblox_Jailbreak_Great_Escape.jpg"],
       "stock": 19,
-      "created_at": "2025-02-27T14:40:22Z"
+      "created_at": "2025-02-27T14:40:22Z",
+      "weight": 0.20,
+      "width": 17,
+      "height": 5,
+      "length": 23
     },
     {
       "id": 23,
@@ -481,12 +569,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/23_Funko_Pop_Marvel_Avengers_-_Iron_Man_Endgame.jpg"],
       "stock": 14,
-      "created_at": "2024-05-10T17:00:00Z"
+      "created_at": "2024-05-10T17:00:00Z",
+      "weight": 0.18,
+      "width": 12,
+      "height": 9,
+      "length": 16
     },
     {
       "id": 24,
       "name": "Girafa Pick-a-Brick de Atividades - Fisher-Price - Mattel",
-      "description": "Estimule os sentidos com blocos transparentes que o bebê joga dentro do pescoço comprido da girafa, ativando sons alegres e divertidos ao cair.",
+      "description": "Estimule os sentidos com blocos transparentes que o bebê joga dentro do pescoço comprido da girafa, ativando sons alegres and divertidos ao cair.",
       "original_price": 149.90,
       "current_price": 129.90,
       "discount_percentage": 13,
@@ -502,12 +594,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/24_Girafa_Pick-a-Brick_de_Atividades_-_Fisher-Price.jpeg"],
       "stock": 13,
-      "created_at": "2024-09-02T09:30:00Z"
+      "created_at": "2024-09-02T09:30:00Z",
+      "weight": 0.70,
+      "width": 22,
+      "height": 10,
+      "length": 28
     },
     {
       "id": 25,
       "name": "Cubo Sensorial de Encaixe de Formas - Melissa & Doug",
-      "description": "Um cubo clássico em madeira natural com texturas suaves e 12 formatos geométricos coloridos para desenvolver as habilidades motoras finas.",
+      "description": "Um cubo clássico em madeira natural com texturas suaves and 12 formatos geométricos coloridos para desenvolver as habilidades motoras finas.",
       "original_price": null,
       "current_price": 99.99,
       "discount_percentage": null,
@@ -523,12 +619,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/25_Cubo_Sensorial_de_Encaixe_de_Formas.jpg"],
       "stock": 21,
-      "created_at": "2025-01-15T10:45:00Z"
+      "created_at": "2025-01-15T10:45:00Z",
+      "weight": 0.90,
+      "width": 17,
+      "height": 17,
+      "length": 17
     },
     {
       "id": 26,
       "name": "Pelúcia Interativa Meu Primeiro Cachorrinho - Hasbro",
-      "description": "Cachorrinho de pelúcia fofo e ultra-macio que reage ao toque com latidos suaves, balança as orelhinhas e toca canções de ninar relaxantes.",
+      "description": "Cachorrinho de pelúcia fofo and ultra-macio que reage ao toque com latidos suaves, balança as orelhinhas and toca canções de ninar relaxantes.",
       "original_price": 189.90,
       "current_price": 169.90,
       "discount_percentage": 10,
@@ -544,12 +644,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/26_Pelucia_Interativa_Meu_Primeiro_Cachorrinho.jpg"],
       "stock": 9,
-      "created_at": "2024-11-30T16:20:00Z"
+      "created_at": "2024-11-30T16:20:00Z",
+      "weight": 0.50,
+      "width": 20,
+      "height": 24,
+      "length": 22
     },
     {
       "id": 27,
       "name": "Chocalho Mordedor de Chaves Coloridas - Candide",
-      "description": "Leve e fácil de segurar por mãos pequenas. Feito de silicone atóxico macio e texturizado para acalmar a gengiva do bebê durante o nascimento dos dentes.",
+      "description": "Leve and fácil de segurar por mãos pequenas. Feito de silicone atóxico macio and texturizado para acalmar a gengiva do bebê durante o nascimento dos dentes.",
       "original_price": null,
       "current_price": 29.99,
       "discount_percentage": null,
@@ -565,12 +669,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/27_Chocalho_Mordedor_de_Chaves_Coloridas.jpeg"],
       "stock": 35,
-      "created_at": "2025-03-22T08:12:30Z"
+      "created_at": "2025-03-22T08:12:30Z",
+      "weight": 0.10,
+      "width": 12,
+      "height": 3,
+      "length": 15
     },
     {
       "id": 28,
       "name": "Tapete de Atividades Ginásio do Bebê - Fisher-Price - Mattel",
-      "description": "Tapete acolchoado confortável com arco de brinquedos pendurados, espelho de autodescoberta e um pianinho musical acionado pelos pés do bebê.",
+      "description": "Tapete acolchoado confortável com arco de brinquedos pendurados, espelho de autodescoberta and um pianinho musical acionado pelos pés do bebê.",
       "original_price": 329.90,
       "current_price": 279.90,
       "discount_percentage": 15,
@@ -586,12 +694,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/28_Tapete_de_Atividades_Ginasio_do_Bebe_-_Fisher-Price.jpg"],
       "stock": 8,
-      "created_at": "2024-08-14T14:00:00Z"
+      "created_at": "2024-08-14T14:00:00Z",
+      "weight": 2.10,
+      "width": 45,
+      "height": 10,
+      "length": 68
     },
     {
       "id": 29,
       "name": "Lançador de Dardos Nerf Elite 2.0 Volt - Hasbro",
-      "description": "Domine as batalhas com o lançador compacto Volt SD-1. Possui mira com feixe de luz integrado e capacidade para armazenar 2 dardos extras no cabo.",
+      "description": "Domine as batalhas com o lançador compacto Volt SD-1. Possui mira com feixe de luz integrado and capacidade para armazenar 2 dardos extras no cabo.",
       "original_price": null,
       "current_price": 79.99,
       "discount_percentage": null,
@@ -607,12 +719,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/29_Lancador_de_Dardos_Nerf_Elite_2.0_Volt.jpg"],
       "stock": 45,
-      "created_at": "2026-05-01T10:30:00Z"
+      "created_at": "2026-05-01T10:30:00Z",
+      "weight": 0.28,
+      "width": 16,
+      "height": 6,
+      "length": 24
     },
     {
       "id": 30,
       "name": "Patins Ajustável Hot Wheels com Acessórios - Candide",
-      "description": "Aventura sobre rodinhas com segurança máxima! Patins com tamanho facilmente ajustável, acompanhado de capacete, joelheiras e cotoveleiras combinando.",
+      "description": "Aventura sobre rodinhas com segurança máxima! Patins com tamanho facilmente ajustável, acompanhado de capacete, joelheiras and cotoveleiras combinando.",
       "original_price": 349.90,
       "current_price": 299.90,
       "discount_percentage": 14,
@@ -628,12 +744,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/30_Patins_Ajustavel_Hot_Wheels_com_Acessorios.jpeg"],
       "stock": 10,
-      "created_at": "2026-05-03T14:15:22Z"
+      "created_at": "2026-05-03T14:15:22Z",
+      "weight": 2.20,
+      "width": 28,
+      "height": 22,
+      "length": 38
     },
     {
       "id": 31,
       "name": "Kit de Mini Traves de Futebol Pop-Up - Melissa & Doug",
-      "description": "Transforme o quintal ou o parque em um campo oficial de futebol. Duas traves dobráveis fáceis de montar e transportar, completas com estacas de fixação.",
+      "description": "Transforme o quintal ou o parque em um campo oficial de futebol. Duas traves dobráveis fáceis de montar and transportar, completas com estacas de fixação.",
       "original_price": null,
       "current_price": 189.99,
       "discount_percentage": null,
@@ -649,12 +769,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/31_Kit_de_Mini_Traves_de_Futebol.jpeg"],
       "stock": 12,
-      "created_at": "2026-05-06T09:45:00Z"
+      "created_at": "2026-05-06T09:45:00Z",
+      "weight": 1.40,
+      "width": 15,
+      "height": 15,
+      "length": 42
     },
     {
       "id": 32,
       "name": "Tabela de Basquete Infantil Ajustável - Candide",
-      "description": "Pratique enterradas e arremessos incríveis. A pedestal ajustável cresce junto com a criança. Inclui rede durável e mini bola de basquete inflável.",
+      "description": "Pratique enterradas and arremessos incríveis. A pedestal ajustável cresce junto com a criança. Inclui rede durável and mini bola de basquete inflável.",
       "original_price": 219.90,
       "current_price": 199.90,
       "discount_percentage": 9,
@@ -670,7 +794,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/32_Tabela_de_Basquete_Infantil_Ajustavel.jpeg"],
       "stock": 14,
-      "created_at": "2026-05-09T16:20:11Z"
+      "created_at": "2026-05-09T16:20:11Z",
+      "weight": 3.10,
+      "width": 40,
+      "height": 12,
+      "length": 55
     },
     {
       "id": 33,
@@ -691,12 +819,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/33_Lancador_Nerf_Super_Soaker_Hidro_-_Hasbro.jpg"],
       "stock": 28,
-      "created_at": "2026-05-11T11:05:00Z"
+      "created_at": "2026-05-11T11:05:00Z",
+      "weight": 0.60,
+      "width": 20,
+      "height": 8,
+      "length": 40
     },
     {
       "id": 34,
       "name": "Jogo de Estratégia Monopoly Clássico - Hasbro",
-      "description": "Compre, venda e negocie propriedades imobiliárias nesta versão moderna e icônica do jogo que dita quem vai à falência ou se torna o milionário da mesa.",
+      "description": "Compre, venda and negocie propriedades imobiliárias nesta versão moderna and icônica do jogo que dita quem vai à falência ou se torna o milionário da mesa.",
       "original_price": 149.90,
       "current_price": 129.90,
       "discount_percentage": 13,
@@ -712,12 +844,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/34_Jogo_de_Estrategia_Monopoly_Classico_-_Hasbro.jpg"],
       "stock": 20,
-      "created_at": "2026-05-14T13:50:45Z"
+      "created_at": "2026-05-14T13:50:45Z",
+      "weight": 0.85,
+      "width": 27,
+      "height": 5,
+      "length": 40
     },
     {
       "id": 35,
       "name": "Jogo de Cartas UNO Original - Mattel",
-      "description": "Fácil de começar, impossível parar! Livre-se de todas as suas cartas combinando cores ou números, sabote seus amigos e nunca se esqueça de gritar UNO!",
+      "description": "Fácil de começar, impossível parar! Livre-se de todas as suas cartas combinando cores ou números, sabote seus amigos and nunca se esqueça de gritar UNO!",
       "original_price": null,
       "current_price": 24.99,
       "discount_percentage": null,
@@ -733,12 +869,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/35_Jogo_de_Cartas_UNO_Original_-_Mattel.jpg"],
       "stock": 150,
-      "created_at": "2026-05-17T18:22:00Z"
+      "created_at": "2026-05-17T18:22:00Z",
+      "weight": 0.12,
+      "width": 9,
+      "height": 2,
+      "length": 14
     },
     {
       "id": 36,
       "name": "Jogo de Tabuleiro Operação Clássico - Hasbro",
-      "description": "Seja o cirurgião chefe! Remova as peças anatômicas do paciente com a pinça de metal sem fazer o alarme tocar e o nariz dele acender em vermelho.",
+      "description": "Seja o cirurgião chefe! Remova as peças anatômicas do paciente com a pinça de metal sem fazer o alarme tocar and o nariz dele acender em vermelho.",
       "original_price": 179.90,
       "current_price": 149.90,
       "discount_percentage": 16,
@@ -754,12 +894,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/36_Jogo_de_Tabuleiro_Operando_Classico_-_Hasbro.jpg"],
       "stock": 17,
-      "created_at": "2026-05-20T10:14:00Z"
+      "created_at": "2026-05-20T10:14:00Z",
+      "weight": 0.70,
+      "width": 25,
+      "height": 5,
+      "length": 40
     },
     {
       "id": 37,
       "name": "Jogo Jenga de Blocos de Madeira Maciça - Hasbro",
-      "description": "Equilíbrio, precisão e nervos de aço. Remova os blocos de madeira da base e empilhe-os no topo da torre sem deixá-la desabar na sua vez.",
+      "description": "Equilíbrio, precisão and nervos de aço. Remova os blocos de madeira da base and empilhe-os no topo da torre sem deixá-la desabar na sua vez.",
       "original_price": null,
       "current_price": 99.99,
       "discount_percentage": null,
@@ -775,12 +919,16 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/37_Jogo_Jenga_de_Blocos_de_Madeira_Macica_-_Hasbro.jpg"],
       "stock": 33,
-      "created_at": "2026-05-22T15:40:00Z"
+      "created_at": "2026-05-22T15:40:00Z",
+      "weight": 1.10,
+      "width": 12,
+      "height": 12,
+      "length": 28
     },
     {
       "id": 38,
       "name": "Jogo de Tabuleiro Detetive com Aplicativo - Estrela (Mattel)",
-      "description": "Um terrível crime aconteceu na mansão. Investigue os cômodos, elimine suspeitos e descubra a arma e o assassino usando dicas digitais via celular.",
+      "description": "Um terrível crime aconteceu na mansão. Investigue os cômodos, elimine suspeitos and descubra a arma and o assassino usando dicas digitais via celular.",
       "original_price": 139.90,
       "current_price": 119.90,
       "discount_percentage": 14,
@@ -796,7 +944,11 @@
       "thumbnail_url": null,
       "images": ["imagens_produtos/38_Jogo_de_Tabuleiro_Detetive_com_Aplicativo.jpg"],
       "stock": 12,
-      "created_at": "2026-05-24T09:12:35Z"
+      "created_at": "2026-05-24T09:12:35Z",
+      "weight": 0.90,
+      "width": 27,
+      "height": 6,
+      "length": 40
     }
   ]
 }

@@ -37,51 +37,11 @@
 
   <aside class="sh-summary" *ngIf="!carrinhoVazio">
 
-    
     <div class="sh-box">
       <h3 class="sh-box-title">🚚 Calcular o frete</h3>
-      <p class="sh-frete-label">
-        Receber {{ cartService.totalItens() }} {{ cartService.totalItens() === 1 ? 'item' : 'itens' }} em
-        <span class="sh-cep-span">{{ cepAtual || '00000-000' }}</span>
-      </p>
-      <div class="sh-cep-row">
-        <input type="text" class="sh-cep-input" placeholder="00000-000" maxlength="9"
-               [(ngModel)]="cepDigitado" (input)="onCepInput()" (keyup.enter)="calcularFrete()" />
-        <button class="sh-cep-btn" (click)="calcularFrete()" [disabled]="calculandoFrete">
-          {{ calculandoFrete ? '...' : '›' }}
-        </button>
-      </div>
-      <div class="sh-frete-erro" *ngIf="erroFrete">⚠️ {{ erroFrete }}</div>
-      <div class="sh-frete-opcoes" *ngIf="opcoesFreteDisponiveis.length > 0">
-        <div class="sh-frete-opcao"
-             *ngFor="let op of opcoesFreteDisponiveis"
-             [class.sh-frete-selecionada]="opcaoFreteSelecionada?.id === op.id"
-             (click)="selecionarFrete(op)">
-          <div class="sh-frete-left">
-            <img *ngIf="op.logo" [src]="op.logo" [alt]="op.nome" class="sh-frete-logo" />
-            <div>
-              <strong>{{ op.nome }}</strong>
-              <p>Em até {{ op.prazo }} dia{{ op.prazo > 1 ? 's' : '' }} útei{{ op.prazo > 1 ? 's' : 'l' }}</p>
-            </div>
-          </div>
-          <span class="sh-frete-preco">
-            {{ op.preco === '0.00' ? 'Grátis' : 'R$ ' + formatarFretePreco(op.preco) }}
-          </span>
-        </div>
-      </div>
-      
-      <div class="sh-frete-opcao sh-frete-placeholder" *ngIf="opcoesFreteDisponiveis.length === 0 && !erroFrete">
-        <div class="sh-frete-left">
-          <div>
-            <strong>Mais econômica</strong>
-            <p>Em até x dias úteis</p>
-          </div>
-        </div>
-        <span class="sh-frete-preco">R$ 00,00</span>
-      </div>
+      <app-shipping-calculator></app-shipping-calculator>
     </div>
 
-    <!-- Cupom -->
     <div class="sh-box">
       <h3 class="sh-box-title">🏷️ Cupom de desconto</h3>
       <div class="sh-cupom-row">
@@ -95,31 +55,32 @@
       </p>
     </div>
 
-    <!-- Resumo -->
     <div class="sh-box sh-resumo">
-      <h3 class="sh-box-title">📋 Resumo do pedido</h3>
+  <h3 class="sh-box-title">📋 Resumo do pedido</h3>
 
-      <div class="sh-resumo-linha">
-        <span>Subtotal</span>
-        <span>{{ formatarMoeda(subtotal) }}</span>
-      </div>
-      <div class="sh-resumo-linha">
-        <span>Entrega</span>
-        <span>{{ opcaoFreteSelecionada ? (opcaoFreteSelecionada.preco === '0.00' ? 'Grátis' : 'R$ ' + formatarFretePreco(opcaoFreteSelecionada.preco)) : 'R$ 00,00' }}</span>
-      </div>
-      <div class="sh-resumo-linha sh-desconto" *ngIf="descontoCupom > 0">
-        <span>Cupom</span>
-        <span>− {{ formatarMoeda(descontoCupom) }}</span>
-      </div>
+  <div class="sh-resumo-linha">
+    <span>Subtotal</span>
+    <span>{{ formatarMoeda(subtotal) }}</span>
+  </div>
+  
+  <div class="sh-resumo-linha">
+    <span>Entrega</span>
+    <span>{{ cartService.freteSelecionado ? (cartService.freteSelecionado.preco === '0.00' || cartService.freteSelecionado.preco === '0' ? 'Grátis' : 'R$ ' + formatarFretePreco(cartService.freteSelecionado.preco)) : 'R$ 00,00' }}</span>
+  </div>
+  
+  <div class="sh-resumo-linha sh-desconto" *ngIf="descontoCupom > 0">
+    <span>Cupom</span>
+    <span>− {{ formatarMoeda(descontoCupom) }}</span>
+  </div>
 
-      <div class="sh-resumo-total">
-        <span>Total</span>
-        <span>{{ formatarMoeda(total) }}</span>
-      </div>
+  <div class="sh-resumo-total">
+    <span>Total</span>
+    <span>{{ formatarMoeda(total) }}</span>
+  </div>
 
-      <button class="sh-btn-pay" (click)="finalizarCompra()">IR PARA PAGAMENTO</button>
-      <button class="sh-btn-continue" (click)="continuarComprando()">CONTINUAR COMPRANDO</button>
-    </div>
+  <button class="sh-btn-pay" (click)="finalizarCompra()">IR PARA PAGAMENTO</button>
+  <button class="sh-btn-continue" (click)="continuarComprando()">CONTINUAR COMPRANDO</button>
+</div>
 
   </aside>
 </div>
