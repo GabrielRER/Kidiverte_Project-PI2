@@ -1,8 +1,39 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 3rem 2.5rem 2.5rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow:
+        0 4px 6px rgba(108, 92, 231, 0.06),
+        0 20px 60px rgba(108, 92, 231, 0.14),
+        0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    animation: slideUp 0.5s cubic-bezier(0.22, 0.68, 0, 1.2) both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(32px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 :host {
     display: block;
     background-color: #d0c0ff;
     min-height: 100vh;
     width: 100%;
+    position: fixed;
+    overflow-y: auto;
 }
 
 #content-container {
@@ -13,7 +44,7 @@
     height: 100vh;
 }
 
-#kidivertepet-logo{
+#kidivertepet-logo {
     width: 240px;
     height: 350px;
 }
@@ -33,4 +64,176 @@
     border-radius: 40px;
     font-size: 16px;
     margin-bottom: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.field:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.field:nth-child(2) {
+  animation-delay: 0.10s;
+}
+
+.field:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.field:nth-child(4) {
+  animation-delay: 0.20s;
+}
+
+.field:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.field:nth-child(6) {
+  animation-delay: 0.30s;
+}
+
+.field:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.field:nth-child(8) {
+  animation-delay: 0.40s;
+}
+
+label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1a1632;
+  letter-spacing: 0.01em;
+}
+
+.input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrap .icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  font-size: 18px;
+  line-height: 18px;
+
+  color: #7b75a0;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+.input-wrap:focus-within .icon {
+  color: #6c5ce7;
+}
+
+input{
+  width: 100%;
+  background: #f8f7ff;
+  border: 1.5px solid #ddd9f5;
+  border-radius: 12px;
+  padding: 11px 14px 11px 38px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  color: #1a1632;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #bbb8d8;
+}
+
+input:hover,
+select:hover {
+  border-color: #b8b2e8;
+  background: #f3f1ff;
+}
+
+input:focus,
+select:focus {
+  border-color: #6c5ce7;
+  background: #ffffff;
+  box-shadow: 0 0 0 3.5px rgba(108, 92, 231, 0.13);
+}
+
+input[type="password"] {
+  letter-spacing: 0.1em;
+}
+
+.register-link-text {
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-button {
+    background-color: #7b4dff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 22px;
+    height: 60px;
+    width: 180px;
+    margin-top: 50px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 2.2rem 1.4rem 2rem;
+  }
+
 }

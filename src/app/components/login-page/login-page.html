@@ -1,9 +1,33 @@
 <div id="content-container">
-  <img id="kidivertepet-logo" src="assets/login/kidivertepet.png" alt="Login Image" class="login-image">
-    <form>
-        <p class="login-title-text">E-mail:</p>
-        <input class="login-input" type="text" placeholder="E-mail">
-        <p class="login-title-text">Senha:</p>
-        <input class="login-input" type="password" placeholder="Senha">
-    </form>
+  <div class="card">
+    <img id="kidivertepet-logo" src="assets/login/kidivertepet.png" alt="Login Image" class="login-image">
+
+
+    <section>
+      <form>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <div class="input-wrap">
+            <mat-icon class="icon">email</mat-icon>
+            <input type="email" id="email" name="email" [(ngModel)]="form.email" placeholder="seu@email.com"
+              autocomplete="email" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="senha">Senha</label>
+          <div class="input-wrap">
+            <mat-icon class="icon">lock</mat-icon>
+            <input type="password" id="senha" name="senha" [(ngModel)]="form.senha" placeholder="••••••••" />
+          </div>
+        </div>
+      </form>
+      <p class="register-link-text">Ainda não tem uma conta?</p>
+      <a class="register-link-text" href="/register">Cadastre-se</a>
+
+      <button class="login-button" mat-button type="submit">Entrar</button>
+    </section>
+
+  </div>
+
+
 </div>
