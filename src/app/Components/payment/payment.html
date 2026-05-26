@@ -1,28 +1,43 @@
+<!-- Container principal da página: divide a tela em conteúdo principal + sidebar -->
 <div class="pmt-container">
   <div class="pmt-main-content">
-    
+
+    <!-- ===== BOX DE ENTREGA ===== -->
+    <!-- Exibe o endereço de entrega interpolado a partir do objeto shippingAddress no TS -->
     <div class="pmt-box pmt-delivery-box">
       <div class="pmt-delivery-info">
         <h3>Entrega para {{ shippingAddress.recipient }}</h3>
-        <p>{{ shippingAddress.street }} {{ shippingAddress.number }}, {{ shippingAddress.neighborhood }}, {{ shippingAddress.city }} - {{ shippingAddress.state }}, {{ shippingAddress.cep }}, {{ shippingAddress.country }}</p>
+        <p>
+          {{ shippingAddress.street }} {{ shippingAddress.number }},
+          {{ shippingAddress.neighborhood }},
+          {{ shippingAddress.city }} - {{ shippingAddress.state }},
+          {{ shippingAddress.cep }}, {{ shippingAddress.country }}
+        </p>
       </div>
+      <!-- Botão para futura funcionalidade de alterar endereço -->
       <button class="pmt-btn-link">alterar</button>
     </div>
 
+    <!-- ===== BOX DE MÉTODO DE PAGAMENTO ===== -->
     <div class="pmt-box pmt-payment-box">
       <h2>Método de pagamento</h2>
-      
+
       <div class="pmt-payment-options">
-        
+
+        <!-- OPÇÃO 1: Cartão de Crédito -->
+        <!-- [class.pmt-method-active] aplica a classe CSS condicionalmente quando
+             paymentMethod === 'credit_card', destacando a opção selecionada -->
         <div class="pmt-method-group" [class.pmt-method-active]="paymentMethod === 'credit_card'">
           <div class="pmt-method-header">
             <label class="pmt-radio-container">
+              <!-- (change) chama selectPayment() ao selecionar o radio button -->
               <input type="radio" name="pay-method" checked (change)="selectPayment('credit_card')">
               <span class="pmt-checkmark"></span>
               <strong>Seus cartões de crédito</strong>
             </label>
           </div>
           <div class="pmt-method-body pmt-cc-body">
+            <!-- Botão para futura integração de cadastro de cartão -->
             <button class="pmt-add-card">
               <span class="pmt-icon-plus">+</span>
               <span class="pmt-card-placeholder">💳</span>
@@ -31,6 +46,7 @@
           </div>
         </div>
 
+        <!-- OPÇÃO 2: Pix -->
         <div class="pmt-method-group" [class.pmt-method-active]="paymentMethod === 'pix'">
           <div class="pmt-method-header">
             <label class="pmt-radio-container">
@@ -40,10 +56,12 @@
             </label>
           </div>
           <div class="pmt-method-body">
+            <!-- Informação sobre validade do código Pix -->
             <p><span class="pmt-badge-icon">💠</span> O código Pix gerado para o pagamento é válido por 30 minutos após a finalização do pedido.</p>
           </div>
         </div>
 
+        <!-- OPÇÃO 3: Boleto -->
         <div class="pmt-method-group" [class.pmt-method-active]="paymentMethod === 'boleto'">
           <div class="pmt-method-header">
             <label class="pmt-radio-container">
@@ -53,10 +71,12 @@
             </label>
           </div>
           <div class="pmt-method-body">
+            <!-- Informação sobre validade do boleto -->
             <p><span class="pmt-badge-icon">📋</span> O boleto gerado para o pagamento é válido por 7 dias após a finalização do pedido.</p>
           </div>
         </div>
 
+        <!-- OPÇÃO 4: Gift Card (sem radio button — campo de código separado) -->
         <div class="pmt-method-group pmt-gift-group">
           <div class="pmt-method-header">
             <label class="pmt-radio-container-disabled">
@@ -65,6 +85,7 @@
             </label>
           </div>
           <div class="pmt-method-body pmt-inline-form">
+            <!-- Campo de texto para inserir o código do gift card -->
             <input type="text" placeholder="Digitar código" class="pmt-input-gift">
             <button class="pmt-btn-apply-gift">Aplicar</button>
           </div>
@@ -74,38 +95,59 @@
     </div>
   </div>
 
+  <!-- ===== SIDEBAR DIREITA ===== -->
   <div class="pmt-sidebar">
-    
+
+    <!-- BOX DE CUPOM DE DESCONTO -->
     <div class="pmt-box-sidebar">
       <h3>Cupom de desconto</h3>
       <div class="pmt-coupon-field">
-        <input type="text" placeholder="Código" [(ngModel)]="couponCode" (keyup.enter)="applyCoupon()">
+        <!-- [(ngModel)] faz two-way binding com couponCode no TS -->
+        <!-- (keyup.enter) permite aplicar o cupom pressionando Enter -->
+        <input
+          type="text"
+          placeholder="Código"
+          [(ngModel)]="couponCode"
+          (keyup.enter)="applyCoupon()"
+        >
+        <!-- Botão alternativo para aplicar o cupom via clique -->
         <button class="pmt-btn-arrow" (click)="applyCoupon()">›</button>
       </div>
     </div>
 
+    <!-- BOX DE RESUMO DO PEDIDO -->
     <div class="pmt-box-sidebar pmt-summary-box">
       <h3>Resumo do pedido</h3>
-      
+
       <div class="pmt-summary-rows">
+
+        <!-- Linha de subtotal: usa formatPrice() para formatar em R$ -->
         <div class="pmt-summary-line">
           <span>Subtotal</span>
           <span>{{ formatPrice(subtotal) }}</span>
         </div>
+
+        <!-- Linha de frete: exibe 'R$00,00' se frete for zero (frete grátis) -->
         <div class="pmt-summary-line">
           <span>Entrega</span>
           <span>{{ shippingFee === 0 ? 'R$00,00' : formatPrice(shippingFee) }}</span>
         </div>
+
+        <!-- Linha de desconto: *ngIf garante que só aparece se houver desconto aplicado -->
         <div class="pmt-summary-line pmt-discount-line" *ngIf="discountAmount > 0">
           <span>Desconto</span>
           <span>- {{ formatPrice(discountAmount) }}</span>
         </div>
+
+        <!-- Linha de total: usa o getter 'total' calculado automaticamente no TS -->
         <div class="pmt-summary-line pmt-total-line">
           <strong>Total</strong>
           <strong class="pmt-total-price">{{ formatPrice(total) }}</strong>
         </div>
+
       </div>
 
+      <!-- Botão final: (click) chama finishPurchase() que redireciona para /home -->
       <button class="pmt-btn-finalize" (click)="finishPurchase()">FINALIZAR COMPRA</button>
     </div>
 

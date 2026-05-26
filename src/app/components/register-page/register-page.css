@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
+:host {
+  display: block;
+  font-family: 'Sora', sans-serif;
+}
+
+.page {
+  background:  #d0c0ff;;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* ── Card ─────────────────────────────────────────── */
+.card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 3rem 2.5rem 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow:
+    0 4px 6px rgba(108, 92, 231, 0.06),
+    0 20px 60px rgba(108, 92, 231, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  animation: slideUp 0.5s cubic-bezier(0.22, 0.68, 0, 1.2) both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Header ───────────────────────────────────────── */
+.card-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e9e6fd;
+  color: #6c5ce7;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+
+.badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: #6c5ce7;
+  border-radius: 50%;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1632;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.accent {
+  color: #6c5ce7;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #7b75a0;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* ── Grid de campos ────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.field:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.field:nth-child(2) {
+  animation-delay: 0.10s;
+}
+
+.field:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.field:nth-child(4) {
+  animation-delay: 0.20s;
+}
+
+.field:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.field:nth-child(6) {
+  animation-delay: 0.30s;
+}
+
+.field:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.field:nth-child(8) {
+  animation-delay: 0.40s;
+}
+
+/* ── Labels ───────────────────────────────────────── */
+label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1a1632;
+  letter-spacing: 0.01em;
+}
+
+/* ── Input wrapper ────────────────────────────────── */
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap .icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  font-size: 18px;
+  line-height: 18px;
+
+  color: #7b75a0;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+.input-wrap:focus-within .icon {
+  color: #6c5ce7;
+}
+
+/* ── Inputs e Select ──────────────────────────────── */
+input,
+select {
+  width: 100%;
+  background: #f8f7ff;
+  border: 1.5px solid #ddd9f5;
+  border-radius: 12px;
+  padding: 11px 14px 11px 38px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  color: #1a1632;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237b75a0' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+input::placeholder {
+  color: #bbb8d8;
+}
+
+input:hover,
+select:hover {
+  border-color: #b8b2e8;
+  background: #f3f1ff;
+}
+
+input:focus,
+select:focus {
+  border-color: #6c5ce7;
+  background: #ffffff;
+  box-shadow: 0 0 0 3.5px rgba(108, 92, 231, 0.13);
+}
+
+input[type="password"] {
+  letter-spacing: 0.1em;
+}
+
+/* ── Divisor ──────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ddd9f5, transparent);
+  margin: 1.5rem 0 1.4rem;
+}
+
+/* ── Botão ────────────────────────────────────────── */
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.4rem;
+}
+
+button[type="submit"] {
+  background: #6c5ce7;
+  color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  padding: 14px 52px;
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  box-shadow: 0 4px 18px rgba(108, 92, 231, 0.35);
+}
+
+button[type="submit"]:hover {
+  background: #5a4bd1;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(108, 92, 231, 0.42);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3);
+}
+
+button[type="submit"].saved {
+  background: #2ecc71;
+  box-shadow: 0 4px 18px rgba(46, 204, 113, 0.35);
+}
+
+/* ── Link de login ────────────────────────────────── */
+.signin {
+  text-align: center;
+  margin-top: 1.3rem;
+  font-size: 13px;
+  color: #7b75a0;
+}
+
+.signin a {
+  color: #6c5ce7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signin a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsivo ───────────────────────────────────── */
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 2.2rem 1.4rem 2rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}

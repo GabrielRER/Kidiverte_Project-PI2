@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './Components/shared/footer/footer';
 import { Header } from './Components/shared/header/header';
-import { StarRate } from "./Components/shared/star-rate/star-rate";
 import { CartSidebar } from "./Components/cart-sidebar/cart-sidebar";
 
 
