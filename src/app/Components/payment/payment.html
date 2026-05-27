@@ -56,7 +56,8 @@
           </div>
           <div class="pmt-method-body">
             <!-- Informação sobre validade do código Pix -->
-            <p><span class="pmt-badge-icon">💠</span> O código Pix gerado para o pagamento é válido por 30 minutos após a finalização do pedido.</p>
+            <p><span class="pmt-badge-icon">💠</span> O código Pix gerado para o pagamento é válido por 30 minutos após
+              a finalização do pedido.</p>
           </div>
         </div>
 
@@ -71,7 +72,8 @@
           </div>
           <div class="pmt-method-body">
             <!-- Informação sobre validade do boleto -->
-            <p><span class="pmt-badge-icon">📋</span> O boleto gerado para o pagamento é válido por 7 dias após a finalização do pedido.</p>
+            <p><span class="pmt-badge-icon">📋</span> O boleto gerado para o pagamento é válido por 7 dias após a
+              finalização do pedido.</p>
           </div>
         </div>
 
@@ -103,12 +105,7 @@
       <div class="pmt-coupon-field">
         <!-- [(ngModel)] faz two-way binding com couponCode no TS -->
         <!-- (keyup.enter) permite aplicar o cupom pressionando Enter -->
-        <input
-          type="text"
-          placeholder="Código"
-          [(ngModel)]="couponCode"
-          (keyup.enter)="applyCoupon()"
-        >
+        <input type="text" placeholder="Código" [(ngModel)]="couponCode" (keyup.enter)="applyCoupon()">
         <!-- Botão alternativo para aplicar o cupom via clique -->
         <button class="pmt-btn-arrow" (click)="applyCoupon()">›</button>
       </div>
@@ -132,11 +129,14 @@
           <span>{{ shippingFee === 0 ? 'R$00,00' : formatPrice(shippingFee) }}</span>
         </div>
 
-        <!-- Linha de desconto: *ngIf garante que só aparece se houver desconto aplicado -->
-        <div class="pmt-summary-line pmt-discount-line" *ngIf="discountAmount > 0">
-          <span>Desconto</span>
-          <span>- {{ formatPrice(discountAmount) }}</span>
-        </div>
+        <!-- Linha de desconto: @if garante que só aparece se houver desconto aplicado -->
+        @if(discountAmount > 0) {
+          <div class="pmt-summary-line pmt-discount-line">
+            <span>Desconto</span>
+            <span>- {{ formatPrice(discountAmount) }}</span>
+          </div>
+        }
+
 
         <!-- Linha de total: usa o getter 'total' calculado automaticamente no TS -->
         <div class="pmt-summary-line pmt-total-line">
