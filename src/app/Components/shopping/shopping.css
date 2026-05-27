@@ -20,7 +20,7 @@
   min-height: 100vh;
 }
 
-/* ── Layout ── */
+
 .sh-page {
   max-width: 1100px;
   margin: 0 auto;
@@ -31,11 +31,7 @@
   align-items: start;
 }
 
-@media (max-width: 860px) {
-  .sh-page { grid-template-columns: 1fr; }
-}
 
-/* ── Carrinho vazio ── */
 .sh-empty {
   display: flex;
   flex-direction: column;
@@ -146,7 +142,7 @@
 }
 .sh-remove-btn:hover { color: var(--red); background: #FEF2F2; }
 
-/* ── Summary boxes ── */
+
 .sh-summary { display: flex; flex-direction: column; gap: 16px; }
 
 .sh-box {
@@ -164,12 +160,7 @@
   margin: 0 0 14px;
 }
 
-/* Frete */
-.sh-frete-label {
-  font-size: .82rem;
-  color: var(--gray-600);
-  margin: 0 0 10px;
-}
+.sh-frete-label { font-size: .82rem; color: var(--gray-600); margin: 0 0 10px; }
 .sh-cep-span { color: var(--purple); font-weight: 800; }
 
 .sh-cep-row { display: flex; gap: 8px; margin-bottom: 10px; }
@@ -263,3 +254,45 @@
   cursor: pointer; transition: background .2s, color .2s;
 }
 .sh-btn-continue:hover { background: var(--purple); color: #fff; }
+
+
+@media (max-width: 860px) {
+  .sh-page {
+    grid-template-columns: 1fr;
+    padding: 20px 16px 48px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 540px) {
+  .sh-page {
+    padding: 12px 12px 48px;
+    gap: 12px;
+  }
+
+  .sh-card {
+    padding: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .sh-card-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .sh-card-name { font-size: .82rem; }
+
+  .sh-card-actions {
+    gap: 8px;
+  }
+
+  .sh-card-subtotal {
+    min-width: 60px;
+    font-size: .82rem;
+  }
+
+  .sh-box { padding: 16px; }
+
+  .sh-empty { padding: 48px 16px; }
+}

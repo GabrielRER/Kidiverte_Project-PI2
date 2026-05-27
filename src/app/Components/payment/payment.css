@@ -1,46 +1,36 @@
-/* ===== LAYOUT GERAL ===== */
-
-/* Container principal: usa Flexbox para dividir a página em
-   coluna principal (esquerda) e sidebar (direita) */
 .pmt-container {
   display: flex;
-  gap: 24px;             /* Espaço entre conteúdo e sidebar */
+  gap: 24px;
   padding: 30px;
-  background-color: #D3C7FB; /* Fundo lilás da página */
-  min-height: 100vh;     /* Garante que ocupa toda a altura da tela */
+  background-color: #D3C7FB;
+  min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
 
-/* Coluna principal (flex: 2 = ocupa 2/3 do espaço disponível) */
 .pmt-main-content {
   flex: 2;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Espaço entre os boxes */
+  gap: 20px;
 }
 
-/* Sidebar direita (flex: 1 = ocupa 1/3 do espaço disponível) */
 .pmt-sidebar {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-width: 320px; /* Largura mínima para não encolher demais */
+  min-width: 320px;
 }
 
 
-/* ===== ESTILO BASE DOS BOXES ===== */
-
-/* Card branco reutilizado nos boxes da coluna principal */
 .pmt-box {
   background: #FFFFFF;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Box de entrega: flex em linha para alinhar endereço e botão "alterar" */
 .pmt-delivery-box {
   display: flex;
   justify-content: space-between;
@@ -60,7 +50,6 @@
   color: #4A4A4A;
 }
 
-/* Botão "alterar" sem fundo, com texto roxo sublinhado */
 .pmt-btn-link {
   background: none;
   border: none;
@@ -68,12 +57,10 @@
   text-decoration: underline;
   cursor: pointer;
   font-size: 14px;
+  white-space: nowrap; 
 }
 
 
-/* ===== BOX DE PAGAMENTO ===== */
-
-/* Borda azul destaca visualmente o box de métodos de pagamento */
 .pmt-payment-box {
   border: 2px solid #3B82F6;
 }
@@ -85,15 +72,11 @@
 }
 
 
-/* ===== GRUPOS DE MÉTODO DE PAGAMENTO ===== */
-
-/* Cada método ocupa uma linha separada por borda inferior */
 .pmt-method-group {
   border-bottom: 1px solid #E5E7EB;
   padding: 16px 0;
 }
 
-/* Remove borda do último método para evitar linha dupla */
 .pmt-method-group:last-child {
   border-bottom: none;
 }
@@ -102,7 +85,6 @@
   margin-bottom: 8px;
 }
 
-/* Corpo do método: texto menor e recuado para alinhar com o label */
 .pmt-method-body {
   padding-left: 28px;
   font-size: 14px;
@@ -117,9 +99,6 @@
 }
 
 
-/* ===== RADIO BUTTONS CUSTOMIZADOS ===== */
-
-/* Labels dos radio buttons com layout flex para ícone + texto alinhados */
 .pmt-radio-container, .pmt-radio-container-disabled {
   display: flex;
   align-items: center;
@@ -128,14 +107,10 @@
   font-size: 16px;
 }
 
-
-/* ===== SEÇÃO DE CARTÃO DE CRÉDITO ===== */
-
 .pmt-cc-body {
   padding-top: 10px;
 }
 
-/* Botão de adicionar cartão sem estilo padrão (apenas ícone + texto) */
 .pmt-add-card {
   display: flex;
   align-items: center;
@@ -146,13 +121,11 @@
   padding: 0;
 }
 
-/* Ícone "+" cinza ao lado do botão de adicionar cartão */
 .pmt-icon-plus {
   color: #9CA3AF;
   font-size: 20px;
 }
 
-/* Ícone "+" cinza usado no Gift Card (tamanho menor) */
 .pmt-icon-plus-gray {
   color: #9CA3AF;
   font-size: 18px;
@@ -160,23 +133,19 @@
 }
 
 .pmt-card-placeholder {
-  font-size: 24px; /* Emoji do cartão em tamanho maior */
+  font-size: 24px;
 }
 
-/* Texto "Adicionar cartão" em roxo para destacar a ação */
 .pmt-add-text {
   color: #7C3AED;
   font-size: 14px;
 }
 
 
-/* ===== SEÇÃO GIFT CARD ===== */
-
 .pmt-gift-group .pmt-method-body {
   padding-top: 12px;
 }
 
-/* Campo e botão do gift card lado a lado */
 .pmt-inline-form {
   display: flex;
   gap: 10px;
@@ -191,7 +160,6 @@
   width: 180px;
 }
 
-/* Botão "Aplicar" com borda arredondada (estilo pill) */
 .pmt-btn-apply-gift {
   background: #F3F4F6;
   border: 1px solid #D1D5DB;
@@ -202,15 +170,11 @@
   color: #374151;
 }
 
-/* Ícone/emoji de badge para Pix e Boleto */
 .pmt-badge-icon {
   font-size: 18px;
 }
 
 
-/* ===== SIDEBAR — BOXES BRANCOS ===== */
-
-/* Card branco da sidebar (cupom e resumo do pedido) */
 .pmt-box-sidebar {
   background: #FFFFFF;
   border-radius: 16px;
@@ -226,15 +190,11 @@
 }
 
 
-/* ===== CAMPO DE CUPOM ===== */
-
-/* Wrapper relativo para posicionar o botão "›" dentro do input */
 .pmt-coupon-field {
   display: flex;
   position: relative;
 }
 
-/* Input de cupom com padding direito para não sobrepor o botão */
 .pmt-coupon-field input {
   width: 100%;
   padding: 10px 40px 10px 14px;
@@ -245,12 +205,11 @@
   outline: none;
 }
 
-/* Botão "›" cirular roxo posicionado absolutamente dentro do input */
 .pmt-btn-arrow {
   position: absolute;
   right: 4px;
   top: 50%;
-  transform: translateY(-50%); /* Centraliza verticalmente no input */
+  transform: translateY(-50%);
   background: #7C3AED;
   color: white;
   border: none;
@@ -266,9 +225,6 @@
 }
 
 
-/* ===== RESUMO DO PEDIDO ===== */
-
-/* Lista de linhas (subtotal, frete, desconto, total) em coluna */
 .pmt-summary-rows {
   display: flex;
   flex-direction: column;
@@ -276,7 +232,6 @@
   margin-bottom: 24px;
 }
 
-/* Cada linha: label à esquerda e valor à direita */
 .pmt-summary-line {
   display: flex;
   justify-content: space-between;
@@ -284,22 +239,16 @@
   color: #000000;
 }
 
-/* Linha do total: separada por borda superior e fonte maior */
 .pmt-total-line {
   border-top: 1px solid #F3F4F6;
   padding-top: 14px;
   font-size: 16px;
 }
 
-/* Valor do total em roxo para destaque */
 .pmt-total-price {
   color: #7C3AED;
 }
 
-
-/* ===== BOTÃO FINALIZAR COMPRA ===== */
-
-/* Botão roxo de largura total com cantos arredondados */
 .pmt-btn-finalize {
   width: 100%;
   background: #7C3AED;
@@ -311,10 +260,78 @@
   font-weight: bold;
   cursor: pointer;
   letter-spacing: 0.5px;
-  transition: background 0.2s; /* Transição suave no hover */
+  transition: background 0.2s;
 }
 
-/* Escurece o botão ao passar o mouse */
 .pmt-btn-finalize:hover {
   background: #6D28D9;
+}
+
+@media (max-width: 900px) {
+  .pmt-container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .pmt-sidebar {
+    min-width: unset; 
+    width: 100%;
+  }
+}
+
+/* Mobile (até 600px) */
+@media (max-width: 600px) {
+  .pmt-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .pmt-box {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .pmt-payment-box h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .pmt-delivery-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pmt-method-body {
+    padding-left: 16px;
+  }
+
+  .pmt-radio-container,
+  .pmt-radio-container-disabled {
+    font-size: 14px;
+  }
+
+  .pmt-inline-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pmt-input-gift {
+    width: 100%;
+  }
+
+  .pmt-btn-apply-gift {
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .pmt-box-sidebar {
+    padding: 16px;
+  }
+
+  .pmt-btn-finalize {
+    padding: 14px;
+    font-size: 14px;
+  }
 }

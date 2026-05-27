@@ -1,181 +1,195 @@
-/* ===== CONTAINER GERAL ===== */
-
-/* O footer ocupa toda a largura da tela.
-   O fundo roxo (#a855f7) fica visível apenas na área do banner inferior,
-   pois o footer-content cobre o topo com fundo branco */
 .footer-container {
-    width: 100%;
-    font-family: 'Arial', sans-serif;
-    background-color: #a855f7;
-    overflow: hidden; /* Evita que o mascote cause scroll horizontal */
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #a855f7;
+  overflow: hidden;
 }
 
 
-/* ===== ÁREA PRINCIPAL (4 colunas) ===== */
-
-/* Card branco com cantos arredondados apenas na parte de baixo,
-   criando o efeito de "flutuar" sobre o fundo roxo do banner */
 .footer-content {
-    background-color: #ffffff;
-    padding: 40px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;   /* Colunas alinhadas pelo topo */
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
-    position: relative;
-    z-index: 1; /* Garante que o conteúdo fique acima do banner do mascote */
+  background-color: #ffffff;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 1;
 }
 
 
-/* ===== COLUNAS ===== */
-
-/* Cada coluna ocupa espaço igual (flex: 1) com margem lateral */
 .footer-col {
-    flex: 1;
-    margin: 0 15px;
+  flex: 1;
+  margin: 0 15px;
 }
 
-/* Títulos das seções em cada coluna */
 .footer-col h3 {
-    font-size: 14px;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 15px;
 }
 
-/* Classe utilitária para separar o segundo bloco de selos do primeiro */
-.margin-top-sec {
-    margin-top: 20px;
-}
+.margin-top-sec { margin-top: 20px; }
 
-
-/* ===== LISTAS DE LINKS ===== */
 
 .footer-col ul {
-    list-style: none; /* Remove os bullets padrão */
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.footer-col ul li {
-    margin-bottom: 12px;
-}
+.footer-col ul li { margin-bottom: 12px; }
 
-/* Links em cinza escuro; mudam para roxo ao passar o mouse */
 .footer-col ul li a {
-    color: #333333;
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
+  color: #333333;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
 }
 
-.footer-col ul li a:hover {
-    color: #a855f7; /* Roxo da identidade visual */
-}
+.footer-col ul li a:hover { color: #a855f7; }
 
 
-/* ===== BOTÕES DE ATENDIMENTO ===== */
-
-/* Estilo base dos dois botões (Central e Fale Conosco) */
 .btn-atendimento {
-    display: block;
-    width: 85%;
-    padding: 10px 15px;
-    border-radius: 20px; /* Formato de pílula */
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
+  display: block;
+  width: 85%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-/* Cores distintas para diferenciar os dois botões visualmente */
-.central      { background-color: #4fc3f7; } /* Azul claro */
-.fale-conosco { background-color: #66bb6a; } /* Verde */
+.central      { background-color: #4fc3f7; }
+.fale-conosco { background-color: #66bb6a; }
 
 
-/* ===== REDES SOCIAIS ===== */
 
 .redes-sociais p {
-    font-size: 12px;
-    font-weight: bold;
-    margin: 20px 0 10px 0;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
 }
 
-/* Ícones lado a lado com espaçamento uniforme */
-.icons-redes {
-    display: flex;
-    gap: 10px;
-}
+.icons-redes { display: flex; gap: 10px; }
 
-/* Cada ícone tem fundo cinza e cantos arredondados como fallback
-   caso a imagem não carregue */
 .icon-social {
-    width: 30px;
-    height: 30px;
-    background-color: #ddd;
-    border-radius: 8px;
-    display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 
-/* ===== SELOS DE PAGAMENTO E SEGURANÇA ===== */
 
-/* Grupo de selos com quebra de linha automática em telas menores */
 .Selo-group {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-/* Selos de pagamento: fundo claro com borda sutil */
 .selo-placeholder {
-    border: 1px solid #e0e0e0;
-    padding: 8px;
-    border-radius: 5px;
-    font-size: 10px;
-    text-align: center;
-    min-width: 60px;
-    background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  text-align: center;
+  min-width: 60px;
+  background-color: #fafafa;
 }
 
-/* Selos de segurança: fundo escuro (#222) para imitar o estilo
-   visual de certificações como Ebit e Clearsale */
 .selo-placeholder-sec {
-    border: 1px solid #e0e0e0;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 10px;
-    text-align: center;
-    min-width: 50px;
-    background-color: #222;
-    color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 10px;
+  text-align: center;
+  min-width: 50px;
+  background-color: #222;
+  color: #fff;
 }
 
-
-/* ===== BANNER INFERIOR COM MASCOTE ===== */
-
-/* Fundo gradiente roxo/lilá alinhado com a identidade visual do projeto */
 .footer-banner {
-    background: linear-gradient(135deg, #a78bfa, #c084fc, #818cf8);
-    padding: 5px 0 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Imagem ancorada na parte de baixo */
-    overflow: hidden;
-    line-height: 0;        /* Remove espaço extra abaixo da imagem */
-    z-index: 0;
-    position: relative;
-    margin-top: -40px;     /* Sobe o banner para se sobrepor ao arredondamento
-                              do footer-content, criando continuidade visual */
+  background: linear-gradient(135deg, #a78bfa, #c084fc, #818cf8);
+  padding: 5px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 0;
+  position: relative;
+  margin-top: -40px;
 }
 
-/* Imagem do mascote ocupa toda a largura e mantém proporção */
 .mascote-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+@media (max-width: 900px) {
+  .footer-content {
+    flex-wrap: wrap;
+    padding: 30px 30px 40px;
+    gap: 24px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+  }
+
+  .footer-col {
+    flex: 1 1 calc(50% - 30px);
+    margin: 0;
+    min-width: 200px;
+  }
+
+  .footer-banner {
+    margin-top: -28px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    padding: 24px 20px 36px;
+    gap: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .footer-col {
+    flex: 1 1 100%;
+    margin: 0;
     width: 100%;
-    height: auto;
-    display: block; /* Remove espaço inline padrão de imagens */
+  }
+
+ 
+  .btn-atendimento {
+    width: 100%;
+  }
+
+  
+  .Selo-group {
+    gap: 6px;
+  }
+
+  .footer-banner {
+    margin-top: -20px;
+  }
+
+  
+  .mascote-img {
+    max-height: 160px;
+    object-fit: contain;
+    object-position: bottom;
+  }
 }

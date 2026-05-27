@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
-  standalone: true, // Adicionei caso não esteja usando em um módulo
+  standalone: true, 
   imports: [
     CommonModule,
     MatButtonModule,
@@ -21,7 +21,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginPage {
   form = {
     email: '',
-    password: '' // Alterado de 'senha' para 'password'
+    password: ''
   };
 
   errorMessage = '';

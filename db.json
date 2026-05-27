@@ -1048,6 +1048,13 @@
       "email": "gabriel@gmail.com",
       "password": "gabriel123",
       "createdAt": "2026-05-27T00:55:44.098Z"
+    },
+    {
+      "id": "9H6cM5pwsL8",
+      "name": "Eduardo Leite",
+      "email": "duduleiteriveiro@gmail.com",
+      "password": "edu12345",
+      "createdAt": "2026-05-27T18:31:41.438Z"
     }
   ],
   "ratings": [
@@ -1057,6 +1064,13 @@
       "productId": 1,
       "rating": 5,
       "createdAt": "2026-05-26T20:30:00Z"
+    },
+    {
+      "id": "rMNPnxgoj14",
+      "userId": "9H6cM5pwsL8",
+      "productId": "37",
+      "rating": 5,
+      "createdAt": "2026-05-27T18:32:12.011Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

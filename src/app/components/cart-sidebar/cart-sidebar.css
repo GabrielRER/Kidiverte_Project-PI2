@@ -13,13 +13,14 @@
 }
 
 .cart-header {
-display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 14px;
   border-bottom: 2px solid #d9c2ff;
   margin-bottom: 24px;
 }
+
 .cart-header h2 {
   margin: 0;
   font-size: 22px;
@@ -39,14 +40,13 @@ display: flex;
 }
 
 .cart-produto {
- display: grid;
+  display: grid;
   grid-template-columns: 70px 1fr;
   gap: 12px;
   margin-top: 24px;
   align-items: start;
   position: relative;
 }
-
 
 .imagem-produto {
   width: 70px;
@@ -56,21 +56,21 @@ display: flex;
 }
 
 .informacao-produto h3 {
- margin: 0 0 6px;
+  margin: 0 0 6px;
   font-size: 15px;
-font-weight: 700;
- padding-right: 38px;
+  font-weight: 700;
+  padding-right: 38px;
 }
 
 .preco-produto {
- margin: 0 0 10px;
+  margin: 0 0 10px;
   color: #8b4dff;
   font-size: 12px;
   font-weight: 600;
 }
 
 .controle-quantidade {
-    display: flex;
+  display: flex;
   gap: 10px;
   align-items: center;
 }
@@ -106,11 +106,12 @@ font-weight: 700;
   background: transparent;
   color: #8b4dff;
 }
+
 .controle-quantidade {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    margin-top: 12px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 12px;
 }
 
 .botao-mais-menos {
@@ -160,9 +161,9 @@ font-weight: 700;
 .botao-remover:hover {
   background-color: #e7d9ff;
 }
-.material-symbols-outlined {
-  font-size: 22px;
-}
+
+.material-symbols-outlined { font-size: 22px; }
+
 .logo-kidiverte {
   width: 100%;
   max-width: 200px;
@@ -177,18 +178,92 @@ font-weight: 700;
   padding: 28px 24px 32px;
   border-radius: 0 0 24px 24px;
 }
+
 .overlay-carrinho {
   position: fixed;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100vh;
-
   background: rgba(0, 0, 0, 0.35);
-
   display: flex;
   justify-content: flex-end;
-
   z-index: 999;
+}
+
+
+
+@media (max-width: 600px) {
+  .overlay-carrinho {
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .cart-sidebar {
+   
+    max-width: 100%;
+    width: 100%;
+    height: 92vh;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
+    padding: 20px 16px;
+  }
+
+  .cart-header h2 {
+    font-size: 18px;
+  }
+
+  .botao-fechar {
+    font-size: 24px;
+  }
+
+  .imagem-produto {
+    width: 60px;
+    height: 60px;
+  }
+
+  .informacao-produto h3 {
+    font-size: 13px;
+  }
+
+  .preco-produto {
+    font-size: 11px;
+  }
+
+  .controle-quantidade {
+    gap: 8px;
+  }
+
+  .botao-mais-menos {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+  }
+
+  .cart-total {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .botao-finalizar-compra,
+  .botao-continuar-comprando {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .logo-kidiverte {
+    max-width: 140px;
+    margin: 16px auto 24px;
+  }
+
+  .cart-actions {
+    margin: 16px -16px -20px;
+    padding: 20px 16px 24px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .cart-sidebar {
+    max-width: 320px;
+  }
 }

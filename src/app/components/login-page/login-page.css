@@ -234,6 +234,8 @@ section {
     margin-top: 50px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
+    display: block;
+    margin: 24px auto 0;
 }
 
 .login-button:disabled {

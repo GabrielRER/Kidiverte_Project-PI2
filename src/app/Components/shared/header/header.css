@@ -1,6 +1,4 @@
-/* ===== WRAPPER EXTERNO ===== */
 
-/* Fundo branco de toda a área do header, com padding ao redor da navbar */
 .navbar-wrapper {
   padding: 15px;
   background-color: #ffffff;
@@ -12,63 +10,50 @@
 }
 
 
-/* ===== NAVBAR PRINCIPAL ===== */
 
-/* Card branco com bordas arredondadas (formato de pílula) que contém
-   as 3 seções: logo | busca | ícones.
-   max-width + margin: 0 auto centralizam a navbar na tela */
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
   padding: 10px 30px;
-  border-radius: 50px;                     /* Formato de pílula */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para efeito flutuante */
-  border: 1px solid #eaeaea;               /* Borda cinza clara */
-  max-width: 1200px;                        /* Limita a largura em telas grandes */
-  margin: 0 auto;                           /* Centraliza horizontalmente */
-  gap: 20px;                               /* Espaço entre as seções */
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
 }
 
 
-/* ===== SEÇÃO DIREITA (ícones) ===== */
 
-/* Agrupa os ícones de perfil e carrinho lado a lado */
 .right-section {
   display: flex;
   align-items: center;
-  gap: 30px;       /* Espaço entre os dois ícones */
-  margin-right: 50px; /* Recuo da borda direita para não colar na extremidade */
+  gap: 30px;
+  margin-right: 50px;
   height: 100%;
 }
 
 
-/* ===== SEÇÃO ESQUERDA (logo) ===== */
 
 .left-section {
   display: flex;
   align-items: center;
   gap: 0px;
-  margin-left: 20px; /* Recuo da borda esquerda */
+  margin-left: 20px;
   height: 100%;
 }
 
 
-/* ===== LOGO DA MARCA ===== */
 
-/* Altura fixa; object-fit: contain mantém proporção sem distorcer */
 .brand-logo {
   height: 45px;
   object-fit: contain;
 }
 
 
-/* ===== BARRA DE BUSCA ===== */
 
-/* Container cinza em forma de pílula que agrupa o input e o botão de lupa.
-   flex: 1 faz a busca crescer e ocupar todo o espaço disponível entre logo e ícones.
-   max-width impede que fique grande demais em telas largas */
 .search-container {
   display: flex;
   align-items: center;
@@ -79,27 +64,22 @@
   max-width: 600px;
 }
 
-/* Input transparente (herda o fundo cinza do container) sem borda ou outline */
 .search-input {
   border: none;
   background: transparent;
-  outline: none;   /* Remove o contorno padrão do browser ao focar */
+  outline: none;
   width: 100%;
   font-size: 15px;
   color: #333;
   padding: 5px;
 }
 
-/* Cor do texto placeholder */
 .search-input::placeholder {
   color: #888;
 }
 
 
-/* ===== BOTÕES DE ÍCONE (perfil, carrinho e busca) ===== */
 
-/* Estilo base compartilhado entre os três botões de ícone.
-   background: none remove o fundo padrão do <button> */
 .icon-btn,
 .search-btn {
   background: none;
@@ -110,14 +90,78 @@
   justify-content: center;
   padding: 5px;
   margin: 0;
-  line-height: 0;  /* Remove espaço extra abaixo de elementos inline */
+  line-height: 0;
   color: #000;
-  transition: transform 0.2s ease; /* Animação suave de escala no hover */
+  transition: transform 0.2s ease;
 }
 
-/* Efeito de leve aumento + escurecimento ao passar o mouse */
 .icon-btn:hover,
 .search-btn:hover {
-  transform: scale(1.1); /* Aumenta 10% no hover */
+  transform: scale(1.1);
   color: #555;
+}
+
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    padding: 10px;
+  }
+
+  .navbar-container {
+    padding: 8px 16px;
+    gap: 12px;
+    border-radius: 40px;
+  }
+
+  .left-section {
+    margin-left: 0;
+  }
+
+  .brand-logo {
+    height: 36px;
+  }
+
+  .right-section {
+    gap: 16px;
+    margin-right: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .navbar-wrapper {
+    padding: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .navbar-container {
+    padding: 8px 12px;
+    gap: 8px;
+    border-radius: 30px;
+  }
+
+  .brand-logo {
+    height: 30px;
+  }
+
+  .search-container {
+    padding: 6px 10px;
+  }
+
+  .search-input {
+    font-size: 13px;
+    padding: 3px;
+  }
+
+  .right-section {
+    gap: 10px;
+    margin-right: 0;
+    flex-shrink: 0;
+  }
+
+  .icon-btn,
+  .search-btn {
+    padding: 3px;
+  }
 }
