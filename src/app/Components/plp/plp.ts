@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PlpComponent implements OnInit {
 
-  // Lista completa de produtos vindos do serviço
+  // Lista completa de produtos vindos do service
   produtos: Product[] = [];
 
   // Lista após aplicação dos filtros
@@ -39,12 +39,12 @@ export class PlpComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // Busca os produtos do backend
+    // Busca os produtos no backend
     this.productService.getProducts().subscribe({
       next: (dados) => {
         this.produtos = dados;
 
-        // Observa mudanças na URL (query params)
+        // Observa mudanças na URL
         this.route.queryParams.subscribe(params => {
 
           // Reseta os filtros antes de aplicar novos
@@ -72,7 +72,7 @@ export class PlpComponent implements OnInit {
           // Aplica os filtros após leitura dos parâmetros
           this.aplicarFiltros(); 
 
-          // Força atualização da tela (garante sincronização)
+          // atualização da tela
           this.cdr.detectChanges(); 
         });
       },
