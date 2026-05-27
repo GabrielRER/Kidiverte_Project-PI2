@@ -7,7 +7,17 @@
 
     <mat-card-content id="body-content">
       <div class="title-container">
-        <app-star-rate id="starRate"></app-star-rate>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <app-star-rate 
+            id="starRate"
+            [productId]="product.id"
+            [averageRating]="averageRating"
+            [showAverage]="true"
+          ></app-star-rate>
+          <span style="font-size: 12px; color: #999;">
+            ({{ averageRating > 0 ? averageRating.toFixed(1) : '-' }} / {{ ratingCount }})
+          </span>
+        </div>
         
         <p [routerLink]="['/produto', product.id]" style="cursor: pointer;">
           {{product.name}}

@@ -8,31 +8,27 @@
         <span>👤</span>
       </div>
 
-      <h2>Olá!</h2>
+      <h2>Olá, {{ firstName }}!</h2>''
+      <p>{{ currentUser?.email }}</p>
     </div>
 
-    <button
-      class="menu-btn"
-      [class.active]="abaAtiva === 'dados'"
-      (click)="selecionarAba('dados')">
+    <button class="menu-btn" [class.active]="abaAtiva === 'dados'" (click)="selecionarAba('dados')">
+      <mat-icon>person</mat-icon>
       Dados Pessoais
     </button>
 
-    <button
-      class="menu-btn"
-      [class.active]="abaAtiva === 'pedidos'"
-      (click)="selecionarAba('pedidos')">
+    <button class="menu-btn" [class.active]="abaAtiva === 'pedidos'" (click)="selecionarAba('pedidos')">
+      <mat-icon>shopping_cart</mat-icon>
       Pedidos
     </button>
 
-    <button
-      class="menu-btn"
-      [class.active]="abaAtiva === 'enderecos'"
-      (click)="selecionarAba('enderecos')">
+    <button class="menu-btn" [class.active]="abaAtiva === 'enderecos'" (click)="selecionarAba('enderecos')">
+      <mat-icon>location_on</mat-icon>
       Endereços
     </button>
 
-    <button class="menu-btn sair">
+    <button class="menu-btn sair" (click)="logout()">
+      <mat-icon>logout</mat-icon>
       Sair
     </button>
 
@@ -48,49 +44,47 @@
 
       <div class="card">
 
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
         <div class="grid">
 
           <div class="input-group">
             <label>Nome</label>
-            <input type="text">
-          </div>
-
-          <div class="input-group">
-            <label>Sobrenome</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="formData.name" [disabled]="!isEditing || isLoading"
+              placeholder="Seu nome" />
           </div>
 
           <div class="input-group">
             <label>E-mail</label>
-            <input type="email">
-          </div>
-
-          <div class="input-group">
-            <label>Gênero</label>
-            <input type="text">
-          </div>
-
-          <div class="input-group">
-            <label>CPF</label>
-            <input type="text">
-          </div>
-
-          <div class="input-group">
-            <label>Telefone</label>
-            <input type="text">
+            <input type="email" [(ngModel)]="formData.email" [disabled]="!isEditing || isLoading"
+              placeholder="seu@email.com" />
           </div>
 
           <div class="input-group full">
-            <label>Data de nascimento</label>
-            <input type="date">
+            <label>Membro desde</label>
+            <input type="text" [value]="(currentUser?.createdAt | date:'dd/MM/yyyy') ?? 'Não informado'" disabled />
           </div>
 
         </div>
 
         <div class="footer">
-          <button class="editar-btn">
+          <button *ngIf="!isEditing" class="editar-btn" (click)="toggleEdit()">
+            <mat-icon>edit</mat-icon>
             EDITAR
           </button>
+
+          <div *ngIf="isEditing" class="button-group">
+            <button class="salvar-btn" (click)="salvarDados()" [disabled]="isLoading">
+              <mat-icon>check</mat-icon>
+              {{ isLoading ? 'SALVANDO...' : 'SALVAR' }}
+            </button>
+            <button class="cancelar-btn" (click)="toggleEdit()" [disabled]="isLoading">
+              <mat-icon>close</mat-icon>
+              CANCELAR
+            </button>
+          </div>
         </div>
 
       </div>

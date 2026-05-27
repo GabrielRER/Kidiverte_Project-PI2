@@ -224,23 +224,26 @@
 
       <!-- Nota média com pipe de formatação numérica (ex: 4.5) -->
       <div class="pd-rating-summary" *ngIf="product">
-        <div class="pd-rating-score">{{ (product.rating || 0) | number:'1.1-1' }}</div>
+        <div class="pd-rating-score">{{ averageRating | number:'1.1-1' }}</div>
 
         <!-- Componente filho de estrelas:
-             - [rating] recebe a nota atual (input)
+             - [productId] para salvar rating
+             - [rating] recebe a nota atual do usuário
              - (ratingChange) captura nova nota emitida pelo usuário (output) -->
         <app-star-rate
+          [productId]="product.id"
           [rating]="product.rating || 0"
+          [averageRating]="averageRating"
+          [showAverage]="true"
           (ratingChange)="atualizarNotaProduto($event)">
         </app-star-rate>
 
-        <div class="pd-rating-count">0 avaliações</div>
+        <div class="pd-rating-count">{{ ratingCount }} avaliações</div>
       </div>
 
       <!-- Convite para ser o primeiro a avaliar -->
-      <div class="pd-no-reviews">
+      <div class="pd-no-reviews" *ngIf="ratingCount === 0">
         <p>Seja o primeiro a avaliar este produto!</p>
-        <button class="pd-btn-review">Escrever avaliação</button>
       </div>
 
     </div>

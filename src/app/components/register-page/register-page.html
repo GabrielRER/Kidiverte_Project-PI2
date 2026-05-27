@@ -8,14 +8,25 @@
     </div>
 
     <form (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
       <div class="grid">
 
         <div class="field">
           <label for="nome">Nome</label>
           <div class="input-wrap">
             <mat-icon class="icon">person</mat-icon>
-            <input type="text" id="nome" name="nome" [(ngModel)]="form.nome"
-              placeholder="Seu nome" autocomplete="given-name"/>
+            <input 
+              type="text" 
+              id="nome" 
+              name="nome" 
+              [(ngModel)]="form.nome"
+              placeholder="Seu nome" 
+              autocomplete="given-name"
+              [disabled]="isLoading"
+            />
           </div>
         </div>
 
@@ -23,8 +34,15 @@
           <label for="sobrenome">Sobrenome</label>
           <div class="input-wrap">
             <mat-icon class="icon">badge</mat-icon>
-            <input type="text" id="sobrenome" name="sobrenome" [(ngModel)]="form.sobrenome"
-              placeholder="Seu sobrenome" autocomplete="family-name"/>
+            <input 
+              type="text" 
+              id="sobrenome" 
+              name="sobrenome" 
+              [(ngModel)]="form.sobrenome"
+              placeholder="Seu sobrenome" 
+              autocomplete="family-name"
+              [disabled]="isLoading"
+            />
           </div>
         </div>
 
@@ -32,8 +50,15 @@
           <label for="email">E-mail</label>
           <div class="input-wrap">
             <mat-icon class="icon">email</mat-icon>
-            <input type="email" id="email" name="email" [(ngModel)]="form.email"
-              placeholder="seu@email.com" autocomplete="email"/>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="form.email"
+              placeholder="seu@email.com" 
+              autocomplete="email"
+              [disabled]="isLoading"
+            />
           </div>
         </div>
 
@@ -41,7 +66,12 @@
           <label for="genero">Gênero</label>
           <div class="input-wrap">
             <mat-icon class="icon">wc</mat-icon>
-            <select id="genero" name="genero" [(ngModel)]="form.genero">
+            <select 
+              id="genero" 
+              name="genero" 
+              [(ngModel)]="form.genero"
+              [disabled]="isLoading"
+            >
               <option value="" disabled>Selecione</option>
               <option *ngFor="let g of generos" [value]="g">{{ g }}</option>
             </select>
@@ -52,8 +82,16 @@
           <label for="cpf">CPF</label>
           <div class="input-wrap">
             <mat-icon class="icon">credit_card</mat-icon>
-            <input type="text" id="cpf" name="cpf" [ngModel]="form.cpf"
-              (input)="maskCPF($event)" placeholder="000.000.000-00" maxlength="14"/>
+            <input 
+              type="text" 
+              id="cpf" 
+              name="cpf" 
+              [ngModel]="form.cpf"
+              (input)="maskCPF($event)" 
+              placeholder="000.000.000-00" 
+              maxlength="14"
+              [disabled]="isLoading"
+            />
           </div>
         </div>
 
@@ -61,8 +99,16 @@
           <label for="telefone">Telefone</label>
           <div class="input-wrap">
             <mat-icon class="icon">phone</mat-icon>
-            <input type="tel" id="telefone" name="telefone" [ngModel]="form.telefone"
-              (input)="maskPhone($event)" placeholder="(00) 00000-0000" maxlength="15"/>
+            <input 
+              type="tel" 
+              id="telefone" 
+              name="telefone" 
+              [ngModel]="form.telefone"
+              (input)="maskPhone($event)" 
+              placeholder="(00) 00000-0000" 
+              maxlength="15"
+              [disabled]="isLoading"
+            />
           </div>
         </div>
 
@@ -70,7 +116,13 @@
           <label for="nascimento">Data de nascimento</label>
           <div class="input-wrap">
             <mat-icon class="icon">calendar_month</mat-icon>
-            <input type="date" id="nascimento" name="nascimento" [(ngModel)]="form.nascimento"/>
+            <input 
+              type="date" 
+              id="nascimento" 
+              name="nascimento" 
+              [(ngModel)]="form.nascimento"
+              [disabled]="isLoading"
+            />
           </div>
         </div>
 
@@ -78,8 +130,14 @@
           <label for="senha">Senha</label>
           <div class="input-wrap">
             <mat-icon class="icon">lock</mat-icon>
-            <input type="password" id="senha" name="senha" [(ngModel)]="form.senha"
-              placeholder="••••••••"/>
+            <input 
+              type="password" 
+              id="senha" 
+              name="senha" 
+              [(ngModel)]="form.senha"
+              placeholder="••••••••"
+              [disabled]="isLoading"
+            />
           </div>
         </div>
 
@@ -88,11 +146,15 @@
       <div class="divider"></div>
 
       <div class="btn-wrap">
-        <button type="submit" [class.saved]="saved">
-          <mat-icon *ngIf="!saved">save</mat-icon>
+        <button 
+          type="submit" 
+          [class.saved]="saved"
+          [disabled]="isLoading"
+        >
+          <mat-icon *ngIf="!saved && !isLoading">save</mat-icon>
           <mat-icon *ngIf="saved">check_circle</mat-icon>
 
-          {{ saved ? '✓ Cadastro salvo!' : 'Salvar cadastro' }}
+          {{ isLoading ? 'Registrando...' : (saved ? '✓ Cadastro salvo!' : 'Salvar cadastro') }}
         </button>
       </div>
 
